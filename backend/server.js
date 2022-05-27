@@ -13,7 +13,7 @@ app.use(cors({
 
 //Routes
 app.use('/user', require('./routes/User'));
-
+app.use('/api', require('./routes/ResearchTopicRoute'));
 
 //Database connection
 connectDB();
