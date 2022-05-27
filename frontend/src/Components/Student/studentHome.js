@@ -24,7 +24,7 @@ const studentHome = () => (
             <div class="col-md-3">
                 <center>
                     <img width="150px" src="https://www.kindpng.com/picc/m/201-2019458_tired-girl-cliparts-child-clipart-hd-png-download.png" />
-                    <h4> <a href="#"> R&D Department </a></h4>
+                    <h4> <a href="/createGrp"> Student Group </a></h4>
                 </center>
             </div>
 
