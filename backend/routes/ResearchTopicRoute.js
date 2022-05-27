@@ -6,15 +6,8 @@ router.route('/rtopics')
     .post(ResearchTopicCtrl.createResearch_Topic);
 
 router.route('/rtopics/:id')
-    //.get(ResearchTopicCtrl.getResearch_TopicByID)
+    .get(ResearchTopicCtrl.getResearch_TopicByID)
     .put(ResearchTopicCtrl.updateResearch_Topic)
     .delete(ResearchTopicCtrl.deleteResearch_Topic);
-
-router.get('/rtopics/:id'), async(req,res) => {
-        let id = req.params.id;
-        Research_Topic.findById(id, function(err,rtopics) {
-        res.json(rtopics);
-    });
-}
 
 module.exports = router;
