@@ -18,11 +18,13 @@ import supHome from './Components/Supervisor/supHome';
 import studentHome from './Components/Student/studentHome';
 import cosupHome from './Components/CoSupervisor/cosupHome'
 import panelHome from './Components/PanelMember/panelHome';
-import MCounterclass from'./Components/Admin/MCounterclass';
-import Singlemarking from './Components/Admin/Singlemarking';
-import Allmarking from './Components/Admin/Allmarking';
-
+// import MCounterclass from'./Components/Admin/MCounterclass';
+// import Singlemarking from './Components/Admin/Singlemarking';
+// import Allmarking from './Components/Admin/Allmarking';
+import ViewResearchTopicSup from './Components/Supervisor/ViewResearchTopicSup'
+import SupStatus from './Components/Supervisor/SupStatus'
 import regResearch from './Components/Student/regResearch';
+import ViewResearchTopic from './Components/Student/ViewResearchTopic';
 
 function App() {
   return (
@@ -38,12 +40,14 @@ function App() {
       <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome}/>
       <PrivateRoute path="/PanelMember" roles={["PanelMember"]} component={panelHome}/>
       <PrivateRoute path="/Supervisor" roles={["Supervisor"]} component={supHome}/>
-      <PrivateRoute path="/mcounterclass" roles={["admin"]} component={MCounterclass}/>
+      {/* <PrivateRoute path="/mcounterclass" roles={["admin"]} component={MCounterclass}/>
       <PrivateRoute path="/allmarking" roles={["admin"]} component={Allmarking}/>
-      <PrivateRoute path="/singlemarking" roles={["admin"]} component={Singlemarking }/>
-    
+      <PrivateRoute path="/singlemarking" roles={["admin"]} component={Singlemarking }/> */}
+      <PrivateRoute path="/viewtopic" roles={["user"]} component={regResearch}/>
+      <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
+      <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
+      <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
     </Router>
-
     </div>
   );
 }
