@@ -18,5 +18,10 @@ app.use('/user', require('./routes/User'));
 //Database connection
 connectDB();
 const port = process.env.PORT || 5000;
+
+const markingRouter = require("./routes/markings.js");
+
+app.use("/marking",markingRouter);
+
 app.listen(port, () => console.log(`listening on PORT ${port}`));
 

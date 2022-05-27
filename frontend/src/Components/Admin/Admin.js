@@ -13,6 +13,8 @@ const Admin = () => (
             </li>
         </Link>
 
+        <a class="nav-link text-dark" href="/mcounterclass">Marking</a>
+
 
     </div>
 )
