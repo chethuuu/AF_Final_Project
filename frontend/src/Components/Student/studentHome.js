@@ -17,7 +17,7 @@ const studentHome = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1}  />
-                    <h4> <a href="/stugroup "> Create Student Groups </a></h4>
+                    <h4> <a href="/createGrp"> Create Student Groups </a></h4>
                 </center>
             </div>
 
@@ -31,9 +31,7 @@ const studentHome = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="#"> Request Supervisor </a> </h4>
-                    <img width="150px" src="https://www.kindpng.com/picc/m/201-2019458_tired-girl-cliparts-child-clipart-hd-png-download.png" />
-                    <h4> <a href="/createGrp"> Student Group </a></h4>
+                    <h4> <a href="/viewtopic"> Request Co-Supervisor </a> </h4>
                 </center>
             </div>
 
@@ -52,7 +50,7 @@ const studentHome = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1}  />
-                    <h4> <a href="#"> Sumit Documents </a> </h4>
+                    <h4> <a href="#"> Sumbit Documents </a> </h4>
                 </center>
             </div>
 
