@@ -20,6 +20,7 @@ import cosupHome from './Components/CoSupervisor/cosupHome'
 import panelHome from './Components/PanelMember/panelHome';
 
 import regResearch from './Components/Student/regResearch';
+import StuGroup_Create from './Components/Student/Groups/StuGroup_Create';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome}/>
       <PrivateRoute path="/PanelMember" roles={["PanelMember"]} component={panelHome}/>
       <PrivateRoute path="/Supervisor" roles={["Supervisor"]} component={supHome}/>
+      <PrivateRoute path="/createGrp" roles={["user"]} component={StuGroup_Create}/>
     
     </Router>
 

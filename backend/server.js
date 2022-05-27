@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const connectDB = require('./database/db');
 const cors = require('cors');
 
+//import routes
+const StuGroupRoute = require("./routes/StuGroupRoute");
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
@@ -13,7 +16,7 @@ app.use(cors({
 
 //Routes
 app.use('/user', require('./routes/User'));
-
+app.use("/group", StuGroupRoute);
 
 //Database connection
 connectDB();
