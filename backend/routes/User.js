@@ -131,6 +131,12 @@ userRouter.get("/alldata", (req, res) => {
         .catch(err => res.status(400).json(`${err}`));
 });
 
+userRouter.get('/user/:id'), (req, res) => {
+    let id = req.params.id;
+    User.findById(id, function (err, user) {
+        res.json(user);
+    });
+}
 
 //All account login authenticated 
 userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }), (req, res) => {
