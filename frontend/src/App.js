@@ -25,6 +25,7 @@ import ViewResearchTopicSup from './Components/Supervisor/ViewResearchTopicSup'
 import SupStatus from './Components/Supervisor/SupStatus'
 import regResearch from './Components/Student/regResearch';
 import ViewResearchTopic from './Components/Student/ViewResearchTopic';
+import StuGroup_Create from './Components/Student/Groups/StuGroup_Create';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
       <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
       <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
       <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
+      <PrivateRoute path="/createGrp" roles={["user"]} component={StuGroup_Create}/>
     </Router>
     </div>
   );

@@ -11,9 +11,13 @@ app.use(express.json());
 app.use(cors({
 }));
 
+//import routes
+const StuGroupRoute = require("./routes/StuGroupRoute");
+
 //Routes
 app.use('/user', require('./routes/User'));
 app.use('/api', require('./routes/ResearchTopicRoute'));
+app.use("/group", StuGroupRoute);
 
 //Database connection
 connectDB();
