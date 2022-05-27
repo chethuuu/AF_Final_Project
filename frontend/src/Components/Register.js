@@ -4,7 +4,7 @@ import Message from '../Components/Message';
 
 const Register = props => {
 
-    const [user, setUser] = useState({ username: "", password: "", email: "", role: "user" });
+    const [user, setUser] = useState({ username: "", password: "", email: "", role: "user", name: "", contact: "", type: "", interest:""  });
     const [message, setMessage] = useState(null);
     let timerID = useRef(null);
 
@@ -21,7 +21,7 @@ const Register = props => {
 
 
     const resetForm = () => {
-        setUser({ username: "", password: "", email: "", role: "" });
+        setUser({ username: "", password: "", email: "", role: "", name: "", contact: "", type: "", interest:"" });
     }
 
 
@@ -41,46 +41,127 @@ const Register = props => {
 
 
     return (
-        <div>
+        <div class="container shadow my-5 col-md-9 p-6 align-items-center">
+            <div className=" d-flex flex-column align-items-center text-dark justify-content-center form">
+                <h1 className="display-4 fw-bolder"> User Registration</h1>
+                <p className="lead text-center">Enter Your Credentials to Register</p>   
+            </div>
             <form onSubmit={onSubmit}>
                 <h3>Please Register</h3>
 
-                <label htmlFor="username" className="sr-only">Username: </label>
-                <input type="text"
-                    name="username"
-                    value={user.username}
-                    onChange={onChange}
-                    className="form-control"
-                    placeholder="Enter Username" />
-                <label htmlFor="password" className="sr-only">Password: </label>
-                <input type="password"
-                    name="password"
-                    value={user.password}
-                    onChange={onChange}
-                    className="form-control"
-                    placeholder="Enter Password" />
-                <label htmlFor="email" className="sr-only">email: </label>
-                <input type="email"
-                    name="email"
-                    value={user.email}
-                    onChange={onChange}
-                    className="form-control"
-                    placeholder="Enter email" />
+                <div className="form-check">
+                    
+                    <label for="name">Name :</label>
+                    <input type="name"
+                        name="name"
+                        value={user.name}
+                        onChange={onChange}
+                        className="form-control"
+                        placeholder="Enter name" />
+                </div>
+                <div className="form-check">
+                    <label for="name">Username :</label>
+                    <input type="text"
+                        name="username"
+                        value={user.username}
+                        onChange={onChange}
+                        className="form-control"
+                        placeholder="Enter Username" />
+                </div>
+                <div className="form-check">
+                    <label for="name">Password :</label>
+                    <input type="password"
+                        name="password"
+                        value={user.password}
+                        onChange={onChange}
+                        className="form-control"
+                        placeholder="Enter Password" />
+                </div>
+                <div className="form-check">
+                    <label for="name">Email :</label>
+                    <input type="email"
+                        name="email"
+                        value={user.email}
+                        onChange={onChange}
+                        className="form-control"
+                        placeholder="Enter email" />
+                </div>
+                <div className="form-check">
+                    <label for="name">Contact Number :</label>
+                    <input type="contact"
+                        name="contact"
+                        value={user.contact}
+                        onChange={onChange}
+                        className="form-control"
+                        placeholder="Enter contact" />
+                </div>
+                <br></br>
+                <div className="form-check">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">User Type</label>
+                                </div>
+                                <select class="custom-select" id="type"  type="type"
+                                    name="type"
+                                    value={user.type}
+                                    onChange={onChange}>
+                                    <option selected>Choose...</option>
+                                    <option value="Staff">Staff</option>
+                                    <option value="Student">Student</option>
+                                </select>                               
+                            </div>
+                        </div>
 
-                <label htmlFor="role" className="sr-only">Role: </label>
-                <input type="text"
-                    name="role"
-                    value={user.role}
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="role">Role</label>
+                                </div>
+                                <select class="custom-select" id="role" type="text"
+                                    name="role"
+                                    value={user.role}
+                                    onChange={onChange}>
+                                    <option selected>Choose...</option>
+                                    <option value="admin">Supervisor</option>
+                                    <option value="user">Supervisor</option>
+                                    <option value="Supervisor">Supervisor</option>
+                                    <option value="Co-Supervisor">Co-Supervisor</option>
+                                    <option value="Panal Member">Panal Member</option>
+                                </select>                                     
+                            </div>
+                        </div>    
+                        <div class="col-sm">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="interest">Interest</label>
+                                </div>
+                                <select class="custom-select" id="interest"type="interest"
+                                    name="interest"
+                                    value={user.interest}
+                                    onChange={onChange}>
+                                    <option selected>Choose...</option>
+                                    <option value="Software Engineer">Software Engineer</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Cyber Security">Cyber Security</option>
+                                    <option value="Computer Networking">Computer Networking</option>
+                                    <option value="None">None</option>
 
-                    onChange={onChange}
-                    className="form-control"
-                    placeholder="Enter role (admin/user/Supervisor / Co-Supervisor/ Panel Member )" />
+                                </select>                                    
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <br></br>
 
 
                 <button className="btn btn-lg btn-primary btn-block"
                     type="submit">Register</button>
+                <br></br>
             </form>
             {message ? <Message message={message} /> : null}
+            <br></br>
         </div>
     )
 }
