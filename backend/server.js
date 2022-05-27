@@ -5,14 +5,22 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./database/db');
 const cors = require('cors');
+const fileUpload = require('express-fileupload')
+
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({
+app.use(cors())
+app.use(fileUpload({
+    useTempFiles: true
 }));
 
 //Routes
 app.use('/user', require('./routes/User'));
+app.use('/api', require('./routes/Upload'));
 app.use('/api', require('./routes/ResearchTopicRoute'));
 
 //Database connection
