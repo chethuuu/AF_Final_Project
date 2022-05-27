@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import AuthService from '../Services/AuthServices';
 import { AuthContext } from '../Context/AuthContext';
 
-
-
 const Navbar = props => {
 
     const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthContext);
@@ -12,7 +10,7 @@ const Navbar = props => {
 
 
 
-    //logout button create 
+    //logout button create
     const onClickLogoutHandler = () => {
         AuthService.logout().then(data => {
 

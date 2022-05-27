@@ -17,7 +17,7 @@ const studentHome = () => (
             <div class="col-md-3">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="/researchreg"> Register for Research Topic </a> </h4>
+                    <h4> <a href="/viewtopic"> Register for Research Topic </a> </h4>
                 </center>
             </div>
 
