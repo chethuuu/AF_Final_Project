@@ -17,14 +17,14 @@ const supHome = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="/viewtopicsup"> View Research Topic </a> </h4>
+                    <h4> <a href="/viewtopicsup"> View Requests </a></h4>
                 </center>
             </div>
 
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="#"> R&D Department </a></h4>
+                    <h4> <a href="/viewusereq"> View Research Document </a> </h4>
                 </center>
             </div>
 
