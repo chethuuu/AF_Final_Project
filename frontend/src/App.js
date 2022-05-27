@@ -22,9 +22,9 @@ import panelHome from './Components/PanelMember/panelHome';
 // import Singlemarking from './Components/Admin/Singlemarking';
 // import Allmarking from './Components/Admin/Allmarking';
 import ViewResearchTopicSup from './Components/Supervisor/ViewResearchTopicSup'
+import ViewResearchTopic from './Components/Student/ViewResearchTopic';
 import SupStatus from './Components/Supervisor/SupStatus'
 import regResearch from './Components/Student/regResearch';
-import ViewResearchTopic from './Components/Student/ViewResearchTopic';
 
 function App() {
   return (
@@ -44,9 +44,9 @@ function App() {
       <PrivateRoute path="/allmarking" roles={["admin"]} component={Allmarking}/>
       <PrivateRoute path="/singlemarking" roles={["admin"]} component={Singlemarking }/> */}
       <PrivateRoute path="/viewtopic" roles={["user"]} component={regResearch}/>
+      <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
       <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
       <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
-      <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
     </Router>
     </div>
   );

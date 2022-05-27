@@ -47,36 +47,37 @@ function ViewResearchTopic() {
 
     return (
         <div>
-            <div className='div1'>
-                <table>
-                    <thead>
-                        <tr key={"1"}>
-                            <th>Group ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <th>Research Topic</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <th>Interest</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <th>Update</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                            <th>Delete</th>
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {
+            <div className='container shadow my-5'>
+            <table class="table">
+                <thead className='table-dark'>
+                    <tr>
+                        <th scope='col'>No</th>
+                        <th scope="col">Group ID</th>
+                        <th scope="col">Topic Name</th>
+                        <th scope="col">Category</th>
+                        <th scope='col'>Status</th>
+                        {/* <th scope="col">Update</th>
+                        <th scope="col">Delete</th> */}
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                {
                             listTopic.map((topic, id) => (
-                                <tr key={id}>
-                                    <td >{topic.gid}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <td >{topic.name}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <td >{topic.interest}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td>
+                                <tr>
+                                    <td>{id+1}</td>
+                                    <td >{topic.gid}</td>
+                                    <td >{topic.name}</td>
+                                    <td >{topic.interest}</td>
+                                    <td >{topic.status_sup}</td>
+                                    {/* <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td> 
+                                    <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td> */}
 
                                 </tr>
                             )
                             )
                         }
-                    </tbody>
-                </table>
-                <NavLink to="/searchsup"><button type="submit">View Topics</button></NavLink>
+                </tbody>
+            </table>
             </div>
         </div>
     )
