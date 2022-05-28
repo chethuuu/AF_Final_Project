@@ -30,5 +30,14 @@ uploadF.post("/image", (req, res) => {
     });
  });
 
+  //===== DELETE ALL =============================================================
+  uploadF.delete('/deleteAllDoc', async(req,res) => {
+    try{
+        await uploadFilesModel.deleteMany();
+        res.status(200).json({msg: "Successfully deleted All"});
+    } catch (error) {
+        res.status(500).send("Cannot delete Payment Details");
+    }
+});
 
 module.exports = uploadF;
