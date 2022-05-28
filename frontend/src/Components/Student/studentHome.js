@@ -17,7 +17,7 @@ const studentHome = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1}  />
-                    <h4> <a href="/createGrp"> Create Student Groups </a></h4>
+                    <h4> <a href="/createGrp"> Create Student Groupsssss </a></h4>
                 </center>
             </div>
 
