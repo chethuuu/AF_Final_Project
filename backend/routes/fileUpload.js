@@ -64,4 +64,14 @@ uploadF.get('/getDoc/:id', async (req,res) => {
     }
 })
 
+ //===== GET ALL DOCUMENTS =============================================================
+ uploadF.get('/getAllDocs', async (req,res) => {
+    try{
+        const data = await uploadFilesModel.find();
+        res.json({Message : "All results fetched", Result: data})
+    } catch (errror) {
+        res.status(500).send("Cannot fetch all data");
+    }
+})
+
 module.exports = uploadF;
