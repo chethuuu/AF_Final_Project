@@ -40,4 +40,15 @@ uploadF.post("/image", (req, res) => {
     }
 });
 
+//===== DELETE A DOCUMENT =============================================================
+uploadF.delete('/deleteDoc/:id', async(req,res) => {
+    const {id} = req.params;
+    try{
+        const doc = await uploadFilesModel.findByIdAndDelete(id);
+        res.status(200).json({msg: "Document Deleted Successfully"});
+    } catch (error) {
+        res.status(500).send("Cannot delete the Document");
+    }
+})
+
 module.exports = uploadF;
