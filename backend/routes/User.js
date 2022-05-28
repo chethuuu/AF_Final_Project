@@ -17,14 +17,14 @@ const signToken = userID => {
 
 //register
 userRouter.post('/register', (req, res) => {
-    const { name, username, password, email, contact, type, role, interest } = req.body;
+    const { username, password, role, email } = req.body;
     User.findOne({ username }, (err, user) => {
         if (err)
             res.status(500).json({ message: { msgBody: "Error has occurred", msgError: true } });
         if (user)
             res.status(400).json({ message: { msgBody: "Username is already taken", msgError: true } });
         else {
-            const newUser = new User({ name, username, password, email, contact, type, role, interest });
+            const newUser = new User({ username, password, role, email });
             newUser.save(err => {
                 if (err)
                     res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
@@ -140,4 +140,5 @@ userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }
 
 
 module.exports = userRouter;
+
 
