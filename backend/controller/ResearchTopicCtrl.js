@@ -40,8 +40,8 @@ const ResearchTopicCtrl = {
     //update Research Topic
     updateResearch_Topic: async (req, res) => {
         try {
-            const { name, status_sup, status_co } = req.body;
-            await Research_Topic.findOneAndUpdate({ _id: req.params.id }, { name, status_sup, status_co })
+            const { gid, name, interest, status_sup, status_co } = req.body;
+            await Research_Topic.findOneAndUpdate({ _id: req.params.id }, { gid, name, interest, status_sup, status_co })
 
             res.json({ msg: "Updated Research Topic" })
 
