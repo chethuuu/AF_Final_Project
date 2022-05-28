@@ -74,4 +74,19 @@ uploadF.get('/getDoc/:id', async (req,res) => {
     }
 })
 
+//===== UPDATE DOCUMENT =============================================================
+uploadF.put('/updateDoc/:id', async (req, res) => {
+    const{id} = req.params;
+    let data = {
+        "file" : req.files.demo_image.tempFilePath,
+        "groupNo" : req.header('x-auth-token'),
+    };
+    try{
+        await uploadFilesModel.findByIdAndUpdate(id, data);
+        res.json({Message: "Document Updated Successfully..."});
+    } catch (error) {
+        res.status(500).send("Document Not Updated");
+    }
+})
+
 module.exports = uploadF;
