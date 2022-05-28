@@ -5,23 +5,30 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./database/db');
 const cors = require('cors');
+const fileUpload = require('express-fileupload')
+
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({
+app.use(cors())
+app.use(fileUpload({
+    useTempFiles: true
 }));
+
+//import routes
+const StuGroupRoute = require("./routes/StuGroupRoute");
 
 //Routes
 app.use('/user', require('./routes/User'));
-
+app.use('/api', require('./routes/Upload'));
+app.use('/api', require('./routes/ResearchTopicRoute'));
+app.use("/group", StuGroupRoute);
 
 //Database connection
 connectDB();
 const port = process.env.PORT || 5000;
-
-const markingRouter = require("./routes/markings.js");
-
-app.use("/marking",markingRouter);
-
 app.listen(port, () => console.log(`listening on PORT ${port}`));
 
