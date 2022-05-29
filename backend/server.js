@@ -21,12 +21,15 @@ app.use(fileUpload({
 //import routes
 const StuGroupRoute = require("./routes/StuGroupRoute");
 
+const markingRouter = require("./routes/markings.js");
+
 //Routes
 app.use('/user', require('./routes/User'));
 app.use('/api', require('./routes/Upload'));
 app.use('/api', require('./routes/ResearchTopicRoute'));
 app.use("/group", StuGroupRoute);
 app.use('/api/upload', require('./routes/fileUpload'));
+app.use("/marking",markingRouter);
 
 //Database connection
 connectDB();

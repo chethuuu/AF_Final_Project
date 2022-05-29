@@ -7,7 +7,7 @@ const studentHome = () => {
 
     const {userName} = useParams("");
 
-    useEffect(() => {
+    /*useEffect(() => {
        
 		const getdata = async() =>{
 			try {
@@ -19,7 +19,7 @@ const studentHome = () => {
 			}
 		}
 		getdata()
-	 },[]);
+	 },[]);*/
 
 
 

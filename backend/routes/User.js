@@ -145,7 +145,22 @@ userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }
 });
 
 
-//
+//deleteuser
+userRouter.delete('/delete/:id', async (req, res) => {
+
+    try {
+
+        await User.findByIdAndDelete(req.params.id)
+
+        res.json({ msg: "Deleted a user" })
+
+    } catch (err) {
+
+        return res.status(500).json({ msg: err.message })
+
+    }
+
+})
 
 
 module.exports = userRouter;
