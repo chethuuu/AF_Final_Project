@@ -7,7 +7,8 @@ const multerConfig = multer.diskStorage({
     },
     filename: (req, file, callback) => {
         const ext = file.mimetype.split('/')[1];
-        callback(null, `image-${Date.now()}.${ext}`);
+        // callback(null, `image-${Date.now()}.${ext}`);
+        callback(null, `file_${file.originalname}`);
     }
 })
 
