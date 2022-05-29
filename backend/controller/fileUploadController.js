@@ -64,6 +64,14 @@ exports.deleteDoc = async (req,res) => {
 }
 
 //========== Get All Files =======================================================================
+exports.getAllDocuments = async(req, res) => {
+    try{
+        const data = await uploadFilesModel.find();
+        res.json({Message : "All results fetched", Result: data})
+    } catch (errror) {
+        res.status(500).send("Cannot fetch all data");
+    }
+}
 
 //========== Get A File =======================================================================
 
