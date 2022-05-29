@@ -31,7 +31,7 @@ exports.upload = async (req,res) => {
     try{
         console.log(req.file);
         let file = {
-            "file" : req.file.path,
+            "file" : req.file,
             "groupNo": req.header('x-auth-token'),
         };
         let newfileModel = new uploadFilesModel(file);
@@ -86,3 +86,16 @@ exports.getDocument = async (req,res) => {
 }
 
 //========== Update A File =======================================================================
+exports.updateDocument = async (req, res) => {
+    const{id} = req.params;
+    let data = {
+        "file" : req.file,
+        "groupNo" : req.header('groupNo'),
+    };
+    try{
+        await uploadFilesModel.findByIdAndUpdate(id, data);
+        res.json({Message: "Document Updated Successfully..."});
+    } catch (error) {
+        res.status(500).send("Document Not Updated");
+    }
+}
