@@ -1,14 +1,37 @@
 import React from 'react';
 import img1 from '../../img/img1.png'
+import img2 from '../../img/group.png'
+import {useParams} from 'react-router-dom';
 
-const studentHome = () => (
+const studentHome = () => {
 
-    <div class="container">
+    const {userName} = useParams("");
+
+    useEffect(() => {
+       
+		const getdata = async() =>{
+			try {
+				const res = await axios.get(`http://localhost:3500/itemadd/getItem/${userName}`)
+				setListItems(res.data);
+				console.log('render');
+			} catch(err) {
+				console.log(err);
+			}
+		}
+		getdata()
+	 },[]);
+
+
+
+
+    return(
+        <div class="container">
         <div class="row">
             <div class="col-12">
                 <center>
                     <h1>Dashboard</h1>
-                    <br /> <br /> 
+                    <br /> <br />
+                    <h5>{userName}</h5>
                 </center>
             </div>
         </div>
@@ -16,8 +39,8 @@ const studentHome = () => (
         <div class="row">
             <div class="col-md-4">
                 <center>
-                    <img width="300px" src={img1}  />
-                    <h4> <a href="/createGrp"> Create Student Groupsssss </a></h4>
+                    <img width="300px" src={img2}  />
+                    <h4> <a href="/createGrp"> Create Student Groups </a></h4>
                 </center>
             </div>
 
@@ -68,7 +91,8 @@ const studentHome = () => (
 
         </div>
     </div>
+    );
 
-)
+    }
 
 export default studentHome;

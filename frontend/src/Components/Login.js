@@ -28,7 +28,7 @@ const Login = props => {
             if (isAuthenticated) {
                 authContext.setUser(user);
                 authContext.setIsAuthenticated(isAuthenticated);
-                props.history.push('/to');
+                props.history.push(`/to/${user.username}`);
             }
             else
 
@@ -65,7 +65,7 @@ const Login = props => {
                     placeholder="Enter Password" />
                 <br></br><br></br>
                 <button className="btn btn-lg btn-primary btn-block"
-                    type="submit">Log in </button>
+                    type="submit">Log in </button>       
 
 
             </form>
