@@ -11,21 +11,22 @@ const multerConfig = multer.diskStorage({
     }
 })
 
-const isImage = (req, file, callback) => {
-    if(file.mimetype.startsWith('image')){
-        callback(null, true)
-    }else {
-        callback(new Error('Only Images is Allowed'));
-    }
-}
+// const isImage = (req, file, callback) => {
+//     if(file.mimetype.startsWith('image')){
+//         callback(null, true)
+//     }else {
+//         callback(new Error('Only Images is Allowed'));
+//     }
+// }
 
 const upload = multer({
     storage: multerConfig,
     //fileFilter: isImage,
 });
 
-exports.uploadImage = upload.single('demo_image');
+exports.uploadImage = upload.single('document');
 
+//==========Add Files =======================================================================
 exports.upload = async (req,res) => {
     try{
         console.log(req.file);
@@ -40,3 +41,21 @@ exports.upload = async (req,res) => {
         res.status(500).json({msg: "File Not Uploaded"})
     }
 }
+
+//========== Delete All Files =======================================================================
+exports.deleteAllDoc = async (req,res) => {
+    try{
+        await uploadFilesModel.deleteMany();
+        res.status(200).json({msg: "Successfully deleted All"});
+    }catch(err){
+        res.status(500).json({err: err});
+    }
+}
+
+//========== Delete a File =======================================================================
+
+//========== Get All Files =======================================================================
+
+//========== Get A File =======================================================================
+
+//========== Update A File =======================================================================

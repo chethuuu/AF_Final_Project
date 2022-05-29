@@ -130,12 +130,13 @@
 
 const express = require('express')
 
-const {upload, uploadImage} = require('../controller/fileUploadController')
+const {upload, uploadImage, deleteAllDoc} = require('../controller/fileUploadController')
 
 const router = express.Router();
 
 //localhost:3100/user/upload
 
-router.post('/image', uploadImage, upload);
+router.post('/addDoc', uploadImage, upload);
+router.delete('/deleteAllDoc',deleteAllDoc);
 
 module.exports = router;
