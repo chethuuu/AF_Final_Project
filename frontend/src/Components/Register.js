@@ -124,8 +124,8 @@ const Register = props => {
                                     value={user.role}
                                     onChange={onChange}>
                                     <option selected>Choose...</option>
-                                    <option value="admin">Supervisor</option>
-                                    <option value="user">Supervisor</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
                                     <option value="Supervisor">Supervisor</option>
                                     <option value="Co-Supervisor">Co-Supervisor</option>
                                     <option value="Panal Member">Panal Member</option>

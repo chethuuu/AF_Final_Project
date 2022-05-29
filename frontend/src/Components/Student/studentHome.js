@@ -1,5 +1,6 @@
 import React from 'react';
 import img1 from '../../img/img1.png'
+import img2 from '../../img/group.png'
 
 const studentHome = () => (
 
@@ -16,8 +17,8 @@ const studentHome = () => (
         <div class="row">
             <div class="col-md-4">
                 <center>
-                    <img width="300px" src={img1}  />
-                    <h4> <a href="/createGrp"> Create Student Groupsssss </a></h4>
+                    <img width="300px" src={img2}  />
+                    <h4> <a href="/createGrp"> Create Student Groups </a></h4>
                 </center>
             </div>
 
