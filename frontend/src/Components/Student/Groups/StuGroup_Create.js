@@ -7,8 +7,8 @@ export default function StuGroup_Create(){
         <div>
             <div class="container shadow my-5 col-md-9 p-6 align-items-center">
                 <div className=" d-flex flex-column align-items-center text-dark justify-content-center form">
-                    <h1 className="display-4 fw-bolder"> User Registration</h1>
-                    <p className="lead text-center">Enter Your Credentials to Register</p>
+
+                    <h1 className="display-4 fw-bolder"> Student group Create</h1>
                 
                 
                 </div>

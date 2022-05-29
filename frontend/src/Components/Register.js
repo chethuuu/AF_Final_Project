@@ -39,6 +39,8 @@ const Register = props => {
         });
     }
 
+    
+
 
     return (
         <div class="container shadow my-5 col-md-9 p-6 align-items-center">

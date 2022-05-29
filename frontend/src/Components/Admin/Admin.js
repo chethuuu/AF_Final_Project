@@ -6,7 +6,7 @@ const Admin = () => (
 
     <div className="container">
         <br></br><br></br>
-        <h1> Mooda Admin  </h1>
+        <h1> Moo thama admin  </h1>
         <Link to="/data">
             <li className="nav-item nav-link">
                 View All Users
