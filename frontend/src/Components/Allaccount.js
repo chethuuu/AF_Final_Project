@@ -16,6 +16,26 @@ const Allaccount = () => {
 
   });
 
+  const deleteUser = async(id) => {
+
+    try {
+
+      const res = await axios.delete(`http://localhost:5000/user/delete/${id}`)
+
+      const newListItems = userRouter.filter(topic => topic._id !==  id);
+
+      setUserRouter(newListItems);
+
+
+
+    } catch(err) {
+
+      console.log(err);
+
+    }
+
+}
+
   return (
 
     <div className="container">
@@ -60,7 +80,7 @@ const Allaccount = () => {
               <td>{admin.role}</td>
               <td>{admin.interest}</td>
               <td><button type="button" class="btn btn-primary">Update</button></td>
-              <td><button type="button" class="btn btn-danger">Delete</button></td>
+              <td><button onClick={()=>deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
               
 
 
