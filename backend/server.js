@@ -26,6 +26,7 @@ app.use('/user', require('./routes/User'));
 app.use('/api', require('./routes/Upload'));
 app.use('/api', require('./routes/ResearchTopicRoute'));
 app.use("/group", StuGroupRoute);
+app.use('/api/upload', require('./routes/fileUpload'));
 
 //Database connection
 connectDB();
