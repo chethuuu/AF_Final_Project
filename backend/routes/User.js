@@ -17,14 +17,14 @@ const signToken = userID => {
 
 //register
 userRouter.post('/register', (req, res) => {
-    const { username, password, role, email } = req.body;
+    const { name, username, password, email, contact, type, role, interest } = req.body;
     User.findOne({ username }, (err, user) => {
         if (err)
             res.status(500).json({ message: { msgBody: "Error has occurred", msgError: true } });
         if (user)
             res.status(400).json({ message: { msgBody: "Username is already taken", msgError: true } });
         else {
-            const newUser = new User({ username, password, role, email });
+            const newUser = new User({ name, username, password, email, contact, type, role, interest });
             newUser.save(err => {
                 if (err)
                     res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
@@ -143,6 +143,24 @@ userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }
     const { username, role } = req.user;
     res.status(200).json({ isAuthenticated: true, user: { username, role } });
 });
+
+
+//deleteuser
+userRouter.delete('/delete/:id', async (req, res) => {
+
+    try {
+
+        await User.findByIdAndDelete(req.params.id)
+
+        res.json({ msg: "Deleted a user" })
+
+    } catch (err) {
+
+        return res.status(500).json({ msg: err.message })
+
+    }
+
+})
 
 
 module.exports = userRouter;
