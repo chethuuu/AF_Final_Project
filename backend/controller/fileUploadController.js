@@ -53,6 +53,15 @@ exports.deleteAllDoc = async (req,res) => {
 }
 
 //========== Delete a File =======================================================================
+exports.deleteDoc = async (req,res) => {
+    const {id} = req.params;
+    try{
+        const doc = await uploadFilesModel.findByIdAndDelete(id);
+        res.status(200).json({msg: "Document Deleted Successfully"});
+    }catch(err){
+        res.status(500).json({err: err});
+    }
+}
 
 //========== Get All Files =======================================================================
 
