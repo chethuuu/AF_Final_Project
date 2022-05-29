@@ -130,7 +130,7 @@
 
 const express = require('express')
 
-const {upload, uploadImage, deleteAllDoc, deleteDoc, getAllDocuments} = require('../controller/fileUploadController')
+const {upload, uploadImage, deleteAllDoc, deleteDoc, getAllDocuments, getDocument} = require('../controller/fileUploadController')
 
 const router = express.Router();
 
@@ -140,5 +140,6 @@ router.post('/addDoc', uploadImage, upload);
 router.delete('/deleteAllDoc',deleteAllDoc);
 router.delete('/deleteDoc/:id',deleteDoc);
 router.get('/getAllDocs',getAllDocuments);
+router.get('/getDoc/:id', getDocument);
 
 module.exports = router;
