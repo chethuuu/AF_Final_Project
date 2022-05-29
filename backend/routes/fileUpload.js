@@ -134,8 +134,6 @@ const {upload, uploadImage, deleteAllDoc, deleteDoc, getAllDocuments, getDocumen
 
 const router = express.Router();
 
-//localhost:3100/user/upload
-
 router.post('/addDoc', uploadImage, upload);
 router.delete('/deleteAllDoc',deleteAllDoc);
 router.delete('/deleteDoc/:id',deleteDoc);

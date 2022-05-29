@@ -31,9 +31,10 @@ exports.upload = async (req,res) => {
     try{
         console.log(req.file);
         let file = {
-            "file" : req.file,
+            "file" : req.file.path,
             "groupNo": req.header('x-auth-token'),
         };
+        console.log("HEADER : " + req.header('x-auth-token'));
         let newfileModel = new uploadFilesModel(file);
         await newfileModel.save();
         res.status(200).json({msg: "File Uploaded Successfully", result: req.file})
