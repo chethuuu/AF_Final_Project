@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Group_Display.css'
+import {Button} from 'react-bootstrap';
 
 export default function Group_Display(){
 
     const [groupList, setGroups] = useState([]);
 
-    const [selects, setSelects] = useState();
-
+    
     useEffect(() => {
         const getGroupList = async() => {
             try {
@@ -21,11 +21,34 @@ export default function Group_Display(){
         getGroupList()
     },[]);
 
+    const [selects, setSelects] = useState();
+    const s = {selects};
+
+
+    function SearchGropus(){
+        axios.get(`http://localhost:5000/group/getgroup/${selects}`)
+        .then(res=>{
+          console.log(res.data)
+          setGroups(res.data);
+        }).catch(err=>console.error(err))
+    }
+    
+
+
 
     return(
         <div>
             <div className='groupTable'>
             <div className="container ">
+                <div> 
+                    <select name="status" id="status" value={selects} onChange={e=>setSelects(e.target.value)}>
+                        <option>Not assign</option>
+                        <option>Assign</option>
+                    </select>
+                    <Button onClick={()=>{SearchGropus({selects})}}>Search</Button>
+                </div>  
+                <br/>
+
                 <table className="table ">
                     <thead>
                         <tr  key={"1"}>
