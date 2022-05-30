@@ -18,4 +18,7 @@ router.route('/rtopics/:gid')
 router.route('/rtopics/filter/:interest')
   .get(ResearchTopicCtrl.getDetailsbyInterest)
 
+router.route('/rtopics/status/:status_sup')
+  .get(ResearchTopicCtrl.getDetailsbyStatus);
+
 module.exports = router;

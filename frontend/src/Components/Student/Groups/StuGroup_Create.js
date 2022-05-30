@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import './StuGroup_Create.css'
 
-export default function StuGroup_Create(){
+export default function StuGroup_Create() {
 
     const {username} = useParams("");   
     const [GrpCount, setGrpCount] = useState("");

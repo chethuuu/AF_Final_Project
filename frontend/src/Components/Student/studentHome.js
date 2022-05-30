@@ -18,7 +18,7 @@ const studentHome = () => {
 
     const {username} = useParams("");
 
-    /*useEffect(() => {
+    useEffect(() => {
        
 		const getdata = async() =>{
 			try {
@@ -30,7 +30,7 @@ const studentHome = () => {
 			}
 		}
 		getdata()
-	 },[]);*/
+	 },[]);
 
 
     return(
@@ -78,7 +78,7 @@ const studentHome = () => {
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1}  />
-                    <h4> <a href="#"> Request Co-Supervisor  </a> </h4>
+                    <h4> <a href="/viewcostu"> Request Co-Supervisor  </a> </h4>
                 </center>
             </div>
             <div class="col-md-4">
