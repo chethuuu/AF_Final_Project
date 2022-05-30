@@ -67,6 +67,18 @@ router.get("/getAllGroups", async(req,res) => {
 })
 
 
+//Gropu Filter on pannel status
+router.get("/getgroup/:pstatus", async(req,res) => {
+  try {
+    let pstatus = req.params.pstatus;
+    const allGroups = await Group.find({pannel_status:pstatus});
+    res.status(200).json(allGroups);
+  } catch (err) {
+      res.json(err);
+  }
+})
+
+
 
 
 
