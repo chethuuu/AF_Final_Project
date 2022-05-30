@@ -27,6 +27,7 @@ import SupStatus from './Components/Supervisor/SupStatus'
 import regResearch from './Components/Student/regResearch';
 import StuGroup_Create from './Components/Student/Groups/StuGroup_Create';
 import UploadFiles from './Components/Student/UploadFiles';
+import Group_Display from './Components/Admin/Group_Display';
 
 function App() {
   return (
@@ -49,9 +50,9 @@ function App() {
       <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
       <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
       <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
-      <PrivateRoute path="/createGrp" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
+      <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
     </Router>
     </div>
   );
