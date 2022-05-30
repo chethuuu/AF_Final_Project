@@ -103,6 +103,9 @@ function ViewResearchTopic() {
                         }
                     </tbody>
                 </table>
+
+                        <button onClick={this.createAndDownloadPDF}>Download PDF </button>
+
             </div>
         </div>
     )

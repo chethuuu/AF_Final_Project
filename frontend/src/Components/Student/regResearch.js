@@ -60,7 +60,7 @@ const ResearchTopic = () => {
                   <label for="interest" class="form-label">Topic Category</label>
                   <input name="interest" value={inputs.interest} onChange={onChangeInput} type="text" class="form-control" id="interest" placeholder="Eneter Research Topic Category" required />
                 </div> 
-                {/* <p className='mx-auto'>Once you Register for a topic, you can't change it</p> <br/> */}
+                <p>Once you Register for a topic, you can't change it</p> <br/>
                 <button type="submit" class="btn btn-danger w-100 rounded-pill">Register Topic</button>
                 <br/>
                 <NavLink to="/viewreg"><button className='btn btn-warning w-100 rounded-pill' type="submit"> View Register Topic </button></NavLink>

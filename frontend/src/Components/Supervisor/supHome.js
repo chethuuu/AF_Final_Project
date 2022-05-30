@@ -31,7 +31,7 @@ const supHome = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="#">  Production Management </a> </h4>
+                    <h4> <a href="#">  Download Marking Scheme </a> </h4>
                 </center>
             </div>
         </div>
@@ -42,14 +42,14 @@ const supHome = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="#"> Growthroom </a> </h4>
+                    <h4> <a href="#"> Chat with Groups </a> </h4>
                 </center>
             </div>
 
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="#"> Delivery Management </a> </h4>
+                    <h4> <a href="#"> Evaluate Document </a> </h4>
                 </center>
             </div>
 
