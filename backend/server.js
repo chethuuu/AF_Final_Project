@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const path = require('path');
 const connectDB = require('./database/db');
 const cors = require('cors');
-const path = require("path");
 const fileUpload = require('express-fileupload')
 const io = require('socket.io')
 const dotenv = require("dotenv");
@@ -16,13 +15,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors())
-// app.use(fileUpload({
-//     useTempFiles: true
-// }));
+app.use(fileUpload({
+    useTempFiles: true
+}));
 
 //import routes
 const StuGroupRoute = require("./routes/StuGroupRoute");
-
 const markingRouter = require("./routes/markings.js");
 
 //Routes
