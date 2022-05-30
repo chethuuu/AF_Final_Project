@@ -56,52 +56,29 @@ router.get("/getCount", async(req,res) =>{
 
 
 
-//Get all Groups
-router.get("/getdata", async(req,res) => {
+//Get all student Groups
+router.get("/getAllGroups", async(req,res) => {
   try {
-      const allGrps = await Group.find({});
-      res.status(200).json(allGrps);
+      const stuGroups = await Group.find({});
+      res.status(200).json(stuGroups);
   } catch (err) {
       res.json(err);
   }
 })
 
 
-
-//
-router.get('/getItem/:id', async(req,res) =>{
-  let id = req.params.id;
-  Group.findById(id, function(err,group){
-    res.json(group);
-  });
-});
-
-
-
-router.post("/update/:id", (req, res, next) => {
-  const StuGroupModel = new Group({
-    _id: req.body.id,
-    user_id: req.body.user_id,
-    group_id: req.body.group_id,
-    members: req.body.members,
-    pannel_status: req.body.pannel_status,
-    pannel: req.body.pannel,
-    topic: req.body.topic,
-    submissions: req.body.submissions,
-    marks: req.body.marks
-  });
-  Group.updateOne({_id: req.params.id }, StuGroupModel).then(result => {
-    res.status(200).json({ message: "Successfully Updated!" });
-  });
-});
+//Gropu Filter on pannel status
+router.get("/getgroup/:pstatus", async(req,res) => {
+  try {
+    let pstatus = req.params.pstatus;
+    const allGroups = await Group.find({pannel_status:pstatus});
+    res.status(200).json(allGroups);
+  } catch (err) {
+      res.json(err);
+  }
+})
 
 
-router.delete("/delete/:id", (req, res, next) => {
-    Group.deleteOne({_id: req.params.id}).then(result => {
-    console.log(result);
-    res.status(200).json({ message: "Group deleted!" });
-  });
-});
 
 
 
