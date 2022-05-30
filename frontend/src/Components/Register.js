@@ -9,7 +9,6 @@ const Register = props => {
     let timerID = useRef(null);
 
     useEffect(() => {
-
         return () => {
             clearTimeout(timerID);
         }
