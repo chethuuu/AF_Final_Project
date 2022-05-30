@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import img1 from '../../img/img1.png'
 import img2 from '../../img/group.png'
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
+import axios from "axios";
 
 const studentHome = () => {
+    
+    const [userDetails, setUserDetails] = useState({
+        name:"",
+        username:"",
+    });
 
-    const {userName} = useParams("");
+    const {username} = useParams("");
 
     useEffect(() => {
        
 		const getdata = async() =>{
 			try {
-				const res = await axios.get(`http://localhost:3500/itemadd/getItem/${userName}`)
-				setListItems(res.data);
+				const res = await axios.get(`http://localhost:5000/user/getUsername/${username}`)
+				setUserDetails(res.data);
 				console.log('render');
 			} catch(err) {
 				console.log(err);
@@ -22,8 +28,6 @@ const studentHome = () => {
 	 },[]);
 
 
-
-
     return(
         <div class="container">
         <div class="row">
@@ -31,8 +35,13 @@ const studentHome = () => {
                 <center>
                     <h1>Dashboard</h1>
                     <br /> <br />
-                    <h5>{userName}</h5>
                 </center>
+
+                <div>
+                    <h6>{userDetails.username}</h6>
+                    <h6>{userDetails.name}</h6>
+                </div>
+                
             </div>
         </div>
 
@@ -40,7 +49,7 @@ const studentHome = () => {
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img2}  />
-                    <h4> <a href="/createGrp"> Create Student Groups </a></h4>
+                    <Link to={`/createGrp/${username}`}><h4>Create Student Groups</h4></Link> 
                 </center>
             </div>
 
