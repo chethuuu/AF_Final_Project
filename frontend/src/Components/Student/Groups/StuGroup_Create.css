@@ -1,0 +1,38 @@
+.formHeader{
+    background-color: rgb(250, 175, 47);
+}
+
+.collapsible {
+    background-color: rgb(255, 221, 162);
+    color: rgb(26, 24, 24);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: outset;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: rgb(254, 235, 200);
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+  .submitBtn{
+      background-color: rgb(27, 27, 107);
+      color: white;
+      padding-left: 50%;
+      padding-right: 45%;
+  }
+
+  .submitBtn:hover {
+    background-color: rgb(39, 82, 162);
+    color: white;
+  }
