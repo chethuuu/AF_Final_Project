@@ -9,7 +9,7 @@ function ViewCoSupervisorRequests() {
   useEffect(() => {
     const getListTopics = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/rtopics")
+        const res = await axios.get('http://localhost:5000/api/rtopics/')
         setListTopics(res.data);
         console.log('render');
       } catch (err) {
@@ -20,8 +20,8 @@ function ViewCoSupervisorRequests() {
   }, []);
 
   function SearchItem() {
-    console.log(gid)
-    axios.get(`http://localhost:5000/api/rtopics/${selects}`)
+    console.log(status_sup)
+    axios.get(`http://localhost:5000/api/rtopics/status/${selects}`)
       .then(res => {
         console.log(res.data)
         setListTopics(res.data)
@@ -33,14 +33,13 @@ function ViewCoSupervisorRequests() {
       <div className='container shadow my-5'>
         <div class="input-group">
           <div class="form-inline my-2 my-lg-0">
-            <h5 className='grpid'>Select your Group ID</h5>
+            <h5 className='grpid'>Select Status</h5>
             <Button className='btn btn-primary search' onClick={() => { SearchItem({ selects }) }}>Search</Button>
-            <select className='form-control select-gid' name="gid" id="gid" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
+            <select className='form-control select-gif' name="status_sup" id="status_sup" value={selects} onChange={e => setSelects(e.target.value)}>
               <option>None</option>
-              <option>G001</option>
-              <option>G002</option>
-              <option>G006</option>
-              <option>G008</option>
+              <option>Approved</option>
+              <option>Reject</option>
+              <option>Pending</option>
             </select>
           </div> <br />
         </div>
