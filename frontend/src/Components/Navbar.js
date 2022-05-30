@@ -9,8 +9,7 @@ const Navbar = props => {
 
     const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthContext);
 
-
-
+    const uname = user.username;
 
     //logout button create 
     const onClickLogoutHandler = () => {
@@ -77,12 +76,12 @@ const Navbar = props => {
 
 {
                     user.role === "user" ?
-                        <Link to="/user">
+                        <Link to={`/user/${uname}`}>
                             <li className="nav-item nav-link">
                                 Student
                             </li>
                         </Link> : null
-
+                        
                 }
 
                 {

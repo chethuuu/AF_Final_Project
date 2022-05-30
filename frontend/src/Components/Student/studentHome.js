@@ -4,15 +4,40 @@ import img2 from '../../img/img2.png'
 import img3 from '../../img/img3.png'
 import img4 from '../../img/img4.png'
 import img5 from '../../img/img5.png'
+import img6 from '../../img/group.png'
 
-const studentHome = () => (
+import {useParams} from 'react-router-dom';
 
-    <div class="container">
+
+const studentHome = () => {
+
+    const {userName} = useParams("");
+
+    /*useEffect(() => {
+       
+		const getdata = async() =>{
+			try {
+				const res = await axios.get(`http://localhost:3500/itemadd/getItem/${userName}`)
+				setListItems(res.data);
+				console.log('render');
+			} catch(err) {
+				console.log(err);
+			}
+		}
+		getdata()
+	 },[]);*/
+
+
+
+
+    return(
+        <div class="container">
         <div class="row">
             <div class="col-12">
                 <center>
                     <h1>Dashboard</h1>
-                    <br /> <br /> 
+                    <br /> <br />
+                    <h5>{userName}</h5>
                 </center>
             </div>
         </div>
@@ -20,7 +45,8 @@ const studentHome = () => (
         <div class="row">
             <div class="col-md-4">
                 <center>
-                    <img width="240px" src={img3}  />
+
+                    <img width="300px" src={img6}  />
                     <h4> <a href="/createGrp"> Create Student Groups </a></h4>
                 </center>
             </div>
@@ -50,8 +76,9 @@ const studentHome = () => (
             </div>
             <div class="col-md-4">
                 <center>
-                    <img width="220px" src={img2}  />
-                    <h4> <a href="#"> Sumbit Documents </a> </h4>
+
+                    <img width="300px" src={img1}  />
+                    <h4> <a href="/uploadFiles"> Sumbit Documents </a> </h4>
                 </center>
             </div>
             <div class="col-md-4">
@@ -63,7 +90,8 @@ const studentHome = () => (
             <br /> <br />
         </div>
     </div>
+    );
 
-)
+    }
 
 export default studentHome;
