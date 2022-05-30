@@ -7,11 +7,10 @@ router.route('/rtopics')
   .post(ResearchTopicCtrl.createResearch_Topic);
 
 router.route('/rtopicss/:id')
-  
   .put(ResearchTopicCtrl.updateResearch_Topic)
   .delete(ResearchTopicCtrl.deleteResearch_Topic);
 
-  router.route('/rtopicsbyID/:id')
+router.route('/rtopicsbyID/:id')
   .get(ResearchTopicCtrl.getResearch_TopicByID)
   
 

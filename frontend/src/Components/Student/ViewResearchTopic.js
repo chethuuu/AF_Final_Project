@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
 import axios from 'axios'
 import { Button } from 'react-bootstrap';
 
@@ -32,20 +31,6 @@ function ViewResearchTopic() {
         }
     }
 
-    //   const updateResearch_Topic = async (e) => {
-    //     e.preventDefault()
-    //     try {
-    //       const res = await axios.put(`http://localhost:5000/api/rtopics${isUpdating}`, {item: updateItemText})
-    //       console.log(res.data);
-    //       const updatedItemIndex = listItems.findIndex(item => item._id === isUpdating);
-    //       const updatedItem = listItems[updatedItemIndex].item = updateItemText;
-    //       setUpdateItemText('');
-    //       setIsUpdating('');
-    //     } catch(err) {
-    //       console.log(err);
-    //     }
-    //   }
-
     function SearchItem() {
         console.log(gid)
         axios.get(`http://localhost:5000/api/rtopics/${selects}`)
@@ -58,9 +43,7 @@ function ViewResearchTopic() {
 
     return (
         <div>
-
             <div className='container shadow my-5'>
-
                 <div class="input-group">
                     <div class="form-inline my-2 my-lg-0">
                         <h5 className='grpid'>Select your Group ID</h5>
@@ -81,8 +64,8 @@ function ViewResearchTopic() {
                             <th scope="col">Topic Name</th>
                             <th scope="col">Category</th>
                             <th scope='col'>Status</th>
-                            <th scope="col">Update</th>
-                            <th scope="col">Delete</th>
+                            {/* <th scope="col">Update</th>
+                            <th scope="col">Delete</th> */}
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -94,8 +77,8 @@ function ViewResearchTopic() {
                                     <td >{topic.name}</td>
                                     <td >{topic.interest}</td>
                                     <td >{topic.status_sup}</td>
-                                    {/* <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td>  */}
-                                    <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td>
+                                    {/* <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td> 
+                                    <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td> */}
 
                                 </tr>
                             )
@@ -103,9 +86,6 @@ function ViewResearchTopic() {
                         }
                     </tbody>
                 </table>
-
-                        <button onClick={this.createAndDownloadPDF}>Download PDF </button>
-
             </div>
         </div>
     )
