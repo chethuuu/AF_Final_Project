@@ -79,6 +79,15 @@ router.get("/getgroup/:pstatus", async(req,res) => {
 })
 
 
+//view selected group detail
+router.get('/getone/:id', async(req,res) =>{
+  let id = req.params.id;
+  Group.findById(id, function(err,group){
+    res.json(group);
+  });
+});
+
+
 
 
 
