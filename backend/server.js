@@ -3,16 +3,17 @@ const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 const connectDB = require('./database/db');
 const cors = require('cors');
 const fileUpload = require('express-fileupload')
-
+const io = require('socket.io')
 const dotenv = require("dotenv");
 dotenv.config();
 
-
 app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(cors())
 app.use(fileUpload({
     useTempFiles: true
