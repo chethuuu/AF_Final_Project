@@ -7,19 +7,29 @@ const researchTopicSchema = new mongoose.Schema ({
         required: true,
         unique: true
     },
+
+    lead_no: {
+        type: String,
+        required: true,
+        unique: true
+    },
+
     name: {
         type: String,
         required: true,
         unique: true
     },
+
     interest: {
         type: String,
         required: true,
     },
+
     status_sup: {
         type: String,
         default: 'Pending'
     },
+    
     status_co: {
         type: String,
         default: 'Pending'
