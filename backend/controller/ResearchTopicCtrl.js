@@ -23,11 +23,11 @@ const ResearchTopicCtrl = {
     //add Research_Topic
     createResearch_Topic: async (req, res) => {
         try {
-            const { gid, name, interest, status_sup, status_co } = req.body;
+            const { gid, lead_no, name, interest, status_sup, status_co } = req.body;
             const rtopics = await Research_Topic.findOne({ name })
             if (rtopics) return res.status(400).json({ msg: "This Research Topic already exists." })
 
-            const newResearch_Topic = new Research_Topic({ gid, name, interest, status_sup, status_co })
+            const newResearch_Topic = new Research_Topic({ gid, lead_no, name, interest, status_sup, status_co })
 
             await newResearch_Topic.save()
             res.json({ msg: "Created a Research Topic" })
@@ -40,8 +40,8 @@ const ResearchTopicCtrl = {
     //update Research Topic
     updateResearch_Topic: async (req, res) => {
         try {
-            const { gid, name, interest, status_sup, status_co } = req.body;
-            await Research_Topic.findOneAndUpdate({ _id: req.params.id }, { gid, name, interest, status_sup, status_co })
+            const { gid, lead_no, name, interest, status_sup, status_co } = req.body;
+            await Research_Topic.findOneAndUpdate({ _id: req.params.id }, { gid, lead_no, name, interest, status_sup, status_co })
 
             res.json({ msg: "Updated Research Topic" })
 
