@@ -71,10 +71,22 @@ const ResearchTopicCtrl = {
         }
       },
 
+      //get details from Interest
       getDetailsbyInterest: async (req, res) => {
         try {
           let interest = req.params.interest;
           const rtopics = await Research_Topic.find({interest:interest});
+          res.status(200).json(rtopics);
+        } catch (err) {
+          res.json(err);
+        }
+      },
+
+      //get details from Co-Supervisor status
+      getDetailsbyStatus: async (req, res) => {
+        try {
+          let status_sup = req.params.status_sup;
+          const rtopics = await Research_Topic.find({status_sup:status_sup});
           res.status(200).json(rtopics);
         } catch (err) {
           res.json(err);
