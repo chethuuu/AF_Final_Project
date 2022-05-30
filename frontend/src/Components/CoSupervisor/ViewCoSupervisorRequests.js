@@ -41,7 +41,7 @@ function ViewCoSupervisorRequests() {
               <option>Reject</option>
               <option>Pending</option>
             </select>
-          </div> <br />
+          </div> <br /><br /><br />
         </div>
 
         <table class="table">
@@ -49,10 +49,13 @@ function ViewCoSupervisorRequests() {
             <tr>
               <th scope='col'>No</th>
               <th scope="col">Group ID</th>
+              <th scope="col">Leader's IT Number</th>
               <th scope="col">Topic Name</th>
               <th scope="col">Topic Category</th>
               <th scope='col'>Supervisor Status</th>
               <th scope='col'>Co-Supervisor Status</th>
+              <th scope='col'>Accept / Reject</th>
+              <th scope='col'>Send E-mail</th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
@@ -61,10 +64,13 @@ function ViewCoSupervisorRequests() {
                 <tr>
                   <td>{id + 1}</td>
                   <td>{topic.gid}</td>
+                  <td>{topic.lead_no}</td>
                   <td>{topic.name}</td>
                   <td>{topic.interest}</td>
-                  <td>{topic.status_sup}</td>
-                  <td>{topic.status_co}</td>
+                  <td><button className='btn btn-danger'>{topic.status_sup}</button></td>
+                  <td><button className='btn btn-danger'>{topic.status_co}</button></td>
+                  <td><button className='btn btn-warning'>Accept / Reject</button></td>
+                  <td><button className='btn btn-success'>Send Status to the Leader</button></td>
                 </tr>
               )
               )

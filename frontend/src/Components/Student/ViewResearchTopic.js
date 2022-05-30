@@ -61,6 +61,7 @@ function ViewResearchTopic() {
                         <tr>
                             <th scope='col'>No</th>
                             <th scope="col">Group ID</th>
+                            <th scope="col">Group Leader's IT Number</th>
                             <th scope="col">Topic Name</th>
                             <th scope="col">Category</th>
                             <th scope='col'>Status</th>
@@ -75,10 +76,11 @@ function ViewResearchTopic() {
                                 <tr>
                                     <td>{id + 1}</td>
                                     <td>{topic.gid}</td>
+                                    <td>{topic.lead_no}</td>
                                     <td>{topic.name}</td>
                                     <td>{topic.interest}</td>
                                     <td>{topic.status_sup}</td>
-                                    <td><button className='btn btn-warning' disabled>Request</button></td>
+                                    <td><button className='btn btn-warning' disabled> Send Request</button></td>
                                     {/* <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td> 
                                     <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td> */}
 
