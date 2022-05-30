@@ -145,6 +145,14 @@ userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }
 });
 
 
+//Get user details from login user name
+userRouter.get('/getUsername/:username', async(req,res) =>{
+    let username = req.params.username;
+    User.findOne({username: `${username}`}, function(err,usr){
+      res.json(usr);
+    });
+  });
+
 //deleteuser
 userRouter.delete('/delete/:id', async (req, res) => {
 
@@ -161,6 +169,7 @@ userRouter.delete('/delete/:id', async (req, res) => {
     }
 
 })
+
 
 
 module.exports = userRouter;
