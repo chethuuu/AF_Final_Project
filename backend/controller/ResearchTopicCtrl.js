@@ -59,6 +59,27 @@ const ResearchTopicCtrl = {
             return res.status(500).json({ msg: err.message })
         }
     },
+
+    //get details from groupID
+    getDetailsbyGroupID: async (req, res) => {
+        try {
+          let gid = req.params.gid;
+          const rtopics = await Research_Topic.find({gid:gid});
+          res.status(200).json(rtopics);
+        } catch (err) {
+          res.json(err);
+        }
+      },
+
+      getDetailsbyInterest: async (req, res) => {
+        try {
+          let interest = req.params.interest;
+          const rtopics = await Research_Topic.find({interest:interest});
+          res.status(200).json(rtopics);
+        } catch (err) {
+          res.json(err);
+        }
+      },
 }
 
 module.exports = ResearchTopicCtrl;
