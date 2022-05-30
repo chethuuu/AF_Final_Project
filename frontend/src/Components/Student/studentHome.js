@@ -8,8 +8,6 @@ import img4 from '../../img/img4.png'
 import img5 from '../../img/img5.png'
 import img6 from '../../img/group.png'
 
-import {useParams} from 'react-router-dom';
-
 
 const studentHome = () => {
     
