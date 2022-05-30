@@ -1,9 +1,37 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+//import { NavLink } from 'react-router-dom'
+import axios from 'axios';
 import img from '../../img/i1.png';
 import image from '../../img/i2.jpg';
 
 const FileUpload = () => {
+    const [file, setfile] = useState(null);
+
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+    
+        const formData = new FormData();
+        formData.append('document', file);
+        const config = {
+          headers: {
+            'content-type': 'multipart/form-data',
+            "x-auth-token" : "123321",
+          }, 
+        };
+    
+        const url = 'http://localhost:5000/api/upload/addDoc';
+        axios.post(url, formData, config).then((response) => {
+          alert('File Uploaded Successfully');
+        }).catch((err) => {
+          console.log('err', err);
+        })
+      }
+    
+    const onInputChange = (e) => {
+       setfile(e.target.files[0])
+    }
+    
+
     return (
         <div>
             <section id="contact">
@@ -22,16 +50,16 @@ const FileUpload = () => {
                             <img src={img} alt="File Upload" width='300' />
                         </div>
                         <div className='col-md-5'>
-                            <form method="post" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                    <label for="groupNo" class="form-label">Group Number</label>
-                                    <input name="groupNo" type="text" class="form-control" id="groupNo" placeholder="Enter Your Group Number" />
+                            <form method="post" onSubmit={onFormSubmit} encType="multipart/form-data">
+                                <div className="mb-3">
+                                    <label htmlFor="groupNo" className="form-label">Group Number</label>
+                                    <input name="groupNo" type="text" className="form-control" id="groupNo" placeholder="Enter Your Group Number" />
                                 </div>
-                                <div class="mb-3">
-                                    <label for="file" class="form-label">Upload your Document</label>
-                                    <input name="file" class="form-control" id="file" rows="5" type='file' />
+                                <div className="mb-3">
+                                    <label htmlFor="document" className="form-label">Upload your Document</label>
+                                    <input name="document" className="form-control" id="file" rows="5" type='file' onChange={onInputChange} />
                                 </div>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" className="btn btn-primary">
                                     Upload Documents
                                 </button>
                             </form>
