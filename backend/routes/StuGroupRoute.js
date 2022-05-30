@@ -1,6 +1,5 @@
 const express = require("express");
 const Group = require('../models/StuGroupModel');
-const User = require("../models/User");
 const router = express.Router();
 
 //Create Student Group
@@ -43,6 +42,20 @@ router.post("/add", (req, res, next) => {
 });
 
 
+//get no of groups in Group collection
+router.get("/getCount", async(req,res) =>{
+  try{
+    let count = await Group.countDocuments();
+    let grpcount = count + 1;
+    let GrpId = "Grp_" + grpcount;
+    res.status(200).json(GrpId);
+  }catch(err){
+    res.json(err);
+  }
+});
+
+
+
 //Get all Groups
 router.get("/getdata", async(req,res) => {
   try {
@@ -54,6 +67,7 @@ router.get("/getdata", async(req,res) => {
 })
 
 
+
 //
 router.get('/getItem/:id', async(req,res) =>{
   let id = req.params.id;
@@ -61,6 +75,7 @@ router.get('/getItem/:id', async(req,res) =>{
     res.json(group);
   });
 });
+
 
 
 router.post("/update/:id", (req, res, next) => {
@@ -87,6 +102,8 @@ router.delete("/delete/:id", (req, res, next) => {
     res.status(200).json({ message: "Group deleted!" });
   });
 });
+
+
 
 
 module.exports = router;

@@ -38,7 +38,7 @@ function App() {
       <UnPrivateRoute path="/register"  component={Register}/>
       <PrivateRoute path="/data" roles={["admin"]} component={AllAccount}/>
       <PrivateRoute path="/Admin" roles={["admin"]} component={Admin}/>
-      <PrivateRoute path="/user" roles={["user"]} component={studentHome}/>
+      <PrivateRoute path="/user/:username" roles={["user"]} component={studentHome}/>
       <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome}/>
       <PrivateRoute path="/PanelMember" roles={["PanelMember"]} component={panelHome}/>
       <PrivateRoute path="/Supervisor" roles={["Supervisor"]} component={supHome}/>
@@ -50,6 +50,7 @@ function App() {
       <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
       <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
       <PrivateRoute path="/createGrp" roles={["user"]} component={StuGroup_Create}/>
+      <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
     </Router>
     </div>
