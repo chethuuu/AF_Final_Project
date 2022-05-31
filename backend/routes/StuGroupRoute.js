@@ -31,7 +31,7 @@ router.post("/add", (req, res, next) => {
       contact: req.body.member3.contact,
       email: req.body.member3.email
     }
-    
+
   });
   StuGroupModel.save().then(createdGroup => {
     res.status(201).json({
@@ -77,6 +77,28 @@ router.get("/getgroup/:pstatus", async(req,res) => {
       res.json(err);
   }
 })
+
+
+//Display only not panel assigned groups
+router.get("/getdata/filter", async(req,res) => {
+  try {
+      const allgrps = await Group.find({pannel_status:'Not assign'});
+      res.status(200).json(allgrps);
+  } catch (err) {
+      res.json(err);
+  }
+})
+
+//Display only panel assigned groups
+router.get("/getdata/assigned", async(req,res) => {
+  try {
+      const allgrps = await Group.find({pannel_status:'Assigned'});
+      res.status(200).json(allgrps);
+  } catch (err) {
+      res.json(err);
+  }
+})
+
 
 
 //view selected group detail
