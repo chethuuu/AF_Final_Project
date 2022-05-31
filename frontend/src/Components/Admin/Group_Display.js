@@ -68,7 +68,10 @@ export default function Group_Display(){
                                 <td>{groups.group_id}</td>
                                 <td>{groups.user_id}</td>
                                 <td>{groups.pannel_status}</td>
-                                <td><button type="button" class="btn btn1">Panel Assign</button></td>
+
+                                <td>
+                                    <Link to={`/panelAssign/${groups._id}`}><Button className='btn1'>Panel Assign</Button></Link>
+                                </td>
                             
                             </tr>
                         ))

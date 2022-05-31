@@ -31,6 +31,7 @@ import Group_Display from './Components/Admin/Group_Display';
 import ViewCoSupervisorRequests from './Components/CoSupervisor/ViewCoSupervisorRequests';
 import ReqCoSupervisor from './Components/CoSupervisor/ReqCoSupervisor';
 import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
+import Group_PannelAssign from './Components/Admin/Group_PannelAssign';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
       <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
       <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
       <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
+      <PrivateRoute path="/panelAssign/:id" roles={["admin"]} component={Group_PannelAssign}/>
     </Router>
     </div>
   );
