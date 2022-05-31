@@ -48,12 +48,20 @@ const StuGroupSchema = new mongoose.Schema({
         required: true,
         default: "Not assign"
     },
-
-    pannel: {
-        type: Array,
-        default: []
-    }
-
+    
+    pannel:
+        {type:Object,default:{},
+            panel1:{
+                ID: {type: String, required: true},
+                name: {type: String, required: true}, 
+                email: {type: String, required: true}
+            },
+            panel2: {
+                ID: {type: String, required: true},
+                name: {type: String, required: true}, 
+                email: {type: String, required: true}
+            },
+        }
 });
 
 module.exports = mongoose.model('StuGroups', StuGroupSchema);
