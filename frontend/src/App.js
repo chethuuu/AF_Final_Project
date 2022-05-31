@@ -32,6 +32,8 @@ import ViewCoSupervisorRequests from './Components/CoSupervisor/ViewCoSupervisor
 import ReqCoSupervisor from './Components/CoSupervisor/ReqCoSupervisor';
 import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
 import Group_PannelAssign from './Components/Admin/Group_PannelAssign';
+import Group_notAssigned from './Components/Admin/Group_notAssigned';
+import Group_viewDetails from './Components/Admin/Group_viewDetails';
 
 function App() {
   return (
@@ -56,10 +58,12 @@ function App() {
       <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
       <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
-      <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
+      <PrivateRoute path="/grpDisplays" roles={["admin"]} component={Group_Display}/>
       <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
       <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
       <PrivateRoute path="/panelAssign/:id" roles={["admin"]} component={Group_PannelAssign}/>
+      <PrivateRoute path="/grpNotAssignDisplay" roles={["admin"]} component={Group_notAssigned}/>
+      <PrivateRoute path="/viewGroup/:id" roles={["admin"]} component={Group_viewDetails}/>
     </Router>
     </div>
   );
