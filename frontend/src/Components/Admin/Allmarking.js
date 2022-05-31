@@ -1,6 +1,7 @@
 import React, {useState, useEffect  } from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom'
+import {Button} from 'react-bootstrap';
 
 export default function Allmarking() {
 
@@ -8,7 +9,7 @@ export default function Allmarking() {
 
     useEffect(()=>{
         function getMarking(){
-            axios.get("http://localhost:5000/marking/").then((res)=>{
+            axios.get("http://localhost:5000/marking").then((res)=>{
                 console.log(res.data);
                 setMarking(res.data);
             }).catch((err)=>{
@@ -37,7 +38,7 @@ export default function Allmarking() {
                             <tr key={items._id}>
                                 <th scope="row">{items.subject}</th>
                                 <td>{items.assignment}</td>
-                                <td><Link to={`/singlemarking`}>View</Link></td>
+                                 <td><Link to={`/singlemarking/${items._id}`}><Button>View</Button></Link></td> 
 
                             </tr>
                         ))
