@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 function ViewCoSupervisorRequests() {
@@ -69,8 +70,8 @@ function ViewCoSupervisorRequests() {
                   <td>{topic.interest}</td>
                   <td><button className='btn btn-danger'>{topic.status_sup}</button></td>
                   <td><button className='btn btn-danger'>{topic.status_co}</button></td>
-                  <td><button className='btn btn-warning'>Accept / Reject</button></td>
-                  <td><button className='btn btn-success'>Send Status to the Leader</button></td>
+                  <td><Link to={`/cosupreq/${topic._id}`}><Button className='btn btn-warning'>Accept / Reject</Button></Link> </td>
+                  <td><Link to={`/sendmailco/${topic._id}`}><button className='btn btn-success'>Send Status to Group Leader</button></Link></td>
                 </tr>
               )
               )
