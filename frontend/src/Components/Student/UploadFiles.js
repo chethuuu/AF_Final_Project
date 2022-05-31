@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 //import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 import img from '../../img/i1.png';
@@ -6,7 +6,9 @@ import image from '../../img/i2.jpg';
 
 const FileUpload = () => {
     const [file, setfile] = useState(null);
+    const [docs, getDocs] = useState('');
 
+    //Document Upload==============================================================================
     const onFormSubmit = (e) => {
         e.preventDefault();
     
@@ -19,7 +21,7 @@ const FileUpload = () => {
           }, 
         };
     
-        const url = 'http://localhost:5000/api/upload/addDoc';
+        const url = 'http://localhost:5000/api/upload/addDoc2';
         axios.post(url, formData, config).then((response) => {
           alert('File Uploaded Successfully');
         }).catch((err) => {
@@ -30,7 +32,48 @@ const FileUpload = () => {
     const onInputChange = (e) => {
        setfile(e.target.files[0])
     }
-    
+
+    //Get All Documents ==============================================================================
+    useEffect(() => {
+        getAllData();
+   }, []);
+
+    const getAllData = () => {
+        axios.get("http://localhost:5000/api/upload/getAllDocs").then((res) => {
+            const allDocs = res.data.Result;
+            getDocs(allDocs);
+            // console.log("ALL DOCS : "+allDocs[0].name);
+        }).catch(err => console.log("Error : " + err));
+    }
+
+    console.log(docs.length);
+
+    const displayT = (docs) => {
+        if(docs.length > 0){
+            return(
+                docs.map((doc, index) => {
+                    return(
+                        <tr key={doc._id}>
+                            <td>{doc.name}</td>
+                            <td><button className='btn btn-outline-success'>Update</button></td>
+                            <td><button className='btn btn-outline-danger' onClick={deleteDocument}>Delete</button></td>
+                        </tr>
+                    );
+                })
+            )    
+        }
+    }
+
+    //Delete Document ==============================================================================
+    const deleteDocument = () => {
+        var groupId = '123321';
+        try{
+            axios.delete(`http://localhost:5000/api/upload/deleteDoc/${groupId}`);
+            alert("Document Deleted...");
+        }catch (err){
+            console.log("ERROR IN DLETION : "+ err);
+        }
+    }
 
     return (
         <div>
@@ -51,10 +94,10 @@ const FileUpload = () => {
                         </div>
                         <div className='col-md-5'>
                             <form method="post" onSubmit={onFormSubmit} encType="multipart/form-data">
-                                <div className="mb-3">
+                                {/* <div className="mb-3">
                                     <label htmlFor="groupNo" className="form-label">Group Number</label>
                                     <input name="groupNo" type="text" className="form-control" id="groupNo" placeholder="Enter Your Group Number" />
-                                </div>
+                                </div> */}
                                 <div className="mb-3">
                                     <label htmlFor="document" className="form-label">Upload your Document</label>
                                     <input name="document" className="form-control" id="file" rows="5" type='file' onChange={onInputChange} />
@@ -71,17 +114,15 @@ const FileUpload = () => {
                         <div className='col-md-6'>
                             <h3 className='mt-4'>Document Uploaded</h3>
                             <table className="table mt-3"  style={{backgroundColor: "#ADD8E6"}}>
-                                <thead>
+                                <thead><tr>
                                     <th>File</th>
                                     <th>Update</th>
                                     <th>Delete</th>
-                                </thead>
+                                </tr></thead>
                                 <tbody>
-                                    <td>gfjhagjhgaje.pdf</td>
-                                    <td><button className='btn btn-outline-success'>Update</button></td>
-                                    <td><button className='btn btn-outline-danger'>Delete</button></td>
+                                    {displayT(docs)}
                                 </tbody>
-                            </table>
+                            </table> 
                         </div>
                         <div className='col-md-1'>
                         </div>
