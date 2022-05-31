@@ -68,7 +68,7 @@ const Admin = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1} />
-                    <h4> <a href="#"> Download Templates </a> </h4>
+                    <h4> <a href="/grpDisplay"> Allocate Panel Members </a> </h4>
                 </center>
             </div>
 

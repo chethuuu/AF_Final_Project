@@ -131,12 +131,22 @@ userRouter.get("/alldata", (req, res) => {
         .catch(err => res.status(400).json(`${err}`));
 });
 
-userRouter.get('/user/:id'), (req, res) => {
+userRouter.get('/user/:id', (req, res) => {
     let id = req.params.id;
     User.findById(id, function (err, user) {
         res.json(user);
     });
-}
+});
+
+userRouter.get("/filter/:role", async (req, res) => {
+    try {
+        let role = req.params.role;
+        const user = await User.find({ role: role });
+        res.status(200).json(user);
+    } catch (err) {
+        res.json(err);
+    }
+});
 
 //All account login authenticated 
 userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -144,6 +154,14 @@ userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }
     res.status(200).json({ isAuthenticated: true, user: { username, role } });
 });
 
+
+//Get user details from login user name
+userRouter.get('/getUsername/:username', async (req, res) => {
+    let username = req.params.username;
+    User.findOne({ username: `${username}` }, function (err, usr) {
+        res.json(usr);
+    });
+});
 
 //deleteuser
 userRouter.delete('/delete/:id', async (req, res) => {
@@ -161,6 +179,7 @@ userRouter.delete('/delete/:id', async (req, res) => {
     }
 
 })
+
 
 
 module.exports = userRouter;
