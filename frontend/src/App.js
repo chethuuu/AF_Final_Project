@@ -25,7 +25,6 @@ import Singlemarking from './Components/Admin/Singlemarking';
 import Allmarking from './Components/Admin/Allmarking';
 import ViewResearchTopicSup from './Components/Supervisor/ViewResearchTopicSup'
 import ViewResearchTopic from './Components/Student/ViewResearchTopic';
-import SupStatus from './Components/Supervisor/SupStatus'
 import regResearch from './Components/Student/regResearch';
 import StuGroup_Create from './Components/Student/Groups/StuGroup_Create';
 import UploadFiles from './Components/Student/UploadFiles';
@@ -38,6 +37,7 @@ import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
 import UpdateSupervisorReq from './Components/Supervisor/UpdateSupervisorReq';
 import UpdateStatusSup from './Components/Supervisor/UpdateStatusSup';
 import SendEmail from './Components/Supervisor/SendEmail';
+import SendEmailCo from './Components/CoSupervisor/SendEmailCo';
 
 function App() {
   return (
@@ -63,7 +63,6 @@ function App() {
       <PrivateRoute path="/viewtopic" roles={["user"]} component={regResearch}/>
       <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
       <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
-      <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
       <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
       <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
@@ -74,6 +73,8 @@ function App() {
       <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
       <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
       <PrivateRoute path="/sendmail/:id" roles={["Supervisor"]} component={SendEmail}/>
+      <PrivateRoute path="/sendmailco/:id" roles={["CoSupervisor"]} component={SendEmailCo}/>
+      <PrivateRoute path="/cosupreq/:id" roles={["CoSupervisor"]} component={ReqCoSupervisor}/>
     </Router>
     </div>
   );
