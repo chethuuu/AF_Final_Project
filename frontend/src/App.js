@@ -33,8 +33,10 @@ import Group_Display from './Components/Admin/Group_Display';
 import ViewCoSupervisorRequests from './Components/CoSupervisor/ViewCoSupervisorRequests';
 import ReqCoSupervisor from './Components/CoSupervisor/ReqCoSupervisor';
 import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
+import UpdateUser from './Components/Admin/UpdateUser';
 import UpdateSupervisorReq from './Components/Supervisor/UpdateSupervisorReq';
 import UpdateStatusSup from './Components/Supervisor/UpdateStatusSup';
+
 
 
 function App() {
@@ -53,7 +55,7 @@ function App() {
       <PrivateRoute path="/Supervisor" roles={["Supervisor"]} component={supHome}/>
       <PrivateRoute path="/mcounterclass" roles={["admin"]} component={MCounterclass}/>
       <PrivateRoute path="/allmarking" roles={["admin"]} component={Allmarking}/>
-      <PrivateRoute path="/singlemarking" roles={["admin"]} component={Singlemarking }/> 
+      <PrivateRoute path="/singlemarking/:id" roles={["admin"]} component={Singlemarking }/> 
       <PrivateRoute path="/viewtopic" roles={["user"]} component={regResearch}/>
       <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
       <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
@@ -65,6 +67,7 @@ function App() {
       <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
       <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
       <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
+      <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser}/>
       <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
       <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
     </Router>
