@@ -27,6 +27,7 @@ import SupStatus from './Components/Supervisor/SupStatus'
 import regResearch from './Components/Student/regResearch';
 import StuGroup_Create from './Components/Student/Groups/StuGroup_Create';
 import UploadFiles from './Components/Student/UploadFiles';
+import Templates from './Components/Admin/Templates';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
       <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
       <PrivateRoute path="/createGrp" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
+      <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
     </Router>
     </div>
   );
