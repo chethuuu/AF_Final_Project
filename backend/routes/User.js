@@ -200,11 +200,6 @@ const update = await Marking.findByIdAndUpdate(userID, updateUser)
     res.status(500).send({status:"Error with updating data"});
  })
 })
-
-
-
-
-
 module.exports = userRouter;
 
 
