@@ -34,64 +34,65 @@ const studentHome = () => {
 
 
     return (
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <center>
-                        <h1>Dashboard</h1>
-                        <br /> <br />
-                    </center>
+        <div className="container my-0 py-3">
+            <div className="row">
+                <div className="col-12">
+                    <div className='col-12'>
+                        {/* <h3 className='fs-5 text-center mb-0'>Student DashBoard</h3> */}
+                        <h1 className='display-6 text-center mb-4'> <b> Student DashBoard </b></h1>
+                        <hr className='w-25 mx-auto' />
+                    </div>
 
-                    <div class="d-flex flex-row-reverse">
-                        <div class="p-2 dashboard-u">{userDetails.username}</div>
-                        <div class="p-2 dashboard-n">{userDetails.name}</div>
+                    <div className="d-flex flex-row-reverse">
+                        <div className="p-2 dashboard-u">{userDetails.username}</div>
+                        <div className="p-2 dashboard-n">{userDetails.name}</div>
                     </div>
 
                 </div>
             </div>
 
-            <div class="row py-3">
-                <div class="col-md-4">
+            <div className="row py-3">
+                <div className="col-md-4">
                     <center>
                         <img width="300px" src={img6} />
-                        <Link to={`/createGrp/${username}`}><h4>Create Student Groups</h4></Link>
+                        <Link className='navbar-brand fs-4 text-dark' to={`/createGrp/${username}`}><h4>Create Student Groups</h4></Link>
                     </center>
                 </div>
 
-                <div class="col-md-4">
+                <div className="col-md-4">
                     <center>
                         <img width="310px" src={img1} />
-                        <h4> <a href="/viewtopic"> Register for Research Topic </a> </h4>
+                        <h4> <a className='navbar-brand fs-4 text-dark' href="/viewtopic"> Register for Research Topic </a> </h4>
                     </center>
                 </div>
 
-                <div class="col-md-4">
+                <div className="col-md-4">
                     <center>
                         <img width="150px" src={img5} />
-                        <h4> <a href="/viewreg"> Request Supervisor </a> </h4>
+                        <h4> <a className='navbar-brand fs-4 text-dark' href="/viewreg"> Request Supervisor </a> </h4>
                     </center>
                 </div>
             </div>
 
             <br /> <br />
-            <div class="row">
-                <div class="col-md-4">
+            <div className="row">
+                <div className="col-md-4">
                     <center>
                         <img width="300px" src={img1} />
-                        <h4> <a href="/viewcostu"> Request Co-Supervisor  </a> </h4>
+                        <h4> <a className='navbar-brand fs-4 text-dark' href="/viewcostu"> Request Co-Supervisor  </a> </h4>
                     </center>
                 </div>
-                <div class="col-md-4">
+                <div className="col-md-4">
                     <center>
 
                         <img width="300px" src={img1} />
-                        <h4> <a href="/uploadFiles"> Sumbit Documents </a> </h4>
+                        <h4> <a className='navbar-brand fs-4 text-dark' href="/uploadFiles"> Sumbit Documents </a> </h4>
                     </center>
                 </div>
-                <div class="col-md-4">
+                <div className="col-md-4">
                     <center>
-                        <img width="300px" src={img4} />
-                        <h4> <a href="#"> Download Templates </a> </h4>
+                        <img width="250px" src={img4} />
+                        <h4> <a className='navbar-brand fs-4 text-dark' href="#"> Download Templates </a> </h4>
                     </center>
                 </div>
                 <br /> <br />
