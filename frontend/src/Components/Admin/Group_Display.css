@@ -1,0 +1,15 @@
+.groupTable{
+    padding-top: 50px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.btn1{
+    background-color:rgb(250, 175, 47)
+    
+}
+
+.btn1:hover {
+    background-color:rgb(255, 221, 162);
+    color: black;
+  }

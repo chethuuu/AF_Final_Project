@@ -28,6 +28,12 @@ import regResearch from './Components/Student/regResearch';
 import StuGroup_Create from './Components/Student/Groups/StuGroup_Create';
 import UploadFiles from './Components/Student/UploadFiles';
 import Templates from './Components/Admin/Templates';
+import SeeDocuments from './Components/Admin/SeeDocuments';
+import Group_Display from './Components/Admin/Group_Display';
+import ViewCoSupervisorRequests from './Components/CoSupervisor/ViewCoSupervisorRequests';
+import ReqCoSupervisor from './Components/CoSupervisor/ReqCoSupervisor';
+import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
+
 
 function App() {
   return (
@@ -39,7 +45,7 @@ function App() {
       <UnPrivateRoute path="/register"  component={Register}/>
       <PrivateRoute path="/data" roles={["admin"]} component={AllAccount}/>
       <PrivateRoute path="/Admin" roles={["admin"]} component={Admin}/>
-      <PrivateRoute path="/user" roles={["user"]} component={studentHome}/>
+      <PrivateRoute path="/user/:username" roles={["user"]} component={studentHome}/>
       <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome}/>
       <PrivateRoute path="/PanelMember" roles={["PanelMember"]} component={panelHome}/>
       <PrivateRoute path="/Supervisor" roles={["Supervisor"]} component={supHome}/>
@@ -50,10 +56,14 @@ function App() {
       <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
       <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
       <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
-      <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
-      <PrivateRoute path="/createGrp" roles={["user"]} component={StuGroup_Create}/>
+      <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
       <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
+      <PrivateRoute path="/seeDocs" roles={["admin"]} component={SeeDocuments}/>
+      <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
+      <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
+      <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
+
     </Router>
     </div>
   );
