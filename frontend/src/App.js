@@ -3,8 +3,9 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import Navbar from "./Components/Navbar";
-import Home from './Components/Home';
-import All from './Components/All';
+import Home from './Components/Home/Home';
+import About from './Components/Home/About';
+import Contact from './Components/Home/Contact';
 import Register from './Components/Register';
 import AllAccount from './Components/Allaccount';
 import './Components/Styles/Student.css'
@@ -36,7 +37,7 @@ import ReqCoSupervisor from './Components/CoSupervisor/ReqCoSupervisor';
 import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
 import UpdateSupervisorReq from './Components/Supervisor/UpdateSupervisorReq';
 import UpdateStatusSup from './Components/Supervisor/UpdateStatusSup';
-
+import SendEmail from './Components/Supervisor/SendEmail';
 
 function App() {
   return (
@@ -44,9 +45,13 @@ function App() {
    
    <Router>
       <Navbar/>
+      <UnPrivateRoute path="/home" component={Home}/>
+      <UnPrivateRoute path="/about" component={About}/>
+      <UnPrivateRoute path="/contact" component={Contact}/>
       <UnPrivateRoute path="/login" component={Login}/>
       <UnPrivateRoute path="/register"  component={Register}/>
-      <PrivateRoute path="/data" roles={["admin"]} component={AllAccount}/>
+      <PrivateRoute path="/userhome" roles={["user"]} component={Home}/>
+      <PrivateRoute path="/data" roles={[""]} component={AllAccount}/>
       <PrivateRoute path="/Admin" roles={["admin"]} component={Admin}/>
       <PrivateRoute path="/user/:username" roles={["user"]} component={studentHome}/>
       <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome}/>
@@ -68,6 +73,7 @@ function App() {
       <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
       <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
       <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
+      <PrivateRoute path="/sendmail/:id" roles={["Supervisor"]} component={SendEmail}/>
     </Router>
     </div>
   );
