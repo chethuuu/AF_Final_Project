@@ -16,14 +16,15 @@
 }
 
 .dashboard-u{
-    margin-top: -160px;
+    margin-top: -120px;
     font-size: 20px;
     font-weight: 150px;
     font-family: sans-serif;
+    margin-left: -150px;
 }
 
 .dashboard-n {
-    margin-top: -160px;
+    margin-top: -120px;
     font-size: 20px;
     font-weight: 150px;
     font-family: sans-serif;
