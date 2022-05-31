@@ -180,26 +180,22 @@ userRouter.delete('/delete/:id', async (req, res) => {
 
 })
 
+//update
+userRouter.put("/update/:id", (req, res, next) => {
+    const userModel = ({
+      name: req.body.name,
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      contact: req.body.contact,
+      type: req.body.type,
+      role: req.body.role,
+      interest: req.body.interest,
+    });
+    User.updateOne({_id:req.params.id }, userModel).then(result => {
+      console.log(result);
+      res.status(200).json({ message: "Update successful!" })
+    })
+  });
 
-
-//updateuser
-userRouter.route("/update/:id").put(async (req, res)=>{
-    let userID = req.params.id;
-    const{name, username, password, email, contact, type, role, interest}= req.body;
-     
-const updateUser ={
-    name, username, password, email, contact, type, role, interest
-}
-
-
-const update = await Marking.findByIdAndUpdate(userID, updateUser)
-.then(()=>{
-    res.status(200).send({status:"User update"})
-}).catch((err)=>{
-    console.log(err);
-    res.status(500).send({status:"Error with updating data"});
- })
-})
 module.exports = userRouter;
-
-
