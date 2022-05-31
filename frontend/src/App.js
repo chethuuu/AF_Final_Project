@@ -7,7 +7,7 @@ import Home from './Components/Home';
 import All from './Components/All';
 import Register from './Components/Register';
 import AllAccount from './Components/Allaccount';
-
+import './Components/Styles/Student.css'
 import PrivateRoute from "./hocs/PrivateRoute"
 import UnPrivateRoute from "./hocs/UnPrivateRoute"
 import Login from './Components/Login';
