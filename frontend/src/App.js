@@ -27,6 +27,7 @@ import SupStatus from './Components/Supervisor/SupStatus'
 import regResearch from './Components/Student/regResearch';
 import StuGroup_Create from './Components/Student/Groups/StuGroup_Create';
 import UploadFiles from './Components/Student/UploadFiles';
+import Templates from './Components/Admin/Templates';
 import SeeDocuments from './Components/Admin/SeeDocuments';
 import Group_Display from './Components/Admin/Group_Display';
 import ViewCoSupervisorRequests from './Components/CoSupervisor/ViewCoSupervisorRequests';
@@ -34,6 +35,7 @@ import ReqCoSupervisor from './Components/CoSupervisor/ReqCoSupervisor';
 import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
 import UpdateSupervisorReq from './Components/Supervisor/UpdateSupervisorReq';
 import UpdateStatusSup from './Components/Supervisor/UpdateStatusSup';
+
 
 function App() {
   return (
@@ -58,6 +60,7 @@ function App() {
       <PrivateRoute path="/supstatus" roles={["Supervisor"]} component={SupStatus}/>
       <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create}/>
       <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
+      <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
       <PrivateRoute path="/seeDocs" roles={["admin"]} component={SeeDocuments}/>
       <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
       <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>

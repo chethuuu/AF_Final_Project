@@ -107,12 +107,7 @@ const Allaccount = () => {
               <td>{admin.interest}</td>
               <td><button type="button" class="btn btn-primary">Update</button></td>
               <td><button onClick={() => deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
-
-
-
-
-
-
+              <td><Link to={`UpdateUser/${admin._id}`}><Button>Edit</Button></Link></td> 
 
             </tr>
 
