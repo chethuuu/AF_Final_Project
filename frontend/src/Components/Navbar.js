@@ -26,7 +26,7 @@ const Navbar = props => {
 
         return (
             <>
-                <Link to="/">
+                <Link to="/home">
                     <li className="navbar-brand header">
                         Home
                     </li>
@@ -64,19 +64,9 @@ const Navbar = props => {
 
         return (
             <>
-                <Link to="/">
+                <Link to="/userhome">
                     <li className="navbar-brand header">
                         Home
-                    </li>
-                </Link>
-                <Link to="/about">
-                    <li className="navbar-brand header">
-                        About
-                    </li>
-                </Link>
-                <Link to="/contact">
-                    <li className="navbar-brand header">
-                        Contact Us
                     </li>
                 </Link>
                 {

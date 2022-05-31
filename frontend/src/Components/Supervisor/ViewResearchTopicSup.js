@@ -83,7 +83,7 @@ function ViewResearchTopicSup() {
                                     <td>{topic.interest}</td>
                                     <td><button className='btn btn-danger mx-auto'>{topic.status_sup}</button></td>
                                     <td><Link to={`/updatereqsup/${topic._id}`}><Button className='btn btn-warning'>Accept / Reject</Button></Link> </td>
-                                    <td><button className='btn btn-success'>Send Status to Group Leader</button></td>
+                                    <td><Link to={`/sendmail/${topic._id}`}><button className='btn btn-success'>Send Status to Group Leader</button></Link></td>
                                     <td><Link to={`/updatereqq/${topic._id}`}><Button className='btn btn-danger'>Update</Button></Link> </td>
                                     <td><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td>
                                 </tr>
