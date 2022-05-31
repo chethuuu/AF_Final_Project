@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import axios from 'axios'
-import {Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 function ViewResearchTopicSup() {
-    
+
     const [listTopic, setListTopics] = useState([]);
     const [selects, setSelects] = useState();
 
@@ -21,16 +21,16 @@ function ViewResearchTopicSup() {
         getListTopics()
     }, []);
 
-    // const deleteResearch_Topic = async (id) => {
-    //     try {
-    //         const res = await axios.delete(`http://localhost:5000/api/rtopicss/${id}`)
-    //         const newListItems = listTopic.filter(topic => topic._id !== id);
-    //         setListTopics(newListItems);
+    const deleteResearch_Topic = async (id) => {
+        try {
+            const res = await axios.delete(`http://localhost:5000/api/rtopicss/${id}`)
+            const newListItems = listTopic.filter(topic => topic._id !== id);
+            setListTopics(newListItems);
 
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     function SearchItem() {
         console.log(gid)
@@ -54,7 +54,7 @@ function ViewResearchTopicSup() {
                             <option>G001</option>
                             <option>G008</option>
                         </select>
-                    </div> <br/><br/><br/>
+                    </div> <br /><br /><br />
                 </div>
 
                 <table class="table">
@@ -68,8 +68,8 @@ function ViewResearchTopicSup() {
                             <th scope='col'>Supervisor Status</th>
                             <th scope='col'>Accept / Reject</th>
                             <th scope='col'>Send E-mail</th>
-                            {/* <th scope="col">Update</th>
-                            <th scope="col">Delete</th> */}
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -82,10 +82,10 @@ function ViewResearchTopicSup() {
                                     <td>{topic.name}</td>
                                     <td>{topic.interest}</td>
                                     <td><button className='btn btn-danger mx-auto'>{topic.status_sup}</button></td>
-                                    <td><button className='btn btn-warning'>Accept / Reject</button></td>
-                                    <td><button className='btn btn-success'>Send Status to the Leader</button></td>
-                                    {/* <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td> 
-                                    <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td> */}
+                                    <td><Link to={`/updatereqsup/${topic._id}`}><Button className='btn btn-warning'>Accept / Reject</Button></Link> </td>
+                                    <td><button className='btn btn-success'>Send Status to Group Leader</button></td>
+                                    <td><Link to={`/updatereqq/${topic._id}`}><Button className='btn btn-danger'>Update</Button></Link> </td>
+                                    <td><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td>
                                 </tr>
                             )
                             )

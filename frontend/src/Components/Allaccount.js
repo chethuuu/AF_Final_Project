@@ -43,7 +43,7 @@ const Allaccount = () => {
     axios.get(`http://localhost:5000/user/filter/${selects}`)
       .then(res => {
         console.log(res.data)
-        setListTopics(res.data)
+        setUserRouter(res.data)
       }).catch(err => console.error(err))
   }
 
@@ -60,7 +60,7 @@ const Allaccount = () => {
         <div class="form-inline my-2 my-lg-0">
           <h5 className='grpid'>Select by User Role  </h5>
           <Button className='btn btn-primary search' onClick={() => { SearchItem({ selects }) }}>Search</Button>
-          <select className='form-control select-role' name="role" id="role" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
+          <select className='form-control select-role' name="role" id="role" value={selects} onChange={e => setSelects(e.target.value)}>
             <option>None</option>
             <option>user</option>
             <option>admin</option>
@@ -107,12 +107,7 @@ const Allaccount = () => {
               <td>{admin.interest}</td>
               <td><button type="button" class="btn btn-primary">Update</button></td>
               <td><button onClick={() => deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
-
-
-
-
-
-
+              <td><Link to={`UpdateUser/${admin._id}`}><Button>Edit</Button></Link></td> 
 
             </tr>
 
