@@ -45,7 +45,6 @@ const Login = props => {
 
 
         <div className="container">
-
             <form onSubmit={onSubmit}>
                 <br></br>
                 <h2>Please sign in</h2>

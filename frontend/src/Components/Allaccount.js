@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios, { Axios } from 'axios';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 
 const Allaccount = () => {
 
   const [userRouter, setUserRouter] = useState([]);
+  const [selects, setSelects] = useState();
 
   useEffect(() => {
 
@@ -16,25 +18,34 @@ const Allaccount = () => {
 
   });
 
-  const deleteUser = async(id) => {
+  const deleteUser = async (id) => {
 
     try {
 
       const res = await axios.delete(`http://localhost:5000/user/delete/${id}`)
 
-      const newListItems = userRouter.filter(topic => topic._id !==  id);
+      const newListItems = userRouter.filter(topic => topic._id !== id);
 
       setUserRouter(newListItems);
 
 
 
-    } catch(err) {
+    } catch (err) {
 
       console.log(err);
 
     }
 
-}
+  }
+
+  function SearchItem() {
+    console.log(role)
+    axios.get(`http://localhost:5000/user/filter/${selects}`)
+      .then(res => {
+        console.log(res.data)
+        setListTopics(res.data)
+      }).catch(err => console.error(err))
+  }
 
   return (
 
@@ -44,6 +55,21 @@ const Allaccount = () => {
           Home
         </li>
       </Link>
+
+      <div class="input-group">
+        <div class="form-inline my-2 my-lg-0">
+          <h5 className='grpid'>Select by User Role  </h5>
+          <Button className='btn btn-primary search' onClick={() => { SearchItem({ selects }) }}>Search</Button>
+          <select className='form-control select-role' name="role" id="role" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
+            <option>None</option>
+            <option>user</option>
+            <option>admin</option>
+            <option>Supervisor</option>
+            <option>CoSupervisor</option>
+            <option>PanelMember</option>
+          </select>
+        </div> <br /><br /><br />
+      </div>
 
       <table className="table">
         <thead>
@@ -80,8 +106,8 @@ const Allaccount = () => {
               <td>{admin.role}</td>
               <td>{admin.interest}</td>
               <td><button type="button" class="btn btn-primary">Update</button></td>
-              <td><button onClick={()=>deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
-              
+              <td><button onClick={() => deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
+
 
 
 
