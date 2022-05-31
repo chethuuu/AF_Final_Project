@@ -34,6 +34,9 @@ import ViewCoSupervisorRequests from './Components/CoSupervisor/ViewCoSupervisor
 import ReqCoSupervisor from './Components/CoSupervisor/ReqCoSupervisor';
 import ViewCoSupervisor from './Components/Student/ViewCoSupervisor';
 import UpdateUser from './Components/Admin/UpdateUser';
+import UpdateSupervisorReq from './Components/Supervisor/UpdateSupervisorReq';
+import UpdateStatusSup from './Components/Supervisor/UpdateStatusSup';
+
 
 
 function App() {
@@ -65,7 +68,8 @@ function App() {
       <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
       <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
       <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser}/>
-
+      <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
+      <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
     </Router>
     </div>
   );
