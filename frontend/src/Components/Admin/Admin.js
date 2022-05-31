@@ -61,7 +61,7 @@ const Admin = () => (
             <div class="col-md-4">
                 <center>
                     <img width="300px" src={img1}  />
-                    <h4> <a href="#"> Sumbit Documents </a> </h4>
+                    <h4> <a href="/seeDocs"> Sumbit Documents </a> </h4>
                 </center>
             </div>
 
