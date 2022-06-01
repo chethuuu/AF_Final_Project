@@ -11,9 +11,10 @@ const SendEmail = (props) => {
     const [inputs, setInputs] = useState({
         gid: "",
         lead_no: "",
+        lead_email: "",
         name: "",
         interest: "",
-        status_sup:"",
+        status_sup: "",
     });
 
     useEffect(() => {
@@ -51,19 +52,21 @@ const SendEmail = (props) => {
                     <div className="">
                     </div>
                     <div className="col p-5 mx-auto">
-                        <h1 className=" fw-bolder mb-5"><center>Send Status as a E-mail</center></h1>
+                        <h3 className=" fw-bolder mb-5"><center>Send Status to the Group Leader</center></h3>
                         <form onSubmit={sendEmail}>
                             <div class="mb-3">
-                                <label for="gid" class="form-label">Group ID</label>
-                                <input name="gid" value={inputs.gid} type="text" class="form-control" id="gid" required/>
-                            </div>
-                            <div class="mb-3">
                                 <label for="name" class="form-label">Group Leader's E-mail</label>
-                                <input name="lead_no" type="text" class="form-control"  required />
+                                <input name="lead_no" value={inputs.lead_email} type="text" class="form-control" required />
                             </div>
+
+                            <div class="mb-3">
+                                <label for="gid" class="form-label">Group ID</label>
+                                <input name="gid" value={inputs.gid} type="text" class="form-control" id="gid" required />
+                            </div>
+
                             <div class="mb-3">
                                 <label for="interest" class="form-label">Supervisor Status</label>
-                                <input name="status_sup" value={inputs.status_sup}  type="text" class="form-control" id="interest" required />
+                                <input name="status_sup" value={inputs.status_sup} type="text"  class="form-control" id="interest" required />
                             </div>
                             <br />
                             <button type="submit" value="Send" class="btn btn-success w-100 rounded-pill"> Send E-mail </button>
