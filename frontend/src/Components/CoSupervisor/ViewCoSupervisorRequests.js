@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 function ViewCoSupervisorRequests() {
@@ -9,9 +10,8 @@ function ViewCoSupervisorRequests() {
   useEffect(() => {
     const getListTopics = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/rtopics/')
+        const res = await axios.get('http://localhost:5000/api/status/approve')
         setListTopics(res.data);
-        console.log('render');
       } catch (err) {
         console.log(err);
       }
@@ -19,19 +19,19 @@ function ViewCoSupervisorRequests() {
     getListTopics()
   }, []);
 
-  function SearchItem() {
-    console.log(status_sup)
-    axios.get(`http://localhost:5000/api/rtopics/status/${selects}`)
-      .then(res => {
-        console.log(res.data)
-        setListTopics(res.data)
-      }).catch(err => console.error(err))
-  }
+  // function SearchItem() {
+  //   console.log(status_sup)
+  //   axios.get(`http://localhost:5000/api/rtopics/status/${selects}`)
+  //     .then(res => {
+  //       console.log(res.data)
+  //       setListTopics(res.data)
+  //     }).catch(err => console.error(err))
+  // }
 
   return (
     <div>
       <div className='container shadow my-5'>
-        <div class="input-group">
+        {/* <div class="input-group">
           <div class="form-inline my-2 my-lg-0">
             <h5 className='grpid'>Select Status</h5>
             <Button className='btn btn-primary search' onClick={() => { SearchItem({ selects }) }}>Search</Button>
@@ -42,16 +42,15 @@ function ViewCoSupervisorRequests() {
               <option>Pending</option>
             </select>
           </div> <br /><br /><br />
-        </div>
+        </div> */}
 
         <table class="table">
           <thead className='table-dark'>
             <tr>
               <th scope='col'>No</th>
               <th scope="col">Group ID</th>
-              <th scope="col">Leader's IT Number</th>
-              <th scope="col">Topic Name</th>
               <th scope="col">Topic Category</th>
+              <th scope="col">Topic Name</th>
               <th scope='col'>Supervisor Status</th>
               <th scope='col'>Co-Supervisor Status</th>
               <th scope='col'>Accept / Reject</th>
@@ -64,13 +63,12 @@ function ViewCoSupervisorRequests() {
                 <tr>
                   <td>{id + 1}</td>
                   <td>{topic.gid}</td>
-                  <td>{topic.lead_no}</td>
-                  <td>{topic.name}</td>
                   <td>{topic.interest}</td>
+                  <td>{topic.name}</td>
                   <td><button className='btn btn-danger'>{topic.status_sup}</button></td>
                   <td><button className='btn btn-danger'>{topic.status_co}</button></td>
-                  <td><button className='btn btn-warning'>Accept / Reject</button></td>
-                  <td><button className='btn btn-success'>Send Status to the Leader</button></td>
+                  <td><Link to={`/cosupreq/${topic._id}`}><Button className='btn btn-warning'>Accept / Reject</Button></Link> </td>
+                  <td><Link to={`/sendmailco/${topic._id}`}><button className='btn btn-success'>Send Status to Group Leader</button></Link></td>
                 </tr>
               )
               )

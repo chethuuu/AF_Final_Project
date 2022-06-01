@@ -2,96 +2,123 @@ const Research_Topic = require('../models/ResearchTopicModel');
 
 const ResearchTopicCtrl = {
 
-    //get Research_Topic
-    getResearch_Topic: async (req, res) => {
-        try {
-            const rtopics = await Research_Topic.find()
-            res.json(rtopics)
-        } catch (err) {
-            return res.status(500).json({ msg: err.message })
-        }
-    },
+  //get Research_Topic
+  getResearch_Topic: async (req, res) => {
+    try {
+      const rtopics = await Research_Topic.find()
+      res.json(rtopics)
+    } catch (err) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
 
-    //get Research_Topic by ID
-    getResearch_TopicByID: async (req, res) => {
-        let id = req.params.id;
-        Research_Topic.findById(id, function (err, rtopics) {
-            res.json(rtopics);
-        });
-    },
+  //get Research_Topic by ID
+  getResearch_TopicByID: async (req, res) => {
+    let id = req.params.id;
+    Research_Topic.findById(id, function (err, rtopics) {
+      res.json(rtopics);
+    });
+  },
 
-    //add Research_Topic
-    createResearch_Topic: async (req, res) => {
-        try {
-            const { gid, lead_no, name, interest, status_sup, status_co } = req.body;
-            const rtopics = await Research_Topic.findOne({ name })
-            if (rtopics) return res.status(400).json({ msg: "This Research Topic already exists." })
+  //add Research_Topic
+  createResearch_Topic: async (req, res) => {
+    try {
+      const { gid, lead_no, lead_email, name, interest, request, status_sup, status_co } = req.body;
+      const rtopics = await Research_Topic.findOne({ name })
+      if (rtopics) return res.status(400).json({ msg: "This Research Topic already exists." })
 
-            const newResearch_Topic = new Research_Topic({ gid, lead_no, name, interest, status_sup, status_co })
+      const newResearch_Topic = new Research_Topic({ gid, lead_no, lead_email, name, interest, request, status_sup, status_co })
 
-            await newResearch_Topic.save()
-            res.json({ msg: "Created a Research Topic" })
+      await newResearch_Topic.save()
+      res.json({ msg: "Created a Research Topic" })
 
-        } catch (err) {
-            return res.status(500).json({ msg: err.message })
-        }
-    },
+    } catch (err) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
 
-    //update Research Topic
-    updateResearch_Topic: async (req, res) => {
-        try {
-            const { gid, lead_no, name, interest, status_sup, status_co } = req.body;
-            await Research_Topic.findOneAndUpdate({ _id: req.params.id }, { gid, lead_no, name, interest, status_sup, status_co })
+  //update Research Topic
+  updateResearch_Topic: async (req, res) => {
+    try {
+      const { gid, lead_no, lead_email, name, interest, request, status_sup, status_co } = req.body;
+      await Research_Topic.findOneAndUpdate({ _id: req.params.id }, { gid, lead_email, lead_no, name, interest, request, status_sup, status_co })
 
-            res.json({ msg: "Updated Research Topic" })
+      res.json({ msg: "Updated Research Topic" })
 
-        } catch (err) {
-            return res.status(500).json({ msg: err.message })
-        }
-    },
+    } catch (err) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
 
-    //delete Research Topic
-    deleteResearch_Topic: async (req, res) => {
-        try {
-            await Research_Topic.findByIdAndDelete(req.params.id)
-            res.json({ msg: "Deleted a Research Topic" })
-        } catch (err) {
-            return res.status(500).json({ msg: err.message })
-        }
-    },
+  //delete Research Topic
+  deleteResearch_Topic: async (req, res) => {
+    try {
+      await Research_Topic.findByIdAndDelete(req.params.id)
+      res.json({ msg: "Deleted a Research Topic" })
+    } catch (err) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
 
-    //get details from groupID
-    getDetailsbyGroupID: async (req, res) => {
-        try {
-          let gid = req.params.gid;
-          const rtopics = await Research_Topic.find({gid:gid});
-          res.status(200).json(rtopics);
-        } catch (err) {
-          res.json(err);
-        }
-      },
+  //get details from groupID
+  getDetailsbyGroupID: async (req, res) => {
+    try {
+      let gid = req.params.gid;
+      const rtopics = await Research_Topic.find({ gid: gid });
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
 
-      //get details from Interest
-      getDetailsbyInterest: async (req, res) => {
-        try {
-          let interest = req.params.interest;
-          const rtopics = await Research_Topic.find({interest:interest});
-          res.status(200).json(rtopics);
-        } catch (err) {
-          res.json(err);
-        }
-      },
+  //get details from Interest
+  getDetailsbyInterest: async (req, res) => {
+    try {
+      let interest = req.params.interest;
+      const rtopics = await Research_Topic.find({ interest: interest });
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
 
-      //get details from Co-Supervisor status
-      getDetailsbyStatus: async (req, res) => {
-        try {
-          let status_sup = req.params.status_sup;
-          const rtopics = await Research_Topic.find({status_sup:status_sup});
-          res.status(200).json(rtopics);
-        } catch (err) {
-          res.json(err);
-        }
-      },
+  //get details from Co-Supervisor status
+  getDetailsbyStatus: async (req, res) => {
+    try {
+      let status_sup = req.params.status_sup;
+      const rtopics = await Research_Topic.find({ status_sup: status_sup });
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
+
+  getApproveStatus: async (req, res) => {
+    try {
+      const rtopics = await Research_Topic.find({ $and: [{status_sup:'Approved'},{request: 'Requested'}]});
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
+
+  getApproveSupStatus: async (req, res) => {
+    try {
+      const rtopics = await Research_Topic.find({status_sup:'Approved'});
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
+
+  getEmailStatusNot: async (req, res) => {
+    try {
+      const rtopics = await Research_Topic.find({ request: 'Not Requested' });
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
 }
 
 module.exports = ResearchTopicCtrl;

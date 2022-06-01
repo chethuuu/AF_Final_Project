@@ -43,13 +43,13 @@ const Allaccount = () => {
     axios.get(`http://localhost:5000/user/filter/${selects}`)
       .then(res => {
         console.log(res.data)
-        setListTopics(res.data)
+        setUserRouter(res.data)
       }).catch(err => console.error(err))
   }
 
   return (
 
-    <div className="container">
+    <div class="container">
       <Link to="/admin">
         <li className="nav-item nav-link">
           Home
@@ -60,7 +60,7 @@ const Allaccount = () => {
         <div class="form-inline my-2 my-lg-0">
           <h5 className='grpid'>Select by User Role  </h5>
           <Button className='btn btn-primary search' onClick={() => { SearchItem({ selects }) }}>Search</Button>
-          <select className='form-control select-role' name="role" id="role" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
+          <select className='form-control select-role' name="role" id="role" value={selects} onChange={e => setSelects(e.target.value)}>
             <option>None</option>
             <option>user</option>
             <option>admin</option>
@@ -72,7 +72,7 @@ const Allaccount = () => {
       </div>
 
       <table className="table">
-        <thead>
+        <thead class="thead-dark">
           <tr>
             <th Scope="col"> #</th>
             <th Scope="col"> Name </th>
@@ -82,6 +82,8 @@ const Allaccount = () => {
             <th Scope="col"> Type </th>
             <th Scope="col"> Role  </th>
             <th Scope="col"> Interest </th>
+            <th Scope="col"></th>
+            <th Scope="col"></th>
 
             <div className="col-lg-9 mt-2 mb-2">
 
@@ -105,14 +107,8 @@ const Allaccount = () => {
               <td>{admin.type}</td>
               <td>{admin.role}</td>
               <td>{admin.interest}</td>
-              <td><button type="button" class="btn btn-primary">Update</button></td>
               <td><button onClick={() => deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
-
-
-
-
-
-
+              <td><Link to={`UpdateUser/${admin._id}`}><Button>Update</Button></Link></td> 
 
             </tr>
 

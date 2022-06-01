@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Group_Display.css'
 import {Button} from 'react-bootstrap';
 
-export default function Group_Display(){
+export default function Group_notAssigned(){
 
     const [groupList, setGroups] = useState([]);
 
@@ -12,7 +12,7 @@ export default function Group_Display(){
     useEffect(() => {
         const getGroupList = async() => {
             try {
-                const res = await axios.get('http://localhost:5000/group/getdata/assigned')
+                const res = await axios.get('http://localhost:5000/group/getdata/filter')
                 setGroups(res.data);
             } catch(err) {
                 console.log(err);
@@ -21,11 +21,13 @@ export default function Group_Display(){
         getGroupList()
     },[]);
 
+
     return(
         <div>
+            <Link to={'/grpDisplays'}><Button className='btn1'>Panel Assigned Groups</Button></Link>
             <div className='groupTable'>
             <div className="container ">
-                
+
                 <table className="table ">
                     <thead>
                         <tr  key={"1"}>
@@ -47,7 +49,7 @@ export default function Group_Display(){
                                 <td>{groups.pannel_status}</td>
 
                                 <td>
-                                    <Link to={`/viewGroup/${groups._id}`}><Button className='btn1'>View Details</Button></Link>
+                                    <Link to={`/panelAssign/${groups._id}`}><Button className='btn1'>Panel Assign</Button></Link>
                                 </td>
                             
                             </tr>

@@ -14,6 +14,12 @@ const researchTopicSchema = new mongoose.Schema ({
         unique: true
     },
 
+    lead_email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+
     name: {
         type: String,
         required: true,
@@ -23,6 +29,11 @@ const researchTopicSchema = new mongoose.Schema ({
     interest: {
         type: String,
         required: true,
+    },
+
+    request: {
+        type: String,
+        default: 'Requested'
     },
 
     status_sup: {
