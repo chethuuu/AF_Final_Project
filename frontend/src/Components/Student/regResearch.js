@@ -9,8 +9,10 @@ const ResearchTopic = () => {
   const [inputs, setInputs] = useState({
     gid: "",
     lead_no: "",
+    lead_email: "",
     name: "",
     interest: "",
+    request: "",
   });
 
   const onChangeInput = (e) => {
@@ -25,6 +27,7 @@ const ResearchTopic = () => {
       .post("http://localhost:5000/api/rtopics", {
         gid: inputs.gid,
         lead_no: inputs.lead_no,
+        lead_email: inputs.lead_email,
         name: inputs.name,
         interest: inputs.interest,
       })
@@ -60,6 +63,10 @@ const ResearchTopic = () => {
               </div>
               <div class="mb-3">
                 <label for="name" class="form-label">Research Topic</label>
+                <input name="lead_email" value={inputs.lead_email} onChange={onChangeInput} type="text" class="form-control" placeholder='Enter Research Topic' required />
+              </div>
+              <div class="mb-3">
+                <label for="name" class="form-label">Research Topic</label>
                 <input name="name" value={inputs.name} onChange={onChangeInput} type="text" class="form-control" placeholder='Enter Research Topic' required />
               </div>
               <div class="mb-3">
@@ -72,10 +79,10 @@ const ResearchTopic = () => {
                   <option value="Cyber Security">Cyber Security</option>
                   <option value="Computer Networking">Computer Networking</option>
                 </select>
-              </div> 
+              </div>
               <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
               <label for="check">&nbsp; Once you Register for a topic, You can't Change it</label><br></br>
-              <br/>
+              <br />
               <button type="submit" class="btn btn-danger w-100 rounded-pill">Register your Topic</button>
               <br />
               <NavLink to="/viewreg"><button className='btn btn-warning w-100 rounded-pill' type="submit"> View Register Topic </button></NavLink>
