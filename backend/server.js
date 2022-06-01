@@ -15,9 +15,9 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors())
-app.use(fileUpload({
-    useTempFiles: true
-}));
+// app.use(fileUpload({
+//     useTempFiles: true
+// }));
 
 //import routes
 const StuGroupRoute = require("./routes/StuGroupRoute");
