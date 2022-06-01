@@ -30,7 +30,7 @@ export default function Allmarking() {
     }, []);
     return (
         <div class="container shadow my-5 col-md-10 p-8 align-items-center">
-            <hi>Marking Schemes</hi>
+            <h1>Marking Schemes of {marking.subject}</h1><br></br>
 
 
             <table class="table table-sm">
@@ -41,7 +41,7 @@ export default function Allmarking() {
                         <th scope="col">Assigenment</th>
                         <th scope="col">Date of deadline</th>
                         <th scope="col">Marking points</th>
-                        <th scope="col">Marks</th>
+                       
 
 
 
