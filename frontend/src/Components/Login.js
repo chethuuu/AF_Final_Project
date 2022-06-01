@@ -61,7 +61,7 @@ const Login = props => {
                         <form onSubmit={onSubmit}>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Username</label>
-                                <input name="username" onChange={onChange} type="email" class="form-control"  required />
+                                <input name="username" onChange={onChange} type="text" class="form-control"  required />
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Password</label>
