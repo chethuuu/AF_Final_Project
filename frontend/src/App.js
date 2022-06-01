@@ -42,6 +42,7 @@ import UpdateSupervisorReq from './Components/Supervisor/UpdateSupervisorReq';
 import UpdateStatusSup from './Components/Supervisor/UpdateStatusSup';
 import SendEmail from './Components/Supervisor/SendEmail';
 import SendEmailCo from './Components/CoSupervisor/SendEmailCo';
+import ReqCoSupervisorRequest from './Components/Student/ReqCoSupervisorRequest';
 
 function App() {
   return (
@@ -55,7 +56,7 @@ function App() {
       <UnPrivateRoute path="/login" component={Login}/>
       <UnPrivateRoute path="/register"  component={Register}/>
       <PrivateRoute path="/userhome" roles={["user"]} component={Home}/>
-      <PrivateRoute path="/data" roles={[""]} component={AllAccount}/>
+      <PrivateRoute path="/data" roles={["admin"]} component={AllAccount}/>
       <PrivateRoute path="/Admin" roles={["admin"]} component={Admin}/>
       <PrivateRoute path="/user/:username" roles={["user"]} component={studentHome}/>
       <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome}/>
@@ -86,6 +87,7 @@ function App() {
       <PrivateRoute path="/sendmail/:id" roles={["Supervisor"]} component={SendEmail}/>
       <PrivateRoute path="/sendmailco/:id" roles={["CoSupervisor"]} component={SendEmailCo}/>
       <PrivateRoute path="/cosupreq/:id" roles={["CoSupervisor"]} component={ReqCoSupervisor}/>
+      <PrivateRoute path="/reqsent/:id" roles={["user"]} component={ReqCoSupervisorRequest}/>
     </Router>
     </div>
   );
