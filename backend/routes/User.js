@@ -180,6 +180,24 @@ userRouter.delete('/delete/:id', async (req, res) => {
 
 })
 
+//update
+userRouter.put("/update/:id", (req, res, next) => {
+    const userModel = ({
+      name: req.body.name,
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      contact: req.body.contact,
+      type: req.body.type,
+      role: req.body.role,
+      interest: req.body.interest,
+    });
+    User.updateOne({_id:req.params.id }, userModel).then(result => {
+      console.log(result);
+      res.status(200).json({ message: "Update successful!" })
+    })
+  });
+
 
 //Get only panel members
 userRouter.get("/getpanel/filter", async(req,res) => {
@@ -192,7 +210,6 @@ userRouter.get("/getpanel/filter", async(req,res) => {
 })
 
 
-
 module.exports = userRouter;
 
-
+module.exports = userRouter;

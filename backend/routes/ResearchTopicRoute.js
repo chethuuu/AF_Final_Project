@@ -8,7 +8,7 @@ router.route('/rtopics')
 router.route('/rtopicss/:id')
   .put(ResearchTopicCtrl.updateResearch_Topic)
   .delete(ResearchTopicCtrl.deleteResearch_Topic);
-
+  
 router.route('/rtopicsbyID/:id')
   .get(ResearchTopicCtrl.getResearch_TopicByID);
   

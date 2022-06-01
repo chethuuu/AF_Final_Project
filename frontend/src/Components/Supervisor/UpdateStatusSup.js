@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-const ReqCoSupervisor = (props) => {
+const UpdateStatusSup = (props) => {
 
     const { id } = useParams("");
 
     const [inputs, setInputs] = useState({
-        status_co: "",
+        status_sup: "",
     });
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const ReqCoSupervisor = (props) => {
             .then(res => {
                 console.log(res.data)
                 alert("Research Topic Status Updated Sucessfully")
-                props.history.push('/viewco');
+                props.history.push('/viewtopicsup');
 
             }).catch((err) => {
                 alert(err)
@@ -47,12 +47,12 @@ const ReqCoSupervisor = (props) => {
 
                 <div className="container shadow my-5 mx-auto w-50">
                     <div className="col p-5 mx-auto">
-                        <h1 className=" fw-bolder mb-5"><center>Co-Supervisor Status</center></h1>
+                        <h1 className=" fw-bolder mb-5"><center>Supervisor Status</center></h1>
                         <form onSubmit={sendData}>
                             <div className="form-group">
                                 <select className="form-control w-40" name='itemType'
-                                    value={inputs.status_co}
-                                    onChange={(e) => { setInputs({ status_co: e.target.value }) }}>
+                                    value={inputs.status_sup}
+                                    onChange={(e) => { setInputs({ status_sup: e.target.value }) }}>
                                     <option>Pending</option>
                                     <option>Approved</option>
                                     <option>Reject</option>
@@ -68,4 +68,4 @@ const ReqCoSupervisor = (props) => {
     )
 }
 
-export default ReqCoSupervisor;
+export default UpdateStatusSup;
