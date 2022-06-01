@@ -11,6 +11,7 @@ const SendEmailCo = (props) => {
     const [inputs, setInputs] = useState({
         gid: "",
         lead_no: "",
+        lead_email: "",
         name: "",
         interest: "",
         status_sup: "",
@@ -56,11 +57,11 @@ const SendEmailCo = (props) => {
                         <form onSubmit={sendEmail}>
                             <div class="mb-3">
                                 <label for="gid" class="form-label">Group ID</label>
-                                <input name="gid" value={inputs.gid} type="text" class="form-control" id="gid" required/>
+                                <input name="gid" value={inputs.gid} type="text" class="form-control" id="gid" readOnly/>
                             </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Group Leader's E-mail</label>
-                                <input name="lead_no" type="text" class="form-control"  required />
+                                <input name="lead_no" value={inputs.lead_email} type="text" class="form-control"  required />
                             </div>
                             <div class="mb-3">
                                 <label for="interest" class="form-label">Co-Supervisor Status</label>
