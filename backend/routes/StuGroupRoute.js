@@ -99,8 +99,6 @@ router.get("/getdata/assigned", async(req,res) => {
   }
 })
 
-
-
 //view selected group detail
 router.get('/getone/:id', async(req,res) =>{
   let id = req.params.id;
@@ -110,6 +108,28 @@ router.get('/getone/:id', async(req,res) =>{
 });
 
 
+//panel assign
+router.put("/panelAsign/:id", (req, res, next) => {
+  const groupModel = ({
+    pannel_status: req.body.pannel_status,
+    pannel:{
+      panel1:{
+        ID: req.body.pannel.panel1.ID,
+        name: req.body.pannel.panel1.name,
+        email: req.body.pannel.panel1.email
+      },
+      panel2:{
+        ID: req.body.pannel.panel2.ID,
+        name: req.body.pannel.panel2.name,
+        email: req.body.pannel.panel2.email
+      }
+    }
+  });
+  Group.updateOne({_id:req.params.id }, groupModel).then(result => {
+    console.log(result);
+    res.status(200).json({ message: "Panel Added" })
+  })
+});
 
 
 
