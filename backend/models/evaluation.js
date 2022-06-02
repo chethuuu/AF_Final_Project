@@ -37,6 +37,12 @@ const evaluationSchema = new mongoose.Schema({
         required: true,
     },
 
+    point4: {
+        type: String,
+        required: true,
+    },
+
+
     marks1: {
         type: Int32Array,
         required: true,
@@ -48,6 +54,11 @@ const evaluationSchema = new mongoose.Schema({
     },
 
     marks3: {
+        type: Int32Array,
+        required: true,
+    },
+
+    marks4: {
         type: Int32Array,
         required: true,
     },
