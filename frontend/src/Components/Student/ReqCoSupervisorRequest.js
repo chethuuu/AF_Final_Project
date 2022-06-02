@@ -30,28 +30,21 @@ const ReqCoSupervisorRequest = (props) => {
 
   function sendData(e) {
     e.preventDefault();
-
     axios.put(`http://localhost:5000/api/rtopicss/${id}`, inputs)
       .then(res => {
         console.log(res.data)
         alert("Request Sent to the Supervisor Successfully")
         props.history.push('/viewcostu');
-
       }).catch((err) => {
         alert(err)
         console.error(err)
-
       })
   }
 
 
   return (
     <div>
-      <div>
-
         <div className="container shadow my-5 mx-auto w-50">
-          <div className="">
-          </div>
           <div className="col p-5 mx-auto">
             <h1 className=" fw-bolder mb-5"><center>Register Research Topic</center></h1>
             <form onSubmit={sendData}>
@@ -76,7 +69,7 @@ const ReqCoSupervisorRequest = (props) => {
           </div>
 
         </div>
-      </div>
+      
     </div>
   )
 }
