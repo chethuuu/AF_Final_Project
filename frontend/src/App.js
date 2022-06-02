@@ -8,8 +8,12 @@ import About from './Components/Home/About';
 import Contact from './Components/Home/Contact';
 import Register from './Components/Register';
 import AllAccount from './Components/Allaccount';
+
+//Import Css Files
 import './Components/Styles/Student.css'
 import './Components/Styles/Home.css'
+import './Components/Styles/Supervisor.css'
+
 import PrivateRoute from "./hocs/PrivateRoute"
 import UnPrivateRoute from "./hocs/UnPrivateRoute"
 import Login from './Components/Login';

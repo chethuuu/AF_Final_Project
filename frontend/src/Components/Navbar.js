@@ -120,7 +120,7 @@ const Navbar = props => {
 
                 }
 
-                <a class="navbar-brand topic-un" href="#">Research Project Management Tool</a>
+                <a class="navbar-brand topic-a" href="#">Research Project Management Tool</a>
 
                 <Link to="/">
                     <button className="btn btn-outline-primary ms-9 px-4 rounded-pill btn_logout" onClick={onClickLogoutHandler}>

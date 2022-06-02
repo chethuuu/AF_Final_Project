@@ -48,9 +48,9 @@ export default function AddMarking(){
         <div class="row">
         <div class="col-11">
         <div className="container shadow my-5 col-md-9 p-6 align-items-center">
-            <div className=" d-flex flex-column align-items-center text-dark justify-content-center form">
-                <h5 className="display-2 fw-bolder">Marking Shcem Creation</h5>
-                <p className="lead text-center">Enter Marking schem details</p>
+            <div className=" d-flex flex-column align-items-center text-dark justify-content-center">
+                <h1 className=" fw-bolder">Marking Shcema Creation</h1>
+                <p className="lead text-center">Enter Marking Schema Details</p>
               
                
             </div>

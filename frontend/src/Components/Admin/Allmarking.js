@@ -21,15 +21,12 @@ export default function Allmarking() {
     return(
         <div  class="container shadow my-5 col-md-9 p-6 align-items-center">
             <h1>Marking Scheme details</h1>
-            
-            
             <table class="table">
                 <thead  class="thead-dark">
                     <tr>
                         <th scope="col">Subject</th>
                         <th scope="col">Assigenment</th>
                         <th scope="col"></th>
-                        
                     </tr>
                 </thead>
                 <tbody>
@@ -39,7 +36,6 @@ export default function Allmarking() {
                                 <th scope="row">{items.subject}</th>
                                 <td>{items.assignment}</td>
                                  <td><Link to={`/singlemarking/${items._id}`}><Button>View</Button></Link></td> 
-
                             </tr>
                         ))
                     }

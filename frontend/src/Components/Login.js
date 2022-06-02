@@ -39,15 +39,8 @@ const Login = props => {
     }
 
 
-
-
-
-
     return (
-
-
         <div>
-
             <div className="container shadow my-5">
                 <div className="row">
                     <div className="col-md-5 d-flex flex-column align-items-center text-dark justify-content-center form">
@@ -60,12 +53,12 @@ const Login = props => {
                         <h1 className="display-6 fw-bolder mb-5">LOGIN</h1>
                         <form onSubmit={onSubmit}>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Username</label>
-                                <input name="username" onChange={onChange} type="text" class="form-control"  required />
+                                <label for="username" class="form-label">Username</label>
+                                <input name="username" onChange={onChange} type="text" class="form-control" required />
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input name="password" onChange={onChange} autoComplete="on" type="password" class="form-control"  required />
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" onChange={onChange} autoComplete="on" type="password" class="form-control" required />
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" />
@@ -77,13 +70,8 @@ const Login = props => {
                 </div>
             </div>
             {message ? <Message message={message} /> : null}
-
-
         </div>
     )
-
 }
-
-
 
 export default Login;
