@@ -48,7 +48,7 @@ import SendEmail from './Components/Supervisor/SendEmail';
 import SendEmailCo from './Components/CoSupervisor/SendEmailCo';
 import ReqCoSupervisorRequest from './Components/Student/ReqCoSupervisorRequest';
 import PMResearchTopicStatus from './Components/PanelMember/PMResearchTopicStatus';
-import StudentProfile from './Components/Student/StudentProfile';
+
 
 function App() {
   return (
