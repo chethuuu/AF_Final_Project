@@ -60,11 +60,11 @@ const Login = props => {
                         <h1 className="display-6 fw-bolder mb-5">LOGIN</h1>
                         <form onSubmit={onSubmit}>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Username</label>
-                                <input name="username" onChange={onChange} type="email" class="form-control"  required />
+                                <label for="username" class="form-label">Username</label>
+                                <input name="username" onChange={onChange} type="text" class="form-control"  required />
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <label for="password" class="form-label">Password</label>
                                 <input name="password" onChange={onChange} autoComplete="on" type="password" class="form-control"  required />
                             </div>
                             <div class="mb-3 form-check">

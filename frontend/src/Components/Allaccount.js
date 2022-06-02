@@ -49,18 +49,12 @@ const Allaccount = () => {
 
   return (
 
-    <div className="container">
-      <Link to="/admin">
-        <li className="nav-item nav-link">
-          Home
-        </li>
-      </Link>
-
+    <div className="container shadow my-5">
       <div class="input-group">
         <div class="form-inline my-2 my-lg-0">
-          <h5 className='grpid'>Select by User Role  </h5>
-          <Button className='btn btn-primary search' onClick={() => { SearchItem({ selects }) }}>Search</Button>
-          <select className='form-control select-role' name="role" id="role" value={selects} onChange={e => setSelects(e.target.value)}>
+          <h5 className='search-topic'>Select by User Role  </h5>
+          <Button className='btn btn-primary search-btn' onClick={() => { SearchItem({ selects }) }}>Search</Button>
+          <select className='form-control select-btn w-50' name="role" id="role" value={selects} onChange={e => setSelects(e.target.value)}>
             <option>None</option>
             <option>user</option>
             <option>admin</option>
@@ -68,36 +62,28 @@ const Allaccount = () => {
             <option>CoSupervisor</option>
             <option>PanelMember</option>
           </select>
-        </div> <br /><br /><br />
+        </div> <br />
       </div>
 
       <table className="table">
-        <thead>
+        <thead className='table-dark'>
           <tr>
-            <th Scope="col"> #</th>
+            <th Scope="col"> No </th>
             <th Scope="col"> Name </th>
-            <th Scope="col"> User name </th>
+            <th Scope="col"> Username </th>
             <th Scope="col"> Email Address </th>
             <th Scope="col"> Contact Number </th>
             <th Scope="col"> Type </th>
             <th Scope="col"> Role  </th>
-            <th Scope="col"> Interest </th>
-
-            <div className="col-lg-9 mt-2 mb-2">
-
-
-            </div>
-
+            <th Scope="col"> Topic Category </th>
+            <th scope='col'> Update </th>
+            <th scope='col'> Delete </th>
           </tr>
         </thead>
-
         <tbody>
-
           {userRouter.map((admin, index) => (
-
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-
               <td>{admin.name}</td>
               <td>{admin.username}</td>
               <td>{admin.email}</td>
@@ -105,10 +91,8 @@ const Allaccount = () => {
               <td>{admin.type}</td>
               <td>{admin.role}</td>
               <td>{admin.interest}</td>
-              <td><button type="button" class="btn btn-primary">Update</button></td>
+              <td><Link to={`UpdateUser/${admin._id}`}><button type="button" class="btn btn-warning">Update</button></Link></td>
               <td><button onClick={() => deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
-              <td><Link to={`UpdateUser/${admin._id}`}><Button>Edit</Button></Link></td> 
-
             </tr>
 
           ))}
