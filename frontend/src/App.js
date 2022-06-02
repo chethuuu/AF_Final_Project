@@ -77,6 +77,8 @@ function App() {
       <PrivateRoute path="/grpDisplays" roles={["admin"]} component={Group_Display}/>
       <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
       <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
+      <PrivateRoute path="/sendmail/:id" roles={["Supervisor"]} component={SendEmail}/>
+      <PrivateRoute path="/sendmailco/:id" roles={["CoSupervisor"]} component={SendEmailCo}/>
       <PrivateRoute path="/panelAssign/:id" roles={["admin"]} component={Group_PannelAssign}/>
       <PrivateRoute path="/grpNotAssignDisplay" roles={["admin"]} component={Group_notAssigned}/>
       <PrivateRoute path="/viewGroup/:id" roles={["admin"]} component={Group_viewDetails}/>
@@ -86,8 +88,6 @@ function App() {
       <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser}/>
       <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
       <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
-      <PrivateRoute path="/sendmail/:id" roles={["Supervisor"]} component={SendEmail}/>
-      <PrivateRoute path="/sendmailco/:id" roles={["CoSupervisor"]} component={SendEmailCo}/>
       <PrivateRoute path="/cosupreq/:id" roles={["CoSupervisor"]} component={ReqCoSupervisor}/>
       <PrivateRoute path="/reqsent/:id" roles={["user"]} component={ReqCoSupervisorRequest}/>
     </Router>
