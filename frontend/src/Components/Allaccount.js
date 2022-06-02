@@ -9,33 +9,20 @@ const Allaccount = () => {
   const [selects, setSelects] = useState();
 
   useEffect(() => {
-
     axios
       .get("/user/alldata")
       .then(res => setUserRouter(res.data))
       .catch(error => console.log(error));
-
-
   });
 
   const deleteUser = async (id) => {
-
     try {
-
       const res = await axios.delete(`http://localhost:5000/user/delete/${id}`)
-
       const newListItems = userRouter.filter(topic => topic._id !== id);
-
       setUserRouter(newListItems);
-
-
-
     } catch (err) {
-
       console.log(err);
-
     }
-
   }
 
   function SearchItem() {
@@ -48,7 +35,6 @@ const Allaccount = () => {
   }
 
   return (
-
     <div className="container shadow my-5">
       <div class="input-group">
         <div class="form-inline my-2 my-lg-0">
@@ -78,6 +64,9 @@ const Allaccount = () => {
             <th Scope="col"> Topic Category </th>
             <th scope='col'> Update </th>
             <th scope='col'> Delete </th>
+            <th Scope="col"> Interest </th>
+            <th Scope="col"></th>
+            <th Scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -94,23 +83,11 @@ const Allaccount = () => {
               <td><Link to={`UpdateUser/${admin._id}`}><button type="button" class="btn btn-warning">Update</button></Link></td>
               <td><button onClick={() => deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
             </tr>
-
           ))}
-
-
-
-
-
-
         </tbody>
-
-
       </table>
-
-
     </div>
   );
-
 };
 
 export default Allaccount;

@@ -3,8 +3,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import image from '../../img/i2.jpg';
 
+import FileDownload from 'js-file-download';
+
 const SeeDocuments = () => {
     const [docs, getDocs] = useState('');
+    var docName;
 
     //Get All Documents ==============================================================================
     useEffect(() => {
@@ -25,11 +28,12 @@ const SeeDocuments = () => {
         if(docs.length > 0){
             return(
                 docs.map((doc, index) => {
+                    docName = doc.name;
                     return(
                         <tr key={doc._id}>
                             <td>{doc.groupNo}</td>
                             <td>{doc.name}</td>
-                            <td><button className='btn btn-outline-success'>Download</button></td>
+                            <td><button className='btn btn-outline-success' onClick={(e) => download(e, doc.name)}>Download</button></td>
                             <td><button className='btn btn-outline-danger' onClick={deleteDocument}>Delete</button></td>
                         </tr>
                     );
@@ -47,6 +51,17 @@ const SeeDocuments = () => {
         }catch (err){
             console.log("ERROR IN DLETION : "+ err);
         }
+    }
+
+    function download(e, name){    
+        e.preventDefault()
+        axios({
+            url: `http://localhost:5000/api/upload/downloadDoc/${docName}`,
+            method: "GET",
+            responseType: "blob"
+        }).then((res) => {
+            FileDownload(res.data, `${name}`);
+        })
     }
 
     return (

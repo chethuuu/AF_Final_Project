@@ -64,8 +64,13 @@ const Admin = () => (
 
             <div class="col-md-4">
                 <center>
+<<<<<<< HEAD
                     <img width="300px" src={img14} />
                     <h4> <a className='navbar-brand fs-4 text-dark' href="/grpDisplay"> Allocate Panel Members </a> </h4>
+=======
+                    <img width="300px" src={img1} />
+                    <h4> <a href="/grpNotAssignDisplay"> Allocate Panel Members </a> </h4>
+>>>>>>> 1b6ee28106b998e4a2ebc4d5f629a48a7c906d98
                 </center>
             </div>
         </div>
