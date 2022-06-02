@@ -10,17 +10,15 @@ export default function Group_PannelAssign(){
         user_id:"", group_id:"", pannel_status:"",
     });
 
-    const [panelDetails, setPanelDetails] = useState({
-        pannel:{ 
-            panel1:{ ID: "", name:"", email: ""},
-            panel2:{ ID: "",name:"", email: ""}
-        }
-    });
-
     const [panelMembers, setPanel] = useState([]);
     const [panelMembers2, setPanel2] = useState([]);
-    const [onePanelMember, setonePanelMember] = useState([]);
-    const [secondPanelMember, setSecondPanelMember] = useState([]);
+
+    const [onePanelMember, setonePanelMember] = useState({
+        _id:"", name:"", email:""
+    });
+    const [secondPanelMember, setSecondPanelMember] = useState({
+        _id:"", name:"", email:""
+    });
     
     useEffect(() =>{
         const getGroupData = async() =>{
@@ -28,7 +26,7 @@ export default function Group_PannelAssign(){
                 const res = await axios.get(`http://localhost:5000/group/getone/${id}`)
                 setGroupDetails(res.data);
                 const resul = await axios.get("http://localhost:5000/user/getpanel/filter")
-                setPanel(resul.data);
+                setPanel(resul.data)
                 setPanel2(resul.data)
             }catch(err){
                 console.log.apply(err);
@@ -43,7 +41,7 @@ export default function Group_PannelAssign(){
         if(ele != null){
             var selectId = document.getElementById("_id").value;
         }else{
-            //selectId = "62913beaa4be8d56a65fd36c"
+            
         }
 
         axios.get(`http://localhost:5000/user/user/${selectId}`)
@@ -57,13 +55,35 @@ export default function Group_PannelAssign(){
         if(ele != null){
             var selectId = document.getElementById("_id2").value;
         }else{
-            //selectId = "62913beaa4be8d56a65fd36c"
+            
         }
 
         axios.get(`http://localhost:5000/user/user/${selectId}`)
         .then(res=>{
             setSecondPanelMember(res.data)
          }).catch(err=>console.error(err))
+    }
+
+    const [pannel, setPanelDetails] = useState({
+        pannel_status:"Assigned",
+        pannel:{
+            panel1:{ ID: "", name:"", email: ""},
+            panel2:{ ID: "",name:"", email: ""}
+        }
+    });
+
+
+    function sendData(e){
+        e.preventDefault();
+        axios.put(`http://localhost:5000/group/panelAsign/${id}`, pannel)
+        .then(res=>{
+          console.log(res.data)
+          alert("Panel Added")
+        }).catch((err) =>{
+            alert(err)
+            console.error(err)
+            
+        })
     }
 
 
@@ -83,7 +103,7 @@ export default function Group_PannelAssign(){
                     <label><b>Panel Status : </b>{groupDetails.pannel_status}</label>
                 </div>
 
-
+                <form onSubmit={sendData}>
                 <div class="row">
                     
                 <div class="col-sm-6">
@@ -101,23 +121,35 @@ export default function Group_PannelAssign(){
                                     }
                                 </select>
 
-                                <form  >
+                                
                                     <div className="form-check">
-                                        <label for="name">Name </label>
-                                        <input type="text" className="form-control" id="name" 
-                                        value={onePanelMember.name}></input> 
+                                        <label for="name">ID</label>
+                                        <input type="text" className="form-control" id="ID" placeholder="Student Id"
+                                        value={onePanelMember._id}
+                                        onChange={(e) =>{
+                                            setPanelDetails({...pannel, ID: e.target.value});
+                                        }}></input> 
+                                    </div>
+
+                                   
+
+                                    <div className="form-check">
+                                        <label for="name">Name</label>
+                                        <input type="text" className="form-control" id="name" name='name'
+                                        value={onePanelMember.name}
+                                        onChange={(e) =>{
+                                            setPanelDetails({...pannel, name: e.target.value});
+                                        }}></input> 
                                     </div>
                                     <div className="form-check">
                                         <label for="name">Email</label>
                                         <input type="text" className="form-control" id="name"
-                                        value={onePanelMember.email}></input> 
+                                        value={onePanelMember.email}
+                                        onChange={(e) =>{
+                                            setPanelDetails({...pannel, email: e.target.value});
+                                        }}></input> 
                                     </div>
-                                    <div className="form-check">
-                                        <label for="name">Contact No</label>
-                                        <input type="text" className="form-control" id="name"
-                                        value={onePanelMember.contact}></input> 
-                                    </div>
-                                </form>
+                                
 
                                 
                                 
@@ -139,28 +171,46 @@ export default function Group_PannelAssign(){
                                     }
                                 </select>
 
-                                <form>
+                                
                                     <div className="form-check">
-                                        <label for="name">Name </label>
+                                        <label for="name">ID </label>
                                         <input type="text" className="form-control" id="name" 
-                                        value={secondPanelMember.name}></input> 
+                                        value={secondPanelMember._id}
+                                        onChange={(e) =>{
+                                            setPanelDetails({...pannel, ID: e.target.value});
+                                        }}></input> 
+                                    </div>
+                                    <div className="form-check">
+                                        <label for="name">Name</label>
+                                        <input type="text" className="form-control" id="name"
+                                        value={secondPanelMember.name}
+                                        onChange={(e) =>{
+                                            setPanelDetails({...pannel, name: e.target.value});
+                                        }}></input> 
                                     </div>
                                     <div className="form-check">
                                         <label for="name">Email</label>
                                         <input type="text" className="form-control" id="name"
-                                        value={secondPanelMember.email}></input> 
+                                        value={secondPanelMember.email}
+                                        onChange={(e) =>{
+                                            setPanelDetails({...pannel, email: e.target.value});
+                                        }}></input> 
                                     </div>
-                                    <div className="form-check">
-                                        <label for="name">Contact No</label>
-                                        <input type="text" className="form-control" id="name"
-                                        value={secondPanelMember.contact}></input> 
-                                    </div>
-                                </form>
-
                             </div>
                         </div>
                     </div>
+                   
+                                     <div className="form-check">
+                                        <label for="name">Status changed to</label>
+                                        <input type="text" className="form-control" id="name"
+                                        value="Assigned"
+                                        onChange={(e) =>{setPanelDetails({pannel_status:e.target.value})
+                                        }}></input> 
+                                    </div>
+                   
                 </div>
+                <button type="submit" className="btn btn-primary">Edit Item</button>
+                </form>
 
             </div>
 
