@@ -43,13 +43,13 @@ router.post("/add", (req, res, next) => {
 
 
 //get no of groups in Group collection
-router.get("/getCount", async(req,res) =>{
-  try{
+router.get("/getCount", async (req, res) => {
+  try {
     let count = await Group.countDocuments();
     let grpcount = count + 1;
     let GrpId = "Grp_" + grpcount;
     res.status(200).json(GrpId);
-  }catch(err){
+  } catch (err) {
     res.json(err);
   }
 });
@@ -57,52 +57,52 @@ router.get("/getCount", async(req,res) =>{
 
 
 //Get all student Groups
-router.get("/getAllGroups", async(req,res) => {
+router.get("/getAllGroups", async (req, res) => {
   try {
-      const stuGroups = await Group.find({});
-      res.status(200).json(stuGroups);
+    const stuGroups = await Group.find({});
+    res.status(200).json(stuGroups);
   } catch (err) {
-      res.json(err);
+    res.json(err);
   }
 })
 
 
 //Gropu Filter on pannel status
-router.get("/getgroup/:pstatus", async(req,res) => {
+router.get("/getgroup/:pstatus", async (req, res) => {
   try {
     let pstatus = req.params.pstatus;
-    const allGroups = await Group.find({pannel_status:pstatus});
+    const allGroups = await Group.find({ pannel_status: pstatus });
     res.status(200).json(allGroups);
   } catch (err) {
-      res.json(err);
+    res.json(err);
   }
 })
 
 
 //Display only not panel assigned groups
-router.get("/getdata/filter", async(req,res) => {
+router.get("/getdata/filter", async (req, res) => {
   try {
-      const allgrps = await Group.find({pannel_status:'Not assign'});
-      res.status(200).json(allgrps);
+    const allgrps = await Group.find({ pannel_status: 'Not assign' });
+    res.status(200).json(allgrps);
   } catch (err) {
-      res.json(err);
+    res.json(err);
   }
 })
 
 //Display only panel assigned groups
-router.get("/getdata/assigned", async(req,res) => {
+router.get("/getdata/assigned", async (req, res) => {
   try {
-      const allgrps = await Group.find({pannel_status:'Assigned'});
-      res.status(200).json(allgrps);
+    const allgrps = await Group.find({ pannel_status: 'Assigned' });
+    res.status(200).json(allgrps);
   } catch (err) {
-      res.json(err);
+    res.json(err);
   }
 })
 
 //view selected group detail
-router.get('/getone/:id', async(req,res) =>{
+router.get('/getone/:id', async (req, res) => {
   let id = req.params.id;
-  Group.findById(id, function(err,group){
+  Group.findById(id, function (err, group) {
     res.json(group);
   });
 });
@@ -112,26 +112,35 @@ router.get('/getone/:id', async(req,res) =>{
 router.put("/panelAsign/:id", (req, res, next) => {
   const groupModel = ({
     pannel_status: req.body.pannel_status,
-    pannel:{
-      panel1:{
+    pannel: {
+      panel1: {
         ID: req.body.pannel.panel1.ID,
         name: req.body.pannel.panel1.name,
         email: req.body.pannel.panel1.email
       },
-      panel2:{
+      panel2: {
         ID: req.body.pannel.panel2.ID,
         name: req.body.pannel.panel2.name,
         email: req.body.pannel.panel2.email
       }
     }
   });
-  Group.updateOne({_id:req.params.id }, groupModel).then(result => {
+  Group.updateOne({ _id: req.params.id }, groupModel).then(result => {
     console.log(result);
     res.status(200).json({ message: "Panel Added" })
   })
 });
 
 
-
+//get group ID to profile
+router.get("/getgrp/filter/:user_id", async (req, res) => {
+  try {
+    let user_id = req.params.user_id;
+    const oneGroups = await Group.find({ user_id: user_id });
+    res.status(200).json(oneGroups);
+  } catch (err) {
+    res.json(err);
+  }
+});
 
 module.exports = router;

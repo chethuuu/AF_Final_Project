@@ -24,7 +24,7 @@ const ResearchTopicCtrl = {
   createResearch_Topic: async (req, res) => {
     try {
       const { gid, lead_no, lead_email, name, interest, request, status_sup, status_co } = req.body;
-      const rtopics = await Research_Topic.findOne({ name })
+      const rtopics = await Research_Topic.findOne({ gid, lead_no, lead_email, name })
       if (rtopics) return res.status(400).json({ msg: "This Research Topic already exists." })
 
       const newResearch_Topic = new Research_Topic({ gid, lead_no, lead_email, name, interest, request, status_sup, status_co })
@@ -95,7 +95,17 @@ const ResearchTopicCtrl = {
 
   getApproveStatus: async (req, res) => {
     try {
-      const rtopics = await Research_Topic.find({ $and: [{status_sup:'Approved'},{request: 'Requested'}]});
+      const rtopics = await Research_Topic.find({ $and: [{ status_sup: 'Approved' }, { request: 'Requested' }] });
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
+
+  //
+  getCoSupervisorStatus: async (req, res) => {
+    try {
+      const rtopics = await Research_Topic.find({ $and: [{ status_sup: 'Approved' }, { status_co: 'Approved' }] });
       res.status(200).json(rtopics);
     } catch (err) {
       res.json(err);
@@ -104,7 +114,7 @@ const ResearchTopicCtrl = {
 
   getApproveSupStatus: async (req, res) => {
     try {
-      const rtopics = await Research_Topic.find({status_sup:'Approved'});
+      const rtopics = await Research_Topic.find({ status_sup: 'Approved' });
       res.status(200).json(rtopics);
     } catch (err) {
       res.json(err);
@@ -119,6 +129,18 @@ const ResearchTopicCtrl = {
       res.json(err);
     }
   },
+
+  //get leader by IT Number
+  getLeaderIT: async (req, res) => {
+    try {
+      let lead_no = req.params.lead_no;
+      const rtopics = await Research_Topic.find({ lead_no: lead_no });
+      res.status(200).json(rtopics);
+    } catch (err) {
+      res.json(err);
+    }
+  },
+
 }
 
 module.exports = ResearchTopicCtrl;
