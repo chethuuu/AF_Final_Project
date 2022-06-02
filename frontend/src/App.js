@@ -83,8 +83,6 @@ function App() {
       <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
       <PrivateRoute path="/seeDocs" roles={["admin"]} component={SeeDocuments}/>
       <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
-      <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
-      <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
       <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser}/>
       <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
       <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
