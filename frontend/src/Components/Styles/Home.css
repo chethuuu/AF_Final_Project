@@ -24,8 +24,15 @@
     margin-top: -8px;
 }
 
+.topic-a {
+    font-size: 30px;
+    font-weight: 750;
+    margin-left: 160px;
+    margin-top: -8px;
+}
+
 .btn_logout {
-    margin-left: 310px;
+    margin-left: 320px;
 }
 
 #home {
