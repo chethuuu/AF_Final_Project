@@ -1,20 +1,3 @@
-.search {
-    margin-left: 980px;
-    margin-bottom: -40px;
-    width: 100px;
-    
-}
-
-.select-gid {
-    margin-left: 893px;
-    width: 500px;
-}
-
-.grpid {
-    margin-left: 680px;
-    margin-bottom: -30px;
-}
-
 .dashboard-u{
     margin-top: -120px;
     font-size: 20px;
@@ -28,4 +11,21 @@
     font-size: 20px;
     font-weight: 150px;
     font-family: sans-serif;
+}
+
+.search-btn {
+    margin-left: 1170px;
+    margin-bottom: -60px;
+    width: 100px;
+}
+
+.select-btn {
+    margin-left: 1030px;
+    margin-top: 10px;
+    width: 500px;
+}
+
+.search-topic {
+    margin-left: 830px;
+    margin-bottom: -55px;
 }

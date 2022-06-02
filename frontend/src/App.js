@@ -8,8 +8,12 @@ import About from './Components/Home/About';
 import Contact from './Components/Home/Contact';
 import Register from './Components/Register';
 import AllAccount from './Components/Allaccount';
+
+//Import Css Files
 import './Components/Styles/Student.css'
 import './Components/Styles/Home.css'
+import './Components/Styles/Supervisor.css'
+
 import PrivateRoute from "./hocs/PrivateRoute"
 import UnPrivateRoute from "./hocs/UnPrivateRoute"
 import Login from './Components/Login';
@@ -42,6 +46,7 @@ import UpdateSupervisorReq from './Components/Supervisor/UpdateSupervisorReq';
 import UpdateStatusSup from './Components/Supervisor/UpdateStatusSup';
 import SendEmail from './Components/Supervisor/SendEmail';
 import SendEmailCo from './Components/CoSupervisor/SendEmailCo';
+import ReqCoSupervisorRequest from './Components/Student/ReqCoSupervisorRequest';
 
 function App() {
   return (
@@ -80,12 +85,11 @@ function App() {
       <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
       <PrivateRoute path="/seeDocs" roles={["admin"]} component={SeeDocuments}/>
       <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
-      <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
-      <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
       <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser}/>
       <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
       <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
       <PrivateRoute path="/cosupreq/:id" roles={["CoSupervisor"]} component={ReqCoSupervisor}/>
+      <PrivateRoute path="/reqsent/:id" roles={["user"]} component={ReqCoSupervisorRequest}/>
     </Router>
     </div>
   );

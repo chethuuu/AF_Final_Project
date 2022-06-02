@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import AuthService from '../Services/AuthServices';
 import Message from '../Components/Message';
 import { AuthContext } from '../Context/AuthContext';
+import { NavLink } from 'react-router-dom'
 
 
 const Login = props => {
@@ -30,6 +31,7 @@ const Login = props => {
                 authContext.setIsAuthenticated(isAuthenticated);
                 props.history.push(`/to/${user.username}`);
             }
+
             else
 
                 setMessage(message);
@@ -37,45 +39,39 @@ const Login = props => {
     }
 
 
-
-
-
-
     return (
-
-
-        <div className="container">
-            <form onSubmit={onSubmit}>
-                <br></br>
-                <h2>Please sign in</h2>
-                <br></br><br></br>
-                <label htmlFor="username" className="sr-only">Username: </label>
-                <input type="text"
-                    name="username"
-                    onChange={onChange}
-                    className="form-control"
-                    placeholder="Enter Username" />
-                <br></br>
-                <label htmlFor="password" className="sr-only">Password: </label>
-                <input type="password"
-                    name="password"
-                    onChange={onChange}
-                    className="form-control"
-                    placeholder="Enter Password" />
-                <br></br><br></br>
-                <button className="btn btn-lg btn-primary btn-block"
-                    type="submit">Log in </button>       
-
-
-            </form>
+        <div>
+            <div className="container shadow my-5">
+                <div className="row">
+                    <div className="col-md-5 d-flex flex-column align-items-center text-dark justify-content-center form">
+                        <h1 className="display-4 fw-bolder"> Welcome Back</h1>
+                        <p className="lead text-center">Enter Your Credentials to Login</p>
+                        <h5 className="mb-4">OR</h5>
+                        <NavLink to="" className="btn btn-outline-light rounded-pill pb-2 w-50">Request to Register</NavLink>
+                    </div>
+                    <div className="col-md-6 p-5">
+                        <h1 className="display-6 fw-bolder mb-5">LOGIN</h1>
+                        <form onSubmit={onSubmit}>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input name="username" onChange={onChange} type="text" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" onChange={onChange} autoComplete="on" type="password" class="form-control" required />
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 rounded-pill">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             {message ? <Message message={message} /> : null}
-
-
         </div>
     )
-
 }
-
-
 
 export default Login;

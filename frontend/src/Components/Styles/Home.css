@@ -24,8 +24,15 @@
     margin-top: -8px;
 }
 
+.topic-a {
+    font-size: 30px;
+    font-weight: 750;
+    margin-left: 160px;
+    margin-top: -8px;
+}
+
 .btn_logout {
-    margin-left: 310px;
+    margin-left: 320px;
 }
 
 #home {
@@ -34,4 +41,9 @@
     min-height: 500px;
     width: 1500px;
     margin-left: -105px;
+}
+
+.form {
+    background-color: #045de9;
+background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
 }

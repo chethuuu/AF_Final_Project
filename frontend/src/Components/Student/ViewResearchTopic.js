@@ -20,16 +20,16 @@ function ViewResearchTopic() {
         getListTopics()
     }, []);
 
-    const deleteResearch_Topic = async (id) => {
-        try {
-            const res = await axios.delete(`http://localhost:5000/api/rtopicss/${id}`)
-            const newListItems = listTopic.filter(topic => topic._id !== id);
-            setListTopics(newListItems);
+    // const deleteResearch_Topic = async (id) => {
+    //     try {
+    //         const res = await axios.delete(`http://localhost:5000/api/rtopicss/${id}`)
+    //         const newListItems = listTopic.filter(topic => topic._id !== id);
+    //         setListTopics(newListItems);
 
-        } catch (err) {
-            console.log(err);
-        }
-    }
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
 
     function SearchItem() {
         console.log(gid)
@@ -41,17 +41,21 @@ function ViewResearchTopic() {
     }
 
 
+
     return (
         <div>
             <div className='container shadow my-5'>
                 <div class="input-group">
                     <div class="form-inline my-2 my-lg-0">
-                        <h5 className='grpid'>Select your Group ID</h5>
-                        <Button className='btn btn-primary search' onClick={() => { SearchItem({ selects }) }}>Search</Button>
-                        <select className='form-control select-gid' name="gid" id="gid" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
+                        <h5 className='search-topic'>Select your Group ID</h5>
+                        <Button className='btn btn-primary search-btn' onClick={() => { SearchItem({ selects }) }}>Search</Button>
+                        <select className='form-control select-btn w-50' name="gid" id="gid" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
                             <option>None</option>
                             <option>G001</option>
-                            <option>G008</option>
+                            <option>G002</option>
+                            <option>G003</option>
+                            <option>G004</option>
+                            <option>G005</option>
                         </select>
                     </div> <br />
                 </div>
@@ -65,7 +69,6 @@ function ViewResearchTopic() {
                             <th scope="col">Topic Name</th>
                             <th scope="col">Category</th>
                             <th scope='col'>Status</th>
-                            <th scope='col'>Request Co-Supervisor</th>
                             {/* <th scope="col">Update</th>
                             <th scope="col">Delete</th> */}
                         </tr>
@@ -79,11 +82,9 @@ function ViewResearchTopic() {
                                     <td>{topic.lead_no}</td>
                                     <td>{topic.name}</td>
                                     <td>{topic.interest}</td>
-                                    <td>{topic.status_sup}</td>
-                                    <td><button className='btn btn-warning' disabled> Send Request</button></td>
+                                    <td><button className='btn btn-danger'>{topic.status_sup}</button></td>
                                     {/* <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td> 
                                     <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td> */}
-
                                 </tr>
                             )
                             )

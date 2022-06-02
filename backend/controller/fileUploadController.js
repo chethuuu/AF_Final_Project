@@ -10,7 +10,7 @@ const multerConfig = multer.diskStorage({
     filename: (req, file, callback) => {
         const ext = file.mimetype.split('/')[1];
         // callback(null, `image-${Date.now()}.${ext}`);
-        callback(null, `file_${file.originalname}`);
+        callback(null, `${file.originalname}`);
     }
 })
 
@@ -53,6 +53,7 @@ exports.addDocs = async (req, res) => {
     var final_img = {
         contentType:req.file.mimetype,
         //image:new Buffer.from(encode_img,'base64'),
+        // "name": req.file.originalname,
         "name": req.file.originalname,
         "desc": req.file.path,
         "img": new Buffer.from(encode_img,'base64'),
@@ -140,4 +141,10 @@ exports.updateDocument = async (req, res) => {
     } catch (error) {
         res.status(500).send("Document Not Updated");
     }
+}
+
+//========== DOWNLOAD SUBMITTED DOCUMENT ========================================
+exports.downloadFile = async (req, res) => {
+    const {docName} = req.params;
+    res.download(`public/${docName}`);
 }
