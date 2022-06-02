@@ -44,32 +44,34 @@ const ReqCoSupervisorRequest = (props) => {
 
   return (
     <div>
-        <div className="container shadow my-5 mx-auto w-50">
-          <div className="col p-5 mx-auto">
-            <h1 className=" fw-bolder mb-5"><center>Register Research Topic</center></h1>
-            <form onSubmit={sendData}>
-              <div class="mb-3">
-                <label for="gid" class="form-label">Group ID</label>
-                <input name="gid" value={inputs.gid} onChange={(e) => { setInputs({ gid: e.target.value }) }} type="text" class="form-control" id="gid" placeholder='Enter Group ID' required />
+      <div className="container shadow my-5 mx-auto w-50">
+        <div className="col p-5 mx-auto">
+          <h3 className=" fw-bolder mb-4"><center> Request Co-Supervisor </center></h3>
+          <form onSubmit={sendData}>
+            <div class="mb-3">
+              <label for="gid" class="form-label">Group ID</label>
+              <input name="gid" value={inputs.gid} onChange={(e) => { setInputs({ gid: e.target.value }) }} type="text" class="form-control" id="gid" placeholder='Enter Group ID' readOnly />
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Research Topic</label>
+              <input name="name" value={inputs.name} onChange={(e) => { setInputs({ name: e.target.value }) }} type="text" class="form-control" placeholder='Enter Research Topic' readOnly />
+            </div>
+            <div class="mb-3">
+              <label for="interest" class="form-label">Topic Category</label>
+              <input name="interest" value={inputs.interest} onChange={(e) => { setInputs({ interest: e.target.value }) }} type="text" class="form-control" id="interest" placeholder="Eneter Research Topic Category" readOnly />
+            </div>
+            <div className='row'>
+              <div class="col-md-3 mx-auto">
+                <input name="interest" className='form-control' value='Requested' readOnly />
               </div>
-              <div class="mb-3">
-                <label for="name" class="form-label">Research Topic</label>
-                <input name="name" value={inputs.name} onChange={(e) => { setInputs({ name: e.target.value }) }} type="text" class="form-control" placeholder='Enter Research Topic' required />
-              </div>
-              <div class="mb-3">
-                <label for="interest" class="form-label">Topic Category</label>
-                <input name="interest" value={inputs.interest} onChange={(e) => { setInputs({ interest: e.target.value }) }} type="text" class="form-control" id="interest" placeholder="Eneter Research Topic Category" required />
-              </div>
-              <div class="mb-3">
-                <input name="interest" value='Requested' readOnly />
-              </div>
-              <br />
-              <button type="submit" class="btn btn-danger w-100 rounded-pill">Request Co-Supervisor</button>
-            </form>
-          </div>
-
+            </div>
+            <br />
+            <button type="submit" class="btn btn-danger w-100 rounded-pill">Request Co-Supervisor</button>
+          </form>
         </div>
-      
+
+      </div>
+
     </div>
   )
 }
