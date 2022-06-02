@@ -49,7 +49,7 @@ const Allaccount = () => {
 
   return (
 
-    <div className="container">
+    <div class="container">
       <Link to="/admin">
         <li className="nav-item nav-link">
           Home
@@ -72,7 +72,7 @@ const Allaccount = () => {
       </div>
 
       <table className="table">
-        <thead>
+        <thead class="thead-dark">
           <tr>
             <th Scope="col"> #</th>
             <th Scope="col"> Name </th>
@@ -82,6 +82,8 @@ const Allaccount = () => {
             <th Scope="col"> Type </th>
             <th Scope="col"> Role  </th>
             <th Scope="col"> Interest </th>
+            <th Scope="col"></th>
+            <th Scope="col"></th>
 
             <div className="col-lg-9 mt-2 mb-2">
 
@@ -105,9 +107,8 @@ const Allaccount = () => {
               <td>{admin.type}</td>
               <td>{admin.role}</td>
               <td>{admin.interest}</td>
-              <td><button type="button" class="btn btn-primary">Update</button></td>
               <td><button onClick={() => deleteUser(admin._id)} type="button" class="btn btn-danger">Delete</button></td>
-              <td><Link to={`UpdateUser/${admin._id}`}><Button>Edit</Button></Link></td> 
+              <td><Link to={`UpdateUser/${admin._id}`}><Button>Update</Button></Link></td> 
 
             </tr>
 

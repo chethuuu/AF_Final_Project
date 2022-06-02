@@ -92,14 +92,12 @@ router.route("/delete/:id").delete(async (req,res)=>{
     })
 })
 
-router.route("/get/:id").get(async (req, res)=>{
-    let markingID = req.params.id;
-    const user = await Marking.findBYId(markingID)
-    .then((marking)=>{
-        res.status(200).send({status:"User fetched", marking})
-    }).catch(()=>{
-        console.log(err.message);
-        res.status(500).send({status: "Error with get user", error:err.message});
-    })
-})
+
+router.get('/marking/:id', (req, res) => {
+    let id = req.params.id;
+    Marking.findById(id, function (err, user) {
+        res.json(user);
+    });
+});
+
 module.exports = router;

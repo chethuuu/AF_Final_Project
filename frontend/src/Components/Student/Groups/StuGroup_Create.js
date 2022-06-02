@@ -79,7 +79,7 @@ export default function StuGroup_Create() {
                     <h3> Student Group Registration</h3>
                 </div>
             
-                    <form onSubmit={sendData} action="/post" method="post" encType="multipart/form-data">
+                    <form onSubmit={sendData} action="/post" method="post">
                         <div className="form-check">
                             <label for="name">User ID :{username}</label>
                             <input type="text" className="form-control" id="name" 
