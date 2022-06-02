@@ -44,13 +44,13 @@ const UpdateStatusSup = (props) => {
     return (
         <div>
             <div>
-
-                <div className="container shadow my-5 mx-auto w-50">
+            <br/><br/>
+                <div className="container shadow my-5 update-status">
                     <div className="col p-5 mx-auto">
-                        <h1 className=" fw-bolder mb-5"><center>Supervisor Status</center></h1>
+                        <h3 className=" fw-bolder mb-5"><center>Update Supervisor Status</center></h3>
                         <form onSubmit={sendData}>
                             <div className="form-group">
-                                <select className="form-control w-40" name='itemType'
+                                <select className="form-control" name='itemType'
                                     value={inputs.status_sup}
                                     onChange={(e) => { setInputs({ status_sup: e.target.value }) }}>
                                     <option>Pending</option>
@@ -58,7 +58,7 @@ const UpdateStatusSup = (props) => {
                                     <option>Reject</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-danger w-100 rounded-pill">Update Status</button>
+                            <button type="submit" class="btn btn-primary w-100 rounded-pill">Update Status</button>
                         </form>
                     </div>
 
