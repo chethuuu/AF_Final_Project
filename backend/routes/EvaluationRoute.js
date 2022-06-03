@@ -35,6 +35,40 @@ router.post("/add", (req, res, next) => {
 });
 
 
+//Get all Evaluations
+router.get("/getAllevaluation", async (req, res) => {
+  try {
+    const evaluation = await Evaluations.find({});
+    res.status(200).json(evaluation);
+  } catch (err) {
+    res.json(err);
+  }
+})
+
+
+//view selected Evaluation details
+router.get('/getone/:id', async (req, res) => {
+  let id = req.params.id;
+  Evaluations.findById(id, function (err, evalu) {
+    res.json(evalu);
+  });
+});
+
+
+//get marks of spesific user from Group id 
+router.get("/getdata/filter/:grp_id", async(req,res) => {
+  try {
+    let grp_id = req.params.grp_id;
+    const marks = await Evaluations.find({group_id:grp_id});
+    res.status(200).json(marks);
+  } catch (err) {
+      res.json(err);
+  }
+})
+
+
+
+
 
 
 module.exports = router;

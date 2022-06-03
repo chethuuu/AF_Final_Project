@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import img4 from '../../img/img4.png'
 import img9 from '../../img/img9.png'
 
+
 const panelHome = () => {
     return (
 
@@ -18,6 +19,14 @@ const panelHome = () => {
                     </div>
                 </div>
 
+        	<br/><br/>
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                        <img width="250px" src={img9} />
+                        <Link className='navbar-brand fs-4 text-dark' to={`/markingSchemas`}><h4>Evaluate Marks</h4></Link>
+                    </center>
+                </div>
                 <br /><br />
                 <div class="row">
                     <div class="col-md-4">
@@ -41,12 +50,6 @@ const panelHome = () => {
                         </center>
                     </div>
                 </div>
-
-
-
-
-
-            </div>
         </div>
 
     )
