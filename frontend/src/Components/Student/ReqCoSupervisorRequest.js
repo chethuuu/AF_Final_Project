@@ -61,14 +61,15 @@ const ReqCoSupervisorRequest = (props) => {
               <input name="interest" value={inputs.interest} onChange={(e) => { setInputs({ interest: e.target.value }) }} type="text" class="form-control" id="interest" placeholder="Eneter Research Topic Category" readOnly />
             </div>
             <div className='row py-6'>
-              <div class="col-md-5"> 
+              <div class="col-md-5">
                 <label for="request" class="form-label">Request Status Changed to</label>
               </div>
-              <div className='col-md-3'>
-              <input type="text" className="form-control" id="request"
-                  value="Requested"
-                  onChange={(e) => {
-                    setInputs({ request: e.target.value })}}/>
+              <div className='col-md-4'>
+                <select class="custom-select" id="request" type="request"
+                  name="request" value={inputs.request} onChange={(e) => { setInputs({ request: e.target.value }) }}>
+                  <option selected>Choose...</option>
+                  <option value="Requested">Requested</option>
+                </select>
               </div>
             </div>
             <br />

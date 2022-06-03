@@ -68,8 +68,8 @@ const ResearchTopic = (props) => {
     <div>
       <div>
         <div className="">
-          <div className="">{userDetails.username}</div>
-          <div className="">{userDetails.name}</div>
+          <div className="text-white">{userDetails.username}</div>
+          <div className="text-white">{userDetails.name}</div>
         </div>
         <div className="container shadow border border-5 my-5 mx-auto w-50">
           <div className="col p-3">
@@ -109,7 +109,7 @@ const ResearchTopic = (props) => {
               <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
               <label for="check">&nbsp;Once you Register for a Topic, You can't Change it</label><br></br>
               <br />
-              <button type="submit" class="btn btn-primary w-100 rounded-pill">Register your Topic</button>
+              <button type="submit" class="btn btn-danger w-100 rounded-pill">Register your Topic</button>
               <br />
             </form>
           </div>

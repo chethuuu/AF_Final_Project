@@ -11,6 +11,11 @@ const Navbar = props => {
 
     const uname = user.username;
 
+    const uID = "6290e4b513f776c1fff527d9";
+    const aID = "6290b1ecd53a856b1051ccd0";
+    const sID = "62923d33303e8934e81f2440";
+    const cID = "629518c75af9f0bde1464fdc";
+
     //logout button create 
     const onClickLogoutHandler = () => {
         AuthService.logout().then(data => {
@@ -118,6 +123,15 @@ const Navbar = props => {
                             </li>
                         </Link> : null
 
+                }
+
+                {
+                    // (user.role === "Supervisor" || user.role === "CoSupervisor" ||  user.role === "user" || user.role === "admin") ? <Link to='/messengerU/:id'><li className="navbar-brand header">Messenger</li></Link> : null
+                    (user.role === "user") ? <Link to={`/messengerU/${uID}`} ><li className="navbar-brand header">Messenger</li></Link> 
+                    : (user.role === "Supervisor") ? <Link to={`/messengerS/${sID}`}><li className="navbar-brand header">Messenger</li></Link> 
+                    : (user.role === "CoSupervisor") ? <Link to={`/messengerC/${cID}`}><li className="navbar-brand header">Messenger</li></Link>
+                    :  (user.role === "admin") ? <Link to={`/messengerA/${aID}`}><li className="navbar-brand header">Messenger</li></Link>
+                    : null
                 }
 
                 <a class="navbar-brand topic-a" href="#">Research Project Management Tool</a>
