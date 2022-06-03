@@ -100,4 +100,15 @@ router.get('/marking/:id', (req, res) => {
     });
 });
 
+
+//Display only Presentation marking schemas
+router.get("/getdata/presentation", async (req, res) => {
+    try {
+      const present = await Marking.find({ subject: 'Presentation' });
+      res.status(200).json(present);
+    } catch (err) {
+      res.json(err);
+    }
+  })
+
 module.exports = router;
