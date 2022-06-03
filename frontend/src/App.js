@@ -109,10 +109,7 @@ function App() {
       <PrivateRoute path='/messengerU/:id' roles={["user"]} component={Messenger}/>
       <PrivateRoute path="/messengerS/:id" roles={["Supervisor"]} component={MessengerSupervisor}/>
       <PrivateRoute path="/messengerC/:id" roles={["CoSupervisor"]} component={MessengerCoSupervisor}/>
-      <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={MessengerAdmin}/>  
-      <PrivateRoute path="/messengerS/:id" roles={["Supervisor"]} component={Messenger}/>
-      <PrivateRoute path="/messengerC/:id" roles={["CoSupervisor"]} component={Messenger}/>
-      <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={Messenger}/>  
+      <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={MessengerAdmin}/>    
       <PrivateRoute path="/allEvaluationList" roles={["PanelMember"]} component={AllEvaluationDisplay} />
       <PrivateRoute path="/viewmarks/:id" roles={["PanelMember"]} component={EvaluDetailsDisplay} />
     </Router>
