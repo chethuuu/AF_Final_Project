@@ -1,75 +1,261 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
 
 function StudentProfile() {
-
     const { username } = useParams("");
 
-    const [userDetails, setUserDetails] = useState({
-        gid: "",
-    });
-
-    const [grpDetails, setGrpDetails] = useState({
-        user_id: "", //IT Number
-        group_id: "",
-    });   
-    
-    const [grp, setGrp] = useState({
-        group_id: "",
-    });
+    const [listTopic, setListTopics] = useState([]);
+    const [userDetails, setUserDetails] = useState([]);
+    const [status, setStatus] = useState([]);
 
     useEffect(() => {
-        const getdata = async () => {
+        const getListTopics = async () => {
             try {
-                const rest = await axios.get(`http://localhost:5000/api/leader/check/${username}`)
-                setUserDetails(rest.data);
-        
+                const res = await axios.get(`http://localhost:5000/user/getUsername/${username}`)
+                setUserDetails(res.data);
+                const rest = await axios.get(`http://localhost:5000/group/getgrp/filter/${username}`)
+                setListTopics(rest.data);
+                const resttt = await axios.get(`http://localhost:5000/api/leader/check/${username}`)
+                setStatus(resttt.data);
             } catch (err) {
-              console.log(err);
+                console.log(err);
             }
         }
-        getdata()
+        getListTopics()
     }, []);
 
+
     return (
-        <div className="container my-0 py-3">
-            <div className="row">
-                <div className="col-12">
-                    <div className='col-12'>
-                        <h1 className='display-6 text-center mb-4'> <b> User Profile </b></h1>
-                        <hr className='w-25 mx-auto' />
-                    </div>
-                </div> <br /><br />
+        <div> <br />
+            <h2>Hello {userDetails.username} ! &nbsp;{userDetails.name}</h2>
 
-                <h1>hi{userDetails.gid}</h1>
-                <h1>{username}</h1>
-
+            <div className='container shadow my-5'> 
+            <br />
+            <h1><center>Summary</center></h1> <br/>
                 <table class="table">
-                    <thead className='table-dark'>
+                    <thead className='table-active'>
                         <tr>
-                            <th scope='col'>Username</th>
-                            <th scope="col">Student Name</th>
-                            <th scope="col">E-mail Address</th>
-                            <th scope="col">Group ID</th>
-                            <th scope="col">Group ID</th>
+                            <th>Leader's IT Number</th>
+                            <th>Group ID</th>
+                            <th>Pannel Status</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr>
-                            <td>{userDetails.gid}</td>
-                            <td>{userDetails.name}</td>
-                            <td>{userDetails.email}</td>
-                            <td>{grpDetails.user_id}</td>
-                            <td>{grpDetails.group_id}</td>
-                        </tr>
+                        {
+                            listTopic.map((profile) => (
+                                <tr>
+                                    <td>{profile.user_id}</td>
+                                    <td>{profile.group_id}</td>
+                                    <td>{profile.pannel_status}</td>
+                                </tr>
+                            )
+                            )
+                        }
                     </tbody>
                 </table>
 
-            </div>
-        </div>
 
+                {/* Research Topic Status Data Display */}
+                <b>Research Topic Status</b>
+                <table class="table">
+                    <thead className='table-danger'>
+                        <tr>
+                            <th scope='col'>Topic Category</th>
+                            <th scope="col">Research Topic</th>
+                            <th scope="col">Supervisor Status</th>
+                            <th scope="col">Co-Supervisor Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {
+                            status.map((status) => (
+                                <tr>
+                                    <td>{status.interest}</td>
+                                    <td>{status.name}</td>
+                                    <td><button className='btn btn-outline-danger'>{status.status_sup}</button></td>
+                                    <td><button className='btn btn-outline-danger'>{status.status_co}</button></td>
+
+                                </tr>
+                            )
+                            )
+                        }
+                    </tbody>
+                </table>
+
+
+
+                <div className='row py-3'>
+                    <div className='col-md-6'> <b>Leader's Details</b>
+                        {/* Leader's Details Display */}
+                        <table class="table">
+                            <thead className='table-primary'>
+                                <tr>
+                                    <th scope='col'>Leader Name</th>
+                                    <th scope="col">IT Number</th>
+                                    <th scope="col">Contact Number</th>
+                                    <th scope="col">E-mail</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                {
+                                    listTopic.map((profile,) => (
+                                        <tr>
+                                            <td>{profile.leader.name}</td>
+                                            <td>{profile.leader.ID}</td>
+                                            <td>{profile.leader.contact}</td>
+                                            <td>{profile.leader.email}</td>
+                                        </tr>
+                                    )
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Group Member 02 Details Display */}
+                    <div className='col-md-6'> <b>Group Member 02 Details</b>
+                        <table class="table">
+                            <thead className='table-primary'>
+                                <tr>
+                                    <th scope='col'>Member Name</th>
+                                    <th scope="col">IT Number</th>
+                                    <th scope="col">Contact Number</th>
+                                    <th scope="col">E-mail</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                {
+                                    listTopic.map((profile,) => (
+                                        <tr>
+                                            <td>{profile.member1.name}</td>
+                                            <td>{profile.member1.ID}</td>
+                                            <td>{profile.member1.contact}</td>
+                                            <td>{profile.member1.email}</td>
+                                        </tr>
+                                    )
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className='row py-3'>
+
+                        {/* Group Member 03 Details Display */}
+                        <div className='col md-6'><b>Group Member 03 Details</b>
+                            <table class="table">
+                                <thead className='table-primary'>
+                                    <tr>
+                                        <th scope='col'>Member Name</th>
+                                        <th scope="col">IT Number</th>
+                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">E-mail</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {
+                                        listTopic.map((profile,) => (
+                                            <tr>
+                                                <td>{profile.member2.name}</td>
+                                                <td>{profile.member2.ID}</td>
+                                                <td>{profile.member2.contact}</td>
+                                                <td>{profile.member2.email}</td>
+                                            </tr>
+                                        )
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {/* Group Member 02 Details Display */}
+                        <div className='col md-6'><b>Group Member 04 Details</b>
+                            <table class="table">
+                                <thead className='table-primary'>
+                                    <tr>
+                                        <th scope='col'>Member Name</th>
+                                        <th scope="col">IT Number</th>
+                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">E-mail</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {
+                                        listTopic.map((profile,) => (
+                                            <tr>
+                                                <td>{profile.member3.name}</td>
+                                                <td>{profile.member3.ID}</td>
+                                                <td>{profile.member3.contact}</td>
+                                                <td>{profile.member3.email}</td>
+                                            </tr>
+                                        )
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div className='row py-3'>
+
+                        {/* Panel 01 data display */}
+                        <div className='col md-6'><b>Panel 01</b>
+                            <table class="table">
+                                <thead className='table-secondary'>
+                                    <tr>
+                                        <th scope='col'>Member ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">E-mail</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {
+                                        listTopic.map((profile,) => (
+                                            <tr>
+                                                <td>{profile.pannel.panel1.ID}</td>
+                                                <td>{profile.pannel.panel1.name}</td>
+                                                <td>{profile.pannel.panel1.email}</td>
+                                            </tr>
+                                        )
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {/* Panel 02 Data Display */}
+                        <div className='col md-6'><b>Panel 02</b>
+                            <table class="table">
+                                <thead className='table-secondary'>
+                                    <tr>
+                                        <th scope='col'>Member ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">E-mail</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {
+                                        listTopic.map((profile,) => (
+                                            <tr>
+                                                <td>{profile.pannel.panel2.ID}</td>
+                                                <td>{profile.pannel.panel2.name}</td>
+                                                <td>{profile.pannel.panel2.email}</td>
+                                            </tr>
+                                        )
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div >
+        </div >
     )
 }
 
-export default StudentProfile
+
+export default StudentProfile 
