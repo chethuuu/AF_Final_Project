@@ -51,7 +51,8 @@ import markingSchemas from './Components/PanelMember/markingSchemas';
 import Evaluation from './Components/PanelMember/Evaluation';
 import PMResearchTopicStatus from './Components/PanelMember/PMResearchTopicStatus';
 import StudentProfile from './Components/Student/StudentProfile';
-
+import AllEvaluationDisplay from './Components/PanelMember/AllEvaluationDisplay';
+import EvaluDetailsDisplay from './Components/PanelMember/EvaluDetailsDisplay';
 
 function App() {
   return (
@@ -99,6 +100,8 @@ function App() {
       <PrivateRoute path="/evaluation/:id" roles={["PanelMember"]} component={Evaluation}/>
       <PrivateRoute path="/reseacrhtopic" roles={["PanelMember"]} component={PMResearchTopicStatus} />
       <PrivateRoute path="/profile/:username" roles={["user"]} component={StudentProfile} />
+      <PrivateRoute path="/allEvaluationList" roles={["PanelMember"]} component={AllEvaluationDisplay} />
+      <PrivateRoute path="/viewmarks/:id" roles={["PanelMember"]} component={EvaluDetailsDisplay} />
         
     </Router>
     </div>

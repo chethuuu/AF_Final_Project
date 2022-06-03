@@ -20,7 +20,14 @@ export default function markingSchemas() {
     },[]);
 
     return(
+        <div>
+            <div> 
+                <br/><br/>
+                <Link className='navbar-brand fs-4 text-dark' to={`/allEvaluationList`}><u><h4>Evaluated marking list</h4></u></Link> 
+            </div>
+
         <div  class="container shadow my-5 col-md-9 p-6 align-items-center">
+           
             <h1>Marking Schemes</h1>
             <table class="table">
                 <thead  class="thead-dark">
@@ -44,6 +51,7 @@ export default function markingSchemas() {
                     }
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }
