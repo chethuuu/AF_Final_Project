@@ -19,6 +19,7 @@ app.use(cors())
 //import routes
 const StuGroupRoute = require("./routes/StuGroupRoute");
 const markingRouter = require("./routes/markings");
+const EvaluationRoute = require("./routes/EvaluationRoute");
 
 
 //Routes
@@ -28,6 +29,11 @@ app.use("/group", StuGroupRoute);
 app.use('/api/upload', require('./routes/fileUpload'));
 app.use("/marking",markingRouter);
 app.use('/api/template', require('./routes/TemplatesR'));
+
+
+app.use("/evaluation", EvaluationRoute);
+app.use('/api/conversations', require('./routes/MessengerRoutes/ConversationRoute'));
+app.use('/api/Messages', require('./routes/MessengerRoutes/MessageRoute'));
 
 
 //Database connection

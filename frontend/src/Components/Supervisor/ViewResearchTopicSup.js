@@ -33,13 +33,14 @@ function ViewResearchTopicSup() {
     }
 
     function SearchItem() {
-        console.log(gid)
-        axios.get(`http://localhost:5000/api/rtopics/${selects}`)
+        console.log(interest)
+        axios.get(`http://localhost:5000/api/rtopics/interest/filter/${selects}`)
             .then(res => {
                 console.log(res.data)
                 setListTopics(res.data)
             }).catch(err => console.error(err))
     }
+
 
 
     return (
@@ -49,10 +50,13 @@ function ViewResearchTopicSup() {
                     <div class="form-inline my-2 my-lg-0">
                         <h5 className='search-topic'>Select your Group ID</h5>
                         <Button className='btn btn-primary search-btn' onClick={() => { SearchItem({ selects }) }}>Search</Button>
-                        <select className='form-control select-btn w-50' name="gid" id="gid" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
+                        <select className='form-control select-btn w-50' name="interest" id="interest" placeholder='Search your Group ID' value={selects} onChange={e => setSelects(e.target.value)}>
                             <option>None</option>
-                            <option>G001</option>
-                            <option>G008</option>
+                            <option>Internet of Things</option>
+                            <option>G002</option>
+                            <option>G003</option>
+                            <option>G004</option>
+                            <option>G005</option>
                         </select>
                     </div> <br />
                 </div>
@@ -68,8 +72,8 @@ function ViewResearchTopicSup() {
                             <th scope='col'>Supervisor Status</th>
                             <th scope='col'>Accept / Reject</th>
                             <th scope='col'>Send E-mail</th>
-                            {/* <th scope="col">Update</th> */}
-                            <th scope="col">Delete</th>
+                            {/* <th scope="col">Update</th> 
+                            <th scope="col">Delete</th>*/}
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -81,11 +85,11 @@ function ViewResearchTopicSup() {
                                     <td>{topic.lead_no}</td>
                                     <td>{topic.name}</td>
                                     <td>{topic.interest}</td>
-                                    <td><button className='btn btn-danger mx-auto'>{topic.status_sup}</button></td>
-                                    <td><Link to={`/updatereqsup/${topic._id}`}><Button className='btn btn-warning'>Accept / Reject</Button></Link> </td>
+                                    <td><button className='btn btn-warning mx-auto'>{topic.status_sup}</button></td>
+                                    <td><Link to={`/updatereqsup/${topic._id}`}><button className='btn btn-danger'>Accept / Reject</button></Link> </td>
                                     <td><Link to={`/sendmail/${topic._id}`}><button className='btn btn-success'>Send Status to Group Leader</button></Link></td>
-                                    {/* <td><Link to={`/updatereqq/${topic._id}`}><Button className='btn btn-danger'>Update</Button></Link> </td> */}
-                                    <td><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td>
+                                    {/* <td><Link to={`/updatereqq/${topic._id}`}><Button className='btn btn-danger'>Update</Button></Link> </td> 
+                                    <td><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td>*/}
                                 </tr>
                             )
                             )

@@ -45,9 +45,17 @@ const studentHome = () => {
                     </div>
 
                     <div className="d-flex flex-row-reverse">
-                        <div className="p-0 mr-6"><button className='btn btn-danger'>{userDetails.username}</button></div>
-                        <div className="p-0 mr-2"><button className='btn btn-warning'>{userDetails.name}</button></div>
+                        <div className="p-0 mr-6 text-white">{userDetails.username}</div>
+                        <div className="p-0 mr-2 text-white">{userDetails.name}</div>
+
+
+                        <Link to={`/profile/${userDetails.username}`}>
+                            <button className="btn btn-outline-primary ms-9 px-4 rounded-pill profile">
+                                Profile <i className="fa fa-user me-2" />
+                            </button>
+                        </Link>
                     </div>
+
 
                 </div>
             </div>
@@ -63,7 +71,7 @@ const studentHome = () => {
                 <div className="col-md-4">
                     <center>
                         <img width="310px" src={img1} />
-                        <h4> <a className='navbar-brand fs-4 text-dark' href="/viewtopic"> Register for Research Topic </a> </h4>
+                        <h4> <Link className='navbar-brand fs-4 text-dark' to={`/viewtopic/${username}`}> Register for Research Topic </Link> </h4>
                     </center>
                 </div>
 
@@ -75,7 +83,7 @@ const studentHome = () => {
                 </div>
             </div>
 
-            <br /> 
+            <br />
             <div className="row">
                 <div className="col-md-4">
                     <center>

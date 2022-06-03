@@ -33,7 +33,7 @@ const researchTopicSchema = new mongoose.Schema ({
 
     request: {
         type: String,
-        default: 'Requested'
+        default: 'Not Requested'
     },
 
     status_sup: {

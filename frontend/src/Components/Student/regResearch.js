@@ -1,7 +1,14 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import axios from "axios";
 
 const ResearchTopic = (props) => {
+
+  const [userDetails, setUserDetails] = useState({
+    name: "",
+    username: "",
+    interest: "",
+  });
 
   const [inputs, setInputs] = useState({
     gid: "",
@@ -11,6 +18,22 @@ const ResearchTopic = (props) => {
     interest: "",
     request: "",
   });
+
+  const { username } = useParams("");
+
+  useEffect(() => {
+
+    const getdata = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/user/getUsername/${username}`)
+        setUserDetails(res.data);
+        console.log('render');
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getdata()
+  }, []);
 
   const onChangeInput = (e) => {
     setInputs((prev) => ({
@@ -37,13 +60,17 @@ const ResearchTopic = (props) => {
     e.preventDefault();
     //send http request
     sendRequest()
-      .then(() => window.alert("You Sucessfully Register for the Register Topic"));
+      .then(() => window.alert("You Sucessfully Register for the Research Topic"));
     props.history.push('/viewreg')
   };
 
   return (
     <div>
       <div>
+        <div className="">
+          <div className="text-white">{userDetails.username}</div>
+          <div className="text-white">{userDetails.name}</div>
+        </div>
         <div className="container shadow border border-5 my-5 mx-auto w-50">
           <div className="col p-3">
             <h3 className=" fw-bolder mb-4"><center>Register Research Topic</center></h3>
@@ -82,7 +109,7 @@ const ResearchTopic = (props) => {
               <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
               <label for="check">&nbsp;Once you Register for a Topic, You can't Change it</label><br></br>
               <br />
-              <button type="submit" class="btn btn-primary w-100 rounded-pill">Register your Topic</button>
+              <button type="submit" class="btn btn-danger w-100 rounded-pill">Register your Topic</button>
               <br />
             </form>
           </div>

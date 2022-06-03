@@ -24,23 +24,21 @@ export default function Group_notAssigned(){
 
     return(
         <div>
-            <Link to={'/grpDisplays'}><Button className='btn1'>Panel Assigned Groups</Button></Link>
+           
             <div className='groupTable'>
-            <div className="container ">
-
+            <div className="container shadow py-5 ">
+            <h3 className=" fw-bolder mb-4"><center>Allocate Panel Members</center></h3>
                 <table className="table ">
-                    <thead>
+                    <thead className='table-dark'>
                         <tr  key={"1"}>
                             <th> Group ID</th>
                             <th> Student ID </th>
                             <th> Panel Status </th>
-
-                            <div className="col-lg-9 mt-2 mb-2">
-                            </div>
+                            <th> Panel Assign </th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody className='table-group-divider'>
                     {
                         groupList.map((groups, id) => (
                             <tr key={id}>
@@ -49,7 +47,7 @@ export default function Group_notAssigned(){
                                 <td>{groups.pannel_status}</td>
 
                                 <td>
-                                    <Link to={`/panelAssign/${groups._id}`}><Button className='btn1'>Panel Assign</Button></Link>
+                                    <Link to={`/panelAssign/${groups._id}`}><Button className='btn btn-warning'>Panel Assign</Button></Link>
                                 </td>
                             
                             </tr>
@@ -57,6 +55,8 @@ export default function Group_notAssigned(){
                     }
                     </tbody>
                 </table>
+
+                <Link to={'/grpDisplays'}><Button className='btn btn-success'>Panel Assigned Groups</Button></Link>
             </div>
             </div>
         </div>

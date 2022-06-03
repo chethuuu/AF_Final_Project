@@ -20,16 +20,16 @@ function ViewResearchTopic() {
         getListTopics()
     }, []);
 
-    // const deleteResearch_Topic = async (id) => {
-    //     try {
-    //         const res = await axios.delete(`http://localhost:5000/api/rtopicss/${id}`)
-    //         const newListItems = listTopic.filter(topic => topic._id !== id);
-    //         setListTopics(newListItems);
+    const deleteResearch_Topic = async (id) => {
+        try {
+            const res = await axios.delete(`http://localhost:5000/api/rtopicss/${id}`)
+            const newListItems = listTopic.filter(topic => topic._id !== id);
+            setListTopics(newListItems);
 
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     function SearchItem() {
         console.log(gid)
@@ -45,6 +45,7 @@ function ViewResearchTopic() {
     return (
         <div>
             <div className='container shadow my-5'>
+            <h3 className=" fw-bolder mb-4"><center>Supervisor Status</center></h3>
                 <div class="input-group">
                     <div class="form-inline my-2 my-lg-0">
                         <h5 className='search-topic'>Select your Group ID</h5>
@@ -69,8 +70,7 @@ function ViewResearchTopic() {
                             <th scope="col">Topic Name</th>
                             <th scope="col">Category</th>
                             <th scope='col'>Status</th>
-                            {/* <th scope="col">Update</th>
-                            <th scope="col">Delete</th> */}
+                            <th scope="col">Delete</th> 
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -82,9 +82,8 @@ function ViewResearchTopic() {
                                     <td>{topic.lead_no}</td>
                                     <td>{topic.name}</td>
                                     <td>{topic.interest}</td>
-                                    <td><button className='btn btn-danger'>{topic.status_sup}</button></td>
-                                    {/* <td ><button className='btn btn-warning' onClick={() => updateResearch_Topic(topic._id, topic.name)}>Update</button></td> 
-                                    <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td> */}
+                                    <td><button className='btn btn-warning'>{topic.status_sup}</button></td>
+                                    <td ><button className='btn btn-danger' onClick={() => deleteResearch_Topic(topic._id)}>Delete</button></td> 
                                 </tr>
                             )
                             )

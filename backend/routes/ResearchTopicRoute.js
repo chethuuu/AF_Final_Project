@@ -16,8 +16,11 @@ router.route('/rtopicsbyID/:id')
 router.route('/rtopics/:gid')
   .get(ResearchTopicCtrl.getDetailsbyGroupID)
 
-router.route('/rtopics/filter/:interest')
+router.route('/rtopics/interest/filter/:interest')
   .get(ResearchTopicCtrl.getDetailsbyInterest)
+
+router.route('/rtopics/request/approve')
+  .get(ResearchTopicCtrl.getCoSupervisorStatus)
 
 router.route('/rtopics/status/:status_sup')
   .get(ResearchTopicCtrl.getDetailsbyStatus);
@@ -32,8 +35,10 @@ router.route('/status/req')
   .get(ResearchTopicCtrl.getApproveSupStatus);
 
 router.route('/status/notreq')
-  .get(ResearchTopicCtrl.getEmailStatusNot);
+  .get(ResearchTopicCtrl.getEmailStatusNot); 
 
+router.route('/leader/check/:lead_no')
+  .get(ResearchTopicCtrl.getLeaderIT);
 // router.get("/getdata/filter", async(req,res) => {
 //   try {
 //       const allgrps = await Group.find({pannel_status:'Not assign'});
