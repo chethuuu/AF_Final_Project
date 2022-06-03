@@ -21,14 +21,6 @@ export default function Group_viewDetails(){
         
     });
 
-    /*const [panelDetails, setPanelDetails] = useState({
-        pannel:{ 
-            panel1:{ ID: "", name:"", email: ""},
-            panel2:{ ID: "",name:"", email: ""}
-        }
-    });*/
-   
-
     useEffect(() =>{
         const getGroupData = async() =>{
             try{

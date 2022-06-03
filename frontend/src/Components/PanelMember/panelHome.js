@@ -1,8 +1,9 @@
 import React from 'react';
-
+import {Link } from 'react-router-dom';
 import img1 from '../../img/img1.png'
 import img9 from '../../img/img9.png'
-
+import img1 from '../../img/img1.png'
+import img9 from '../../img/img9.png'
 
 const panelHome = () => {
     return (
@@ -16,12 +17,42 @@ const panelHome = () => {
                 </div>
             </div>
 
+
+
         	<br/><br/>
             <div class="row">
                 <div class="col-md-4">
                     <center>
                         <img width="250px" src={img9} />
                         <h4> <a className='navbar-brand text-dark fs-4' href="/reseacrhtopic"> View Approved Research Topic </a></h4>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <img width="330px" src={img1} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> View Reject Research Topic </a> </h4>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <img width="330px" src={img1} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="#">  Download Marking Scheme </a> </h4>
+                    </center>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+        	<br/><br/>
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                        <img width="250px" src={img9} />
+                        <Link className='navbar-brand fs-4 text-dark' to={`/markingSchemas`}><h4>Evaluate Marks</h4></Link>
                     </center>
                 </div>
 
