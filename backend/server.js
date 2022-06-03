@@ -28,7 +28,8 @@ app.use("/group", StuGroupRoute);
 app.use('/api/upload', require('./routes/fileUpload'));
 app.use("/marking",markingRouter);
 app.use("/evaluation", EvaluationRoute);
-
+app.use('/api/conversations', require('./routes/MessengerRoutes/ConversationRoute'));
+app.use('/api/Messages', require('./routes/MessengerRoutes/MessageRoute'));
 
 //Database connection
 connectDB();
