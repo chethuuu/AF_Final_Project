@@ -88,14 +88,10 @@ export default function Group_PannelAssign(){
 
 
     return(
-        <div>
+        <div className='container shadow py-3'><br/>
             
-            <div class="card">
-                <center>
-                    <div class="card-header">
-                        <h5>Panel Assign</h5>
-                    </div>
-                </center>
+            <div class="">
+            <h3 className=" fw-bolder mb-4"><center>Panel Assign</center></h3>
 
                 <div class="card-body">  
                     <label><b>Group ID: </b>{groupDetails.group_id}</label> <br/>
@@ -208,8 +204,8 @@ export default function Group_PannelAssign(){
                                         }}></input> 
                                     </div>
                    
-                </div>
-                <button type="submit" className="btn btn-primary">Edit Item</button>
+                </div> <br/>
+                <button type="submit" className="btn btn-danger w-100 rounded-pill">Add Panel</button>
                 </form>
 
             </div>

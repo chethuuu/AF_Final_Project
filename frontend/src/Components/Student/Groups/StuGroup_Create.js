@@ -75,7 +75,7 @@ export default function StuGroup_Create() {
         <div>
             
             <div class="container shadow my-5 col-md-9 p-6 align-items-center">
-                <div className=" d-flex flex-column align-items-center text-dark justify-content-center form formHeader" >   
+                <div className=" d-flex flex-column align-items-center text-dark justify-content-center" >   
                     <h3> Student Group Registration</h3>
                 </div>
             
@@ -263,7 +263,7 @@ export default function StuGroup_Create() {
                         </div>
                         <br/>
 
-                        <button type="submit" className="btn submitBtn">Submit</button>                  
+                        <button type="submit" class="btn btn-success w-100 rounded-pill">Create Group</button>                  
                     </form>
            
             </div>
