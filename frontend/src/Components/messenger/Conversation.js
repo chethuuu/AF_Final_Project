@@ -4,6 +4,8 @@ import './messenger.css';
 import image from '../../img/Student.png';
 import image1 from '../../img/Admin.png';
 import image2 from '../../img/PanelMember.png';
+import image3 from '../../img/CoSup.png';
+import image4 from '../../img/Supervisor.png';
 
 export default function Conversation({conversation, currentUserID}) {
   const [user, setUser] = useState(null);
@@ -28,7 +30,7 @@ export default function Conversation({conversation, currentUserID}) {
 
   return (
     <div className='conversation'>
-      <img className='conImg' src={user==null ? image : (user.role=='admin' ? image1 : (user.role=='Student' ? image : image2))} alt='user image' />
+      <img className='conImg' src={user==null ? image : (user.role==='admin' ? image1 : (user.role==='user' ? image : (user.role==='CoSupervisor' ? image3 : (user.role==='Supervisor' ? image4 : image2))))} alt='user image' />
       <span className='conName'>{user==null ? "John" : user.name}</span>
     </div>
   )
