@@ -50,7 +50,7 @@ const studentHome = () => {
 
 
                         <Link to={`/profile/${userDetails.username}`}>
-                            <button className="btn btn-outline-primary ms-9 px-4 rounded-pill">
+                            <button className="btn btn-outline-primary ms-9 px-4 rounded-pill profile">
                                 Profile <i className="fa fa-user me-2" />
                             </button>
                         </Link>
