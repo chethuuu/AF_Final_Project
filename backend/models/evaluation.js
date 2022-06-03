@@ -1,78 +1,57 @@
 const mongoose = require('mongoose')
 
 const evaluationSchema = new mongoose.Schema({
-    grp_id: {
+    group_id: {
         type: String,
         required: true,
-        unique: true,
+        trim: true
     },
 
-    subject: {
+    details: {
+        subject: {type: String, required: true},
+        assignment: {type: String, required: true},
+        date: {type: String, required: true},
+        point: {type: String, required: true},
+        point1: {type: String, required: true},
+        point2: {type: String, required: true},
+        point3: {type: String, required: true},
+        marks: {type: String, required: true},
+        marks1: {type: String, required: true},
+        marks2: {type: String, required: true},
+        marks3: {type: String, required: true},
+    },
+    amount: {
         type: String,
         required: true,
+        trim: true
     },
-
-    assignment: {
+    amount1: {
         type: String,
         required: true,
+        trim: true
     },
-
-    date: {
-        type: Date,
-        required: true,
-    },
-
-    point1: {
+    amount2: {
         type: String,
         required: true,
+        trim: true
     },
-
-    point2: {
+    amount3: {
         type: String,
         required: true,
+        trim: true
     },
-
-    point3: {
+    total: {
         type: String,
         required: true,
+        trim: true
     },
-
-    point4: {
-        type: String,
-        required: true,
-    },
-
-
-    marks1: {
-        type: Int32Array,
-        required: true,
-    },
-
-    marks2: {
-        type: Int32Array,
-        required: true,
-    },
-
-    marks3: {
-        type: Int32Array,
-        required: true,
-    },
-
-    marks4: {
-        type: Int32Array,
-        required: true,
-    },
-
     feedback: {
         type: String,
         required: true,
-    },
-
-    marks1: {
-        type: Int32Array,
-        required: true,
+        trim: true
     },
     
+
 });
 
 module.exports = mongoose.model('evaluations', evaluationSchema);
