@@ -82,14 +82,14 @@ export default function StuGroup_Create() {
                     <form onSubmit={sendData} action="/post" method="post">
                         <div className="form-check">
                             <label for="name">User ID :{username}</label>
-                            <input type="text" className="form-control" id="name" 
+                            <input type="text" className="form-control" id="name" placeholder='Enter your ID no'                          
                             onChange={(e) =>{
                                 setUser_id(e.target.value);
                             }}></input> 
                         </div>
                         <div className="form-check">
-                            <label for="name">Group ID : {GrpCount}</label>
-                            <input type="text" className="form-control" id="name"                           
+                            <label for="name">Group ID :<b> {GrpCount}</b></label>
+                            <input type="text" className="form-control" id="name" placeholder='Enter above displayed group no*'                          
                             onChange={(e) =>{
                                 setGroup_id(e.target.value);
                             }}></input> 

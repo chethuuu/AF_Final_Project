@@ -93,7 +93,7 @@ export default function Evaluation() {
                                     value={details.subject}
                                         onChange={(e) =>{
                                             setdetails({...details, subject: e.target.value});
-                                    }}></input>       
+                                    }} readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -102,7 +102,7 @@ export default function Evaluation() {
                                     value={details.assignment}
                                         onChange={(e) =>{
                                             setdetails({...details, assignment: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -111,7 +111,7 @@ export default function Evaluation() {
                                     value={details.date}
                                         onChange={(e) =>{
                                             setdetails({...details, date: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
                             </div>
 
@@ -123,7 +123,7 @@ export default function Evaluation() {
                                     value={details.point}
                                         onChange={(e) =>{
                                             setdetails({...details, point: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -132,7 +132,7 @@ export default function Evaluation() {
                                     value={details.marks}
                                         onChange={(e) =>{
                                             setdetails({...details, marks: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -152,7 +152,7 @@ export default function Evaluation() {
                                     value={details.point1}
                                         onChange={(e) =>{
                                             setdetails({...details, point1: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -160,7 +160,7 @@ export default function Evaluation() {
                                     value={details.marks1}
                                         onChange={(e) =>{
                                             setdetails({...details, marks1: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -179,7 +179,7 @@ export default function Evaluation() {
                                     value={details.point2}
                                         onChange={(e) =>{
                                             setdetails({...details, point2: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -187,7 +187,7 @@ export default function Evaluation() {
                                     value={details.marks2}
                                         onChange={(e) =>{
                                             setdetails({...details, marks2: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -206,7 +206,7 @@ export default function Evaluation() {
                                     value={details.point3}
                                         onChange={(e) =>{
                                             setdetails({...details, point3: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
@@ -214,7 +214,7 @@ export default function Evaluation() {
                                     value={details.marks3}
                                         onChange={(e) =>{
                                             setdetails({...details, marks3: e.target.value});
-                                    }}></input>       
+                                    }}readOnly></input>       
                                 </div>
 
                                 <div className="form-group col-md-4">    
