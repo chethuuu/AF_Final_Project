@@ -52,6 +52,9 @@ import Evaluation from './Components/PanelMember/Evaluation';
 import PMResearchTopicStatus from './Components/PanelMember/PMResearchTopicStatus';
 import StudentProfile from './Components/Student/StudentProfile';
 import Messenger from './Components/messenger/Messenger';
+import MessengerAdmin from './Components/messenger/MessengerAdmin';
+import MessengerSupervisor from './Components/messenger/MessengerSupervisor';
+import MessengerCoSupervisor from './Components/messenger/MessengerCoSupervisor';
 
 function App() {
   return (
@@ -101,9 +104,9 @@ function App() {
       <PrivateRoute path="/profile/:username" roles={["user"]} component={StudentProfile} />
       {/* <PrivateRoute path="/messenger/:id" roles={["user", "Supervisor", "CoSupervisor", "admin"]} component={Messenger}/> */}
       <PrivateRoute path='/messengerU/:id' roles={["user"]} component={Messenger}/>
-      <PrivateRoute path="/messengerS/:id" roles={["Supervisor"]} component={Messenger}/>
-      <PrivateRoute path="/messengerC/:id" roles={["CoSupervisor"]} component={Messenger}/>
-      <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={Messenger}/>  
+      <PrivateRoute path="/messengerS/:id" roles={["Supervisor"]} component={MessengerSupervisor}/>
+      <PrivateRoute path="/messengerC/:id" roles={["CoSupervisor"]} component={MessengerCoSupervisor}/>
+      <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={MessengerAdmin}/>  
 
     </Router>
     </div>
