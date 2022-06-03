@@ -67,38 +67,29 @@ const SeeDocuments = () => {
     return (
         <div>
             <section id="contact">
-                <div className='container my-1 py-5'>
+                <div className='container shadow my-1 py-5'>
                     <div className='row mb-5'>
                         <div className='col-12'>
-                            <h3 className='fs-5 text-center mb-0'>Document Submissions</h3>
-                            <h1 className='display-6 text-center mb-4'> Download <b> Documents </b></h1>
-                            <hr className='w-25 mx-auto' />
+                        <h3 className=" fw-bolder mb-4"><center>Downloads Documents</center></h3>
                         </div>
                     </div>
-                    <div className='row mt-5'>
-                        <div className='col-md-1'>
-                        </div>
-                        <div className='col-md-6'>
-                            <h3 className='mt-4'>Submitted Documents</h3>
-                            <table className="table mt-3"  style={{backgroundColor: "#ADD8E6"}}>
-                                <thead><tr>
+                
+                     
+                            <table className="table" >
+                                <thead className='table-dark'><tr>
                                     <th>Group ID</th>
-                                    <th>File</th>
+                                    <th>Submitted Documents</th>
                                     <th>Download</th>
                                     <th>Delete</th>
                                 </tr></thead>
-                                <tbody>
+                                <tbody class="table-group-divider">
                                     {displayT(docs)}
                                 </tbody>
                             </table> 
                         </div>
-                        <div className='col-md-1'>
-                        </div>
-                        <div className='col-md-4'>
-                            <img src={image} alt="File Upload" width='300' />
-                        </div>
-                    </div>
-                </div>
+                        
+                    
+               
             </section>
         </div>
     )

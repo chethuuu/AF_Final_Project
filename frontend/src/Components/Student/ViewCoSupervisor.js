@@ -32,6 +32,7 @@ function ViewCoSupervisor() {
   return (
     <div>
       <div className='container shadow my-5'>
+      <h3 className=" fw-bolder mb-4"><center>Co-Supervisor Status</center></h3>
         <div class="input-group">
           <div class="form-inline my-2 my-lg-0">
             <h5 className='search-topic'>Select your Group ID</h5>

@@ -21,7 +21,7 @@ export default function markingSchemas() {
 
     return(
         <div  class="container shadow my-5 col-md-9 p-6 align-items-center">
-            <h1>Marking Schemes</h1>
+            <h3 className=" fw-bolder mb-4"><center>Marking Schemas</center></h3>
             <table class="table">
                 <thead  class="thead-dark">
                     <tr>

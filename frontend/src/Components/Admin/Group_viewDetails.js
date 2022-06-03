@@ -35,14 +35,13 @@ export default function Group_viewDetails(){
 
 
     return(
-        <div>
-            <div class="card">
-                <center>
-                    <div class="card-header">
-                        <h5>Student Group Details</h5>
-                    </div>
-                </center>
+        
+        <div className='container shadow py-3'> <br/>
+            
 
+            <div class="">
+                
+            <h3 className=" fw-bolder mb-4"><center>Student Group Details</center></h3>
                 <div class="card-body">  
                     <label><b>Group ID: </b>{groupDetails.group_id}</label> <br/>
                     <label><b>Student ID: </b>{groupDetails.user_id}</label><br/>
