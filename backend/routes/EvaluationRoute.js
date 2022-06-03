@@ -34,6 +34,17 @@ router.post("/add", (req, res, next) => {
   });
 });
 
+//Get all Evaluations
+router.get("/getAllevaluation", async (req, res) => {
+  try {
+    const evaluation = await Evaluations.find({});
+    res.status(200).json(evaluation);
+  } catch (err) {
+    res.json(err);
+  }
+})
+
+
 
 
 
