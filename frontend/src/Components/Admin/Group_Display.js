@@ -23,22 +23,21 @@ export default function Group_Display(){
 
     return(
         <div>
-            <div className='groupTable'>
-            <div className="container ">
-                
-                <table className="table ">
-                    <thead>
+            <div className='groupTable'> 
+            <div className="container shadow py-3">
+            <h3 className=" fw-bolder mb-4"><center>Downloads Documents</center></h3><br/>
+                <table className="table">
+                    <thead className='table-dark'>
                         <tr  key={"1"}>
                             <th> Group ID</th>
                             <th> Student ID </th>
                             <th> Panel Status </th>
-
-                            <div className="col-lg-9 mt-2 mb-2">
-                            </div>
+                            <th> View Details </th>
+                            
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody className='table-group-divider'>
                     {
                         groupList.map((groups, id) => (
                             <tr key={id}>
@@ -47,7 +46,7 @@ export default function Group_Display(){
                                 <td>{groups.pannel_status}</td>
 
                                 <td>
-                                    <Link to={`/viewGroup/${groups._id}`}><Button className='btn1'>View Details</Button></Link>
+                                    <Link to={`/viewGroup/${groups._id}`}><Button className='btn btn-warning'>View Details</Button></Link>
                                 </td>
                             
                             </tr>

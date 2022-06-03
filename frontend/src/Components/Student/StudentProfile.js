@@ -30,10 +30,13 @@ function StudentProfile() {
         <div> <br />
             <h2>Hello {userDetails.username} ! &nbsp;{userDetails.name}</h2>
 
-            <div className='container shadow my-5'> 
-            <br />
-            <h1><center>Summary</center></h1> <br/>
-                <table class="table">
+            <div className='container shadow my-5'>
+                <br />
+                <h1 className='display-6 text-center mb-4'> <b> Student Summary </b></h1>
+                <hr className='w-25 mx-auto' />
+
+                <b>Group Details</b>
+                <table class="table"> 
                     <thead className='table-active'>
                         <tr>
                             <th>Leader's IT Number</th>
@@ -86,7 +89,7 @@ function StudentProfile() {
 
 
                 <div className='row py-3'>
-                    <div className='col-md-6'> <b>Leader's Details</b>
+                    <div className='col-md-6'> <b>Leader</b>
                         {/* Leader's Details Display */}
                         <table class="table">
                             <thead className='table-primary'>
@@ -114,7 +117,7 @@ function StudentProfile() {
                     </div>
 
                     {/* Group Member 02 Details Display */}
-                    <div className='col-md-6'> <b>Group Member 02 Details</b>
+                    <div className='col-md-6'> <b>Group Member 02 </b>
                         <table class="table">
                             <thead className='table-primary'>
                                 <tr>
@@ -142,7 +145,7 @@ function StudentProfile() {
                     <div className='row py-3'>
 
                         {/* Group Member 03 Details Display */}
-                        <div className='col md-6'><b>Group Member 03 Details</b>
+                        <div className='col md-6'><b>Group Member 03 </b>
                             <table class="table">
                                 <thead className='table-primary'>
                                     <tr>
@@ -169,7 +172,7 @@ function StudentProfile() {
                         </div>
 
                         {/* Group Member 02 Details Display */}
-                        <div className='col md-6'><b>Group Member 04 Details</b>
+                        <div className='col md-6'><b>Group Member 04 </b>
                             <table class="table">
                                 <thead className='table-primary'>
                                     <tr>

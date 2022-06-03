@@ -49,8 +49,8 @@ export default function AddMarking(){
         <div class="col-11">
         <div className="container shadow my-5 col-md-9 p-6 align-items-center">
             <div className=" d-flex flex-column align-items-center text-dark justify-content-center">
-                <h1 className=" fw-bolder">Marking Shcema Creation</h1>
-                <p className="lead text-center">Enter Marking Schema Details</p>
+              
+                <h3 className=" fw-bolder mb-4"><center>Marking Shcema Creation</center></h3>
               
                
             </div>
@@ -62,22 +62,22 @@ export default function AddMarking(){
                     }}></input>
                     
                 </div>
-                <div className="form-check">
-                    <label for="assignment">Assigenment</label>
+                <div className="form-check py-2">
+                    <label for="assignment">Assignment</label>
                     <input type="text" className="form-control" id="assignment" placeholder="Assignment" onChange={(e)=>{
                         setAssignment(e.target.value);
                     }}></input>
                 </div>
-                <div className="form-check">
+                <div className="form-check py-2">
                 <label for="date">Date of deadline</label>
                     <input type="date" className="form-control" id="date" placeholder="Date of deadline" onChange={(e)=>{
                         setDate(e.target.value);
                     }}></input>
                 </div>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+                
+                    <div class="row py-1">
+                        <div class="col-md-8">
                             <div className="form-check">
                                 <label for="point">Marking Point</label>
                                 <input name="service" type="text" className="form-control" id="point" placeholder="Marking point" onChange={(e)=>{
@@ -94,10 +94,10 @@ export default function AddMarking(){
                             </div>
                         </div>                       
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+                
+          
+                    <div class="row py-1">
+                        <div class="col-md-8">
                             <div className="form-check">
                                 <label for="point1">Marking Point</label>
                                 <input name="service" type="text" className="form-control" id="point1" placeholder="Marking point" onChange={(e)=>{
@@ -114,10 +114,9 @@ export default function AddMarking(){
                             </div>
                         </div>                       
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+                
+                    <div class="row py-1">
+                        <div class="col-md-8">
                             <div className="form-check">
                                 <label for="point2">Marking Point</label>
                                 <input name="service" type="text" className="form-control" id="point2" placeholder="Marking point" onChange={(e)=>{
@@ -134,10 +133,9 @@ export default function AddMarking(){
                             </div>
                         </div>                       
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+                
+                    <div class="row py-1">
+                        <div class="col-md-8">
                             <div className="form-check">
                                 <label for="point3">Marking Point</label>
                                 <input name="service" type="text" className="form-control" id="point3" placeholder="Marking point" onChange={(e)=>{
@@ -154,10 +152,10 @@ export default function AddMarking(){
                             </div>
                         </div>                       
                     </div>
-                </div>
+                
                 <br></br><br></br>
 
-                <button type="submit" className="btn btn-lg btn-primary btn-block">Submit</button>
+                <button type="submit" className="btn btn-danger w-100 rounded-pill">Submit Marking Schema</button>
                 <br></br> <br></br> <br></br> 
                
             </form>
@@ -167,7 +165,7 @@ export default function AddMarking(){
         </div>
         <div class="col-1">
             <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
-            <h1><a href="/allmarking" class="badge badge-secondary">Marking</a></h1>
+            {/* <h1><a href="/allmarking" class="badge badge-secondary">Marking</a></h1> */}
          
         </div>
         </div>

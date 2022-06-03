@@ -64,9 +64,6 @@ const Allaccount = () => {
             <th Scope="col"> Topic Category </th>
             <th scope='col'> Update </th>
             <th scope='col'> Delete </th>
-            <th Scope="col"> Interest </th>
-            <th Scope="col"></th>
-            <th Scope="col"></th>
           </tr>
         </thead>
         <tbody>
