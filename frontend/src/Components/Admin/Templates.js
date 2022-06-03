@@ -7,12 +7,10 @@ const FileUpload = () => {
     return (
         <div>
             <section id="contact">
-                <div className='container my-5 py-5'>
+            <div className='container shadow my-5 py-5'>
                     <div className='row mb-5'>
                         <div className='col-12'>
-                            <h3 className='fs-5 text-center mb-0'>File Upload</h3>
-                            <h1 className='display-6 text-center mb-4'> Upload your <b> Reaserch </b></h1>
-                            <hr className='w-25 mx-auto' />
+                            <h3 className='fw-bolder mb-4 text-center'> Upload your Documents </h3>
                         </div>
                     </div>
                     <div className='row'>
@@ -42,13 +40,13 @@ const FileUpload = () => {
                         </div>
                         <div className='col-md-6'>
                             <h3 className='mt-4'>Document Uploaded</h3>
-                            <table className="table mt-3"  style={{backgroundColor: "#ADD8E6"}}>
-                                <thead>
+                            <table className="table mt-3">
+                                <thead className='table-light'>
                                     <th>File</th>
                                     <th>Update</th>
                                     <th>Delete</th>
                                 </thead>
-                                <tbody>
+                                <tbody class="table-group-divider">
                                     <td>gfjhagjhgaje.pdf</td>
                                     <td><button className='btn btn-outline-success'>Update</button></td>
                                     <td><button className='btn btn-outline-danger'>Delete</button></td>

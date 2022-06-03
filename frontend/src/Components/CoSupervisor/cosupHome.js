@@ -10,7 +10,7 @@ const cosupHome = () => {
             <div className="row">
                 <div className="col-12">
                     <div className='col-12'>
-                        <h1 className='display-6 text-center mb-4'> <b> Co-Supervisor DashBoard </b></h1>
+                        <h1 className='display-6 text-center mb-4'> <b>&nbsp;&nbsp;&nbsp;&nbsp; Co-Supervisor DashBoard </b></h1>
                         <hr className='w-25 mx-auto' />
                     </div>
                 </div>
