@@ -59,7 +59,7 @@ export default function AllEvaluationDisplay(){
 
                                 <td>
                                     <Link to={`/viewmarks/${list._id}`}><Button className='btn1'>View Details</Button></Link>
-                                    <Link to={`/editMarks/${list._id}`}><Button className='btn1'>Edit Details</Button></Link>    
+                                        
                                     <Button onClick={()=>{removeItem(list._id)}}>Delete</Button>
                                 </td>
                             
