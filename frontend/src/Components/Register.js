@@ -141,8 +141,8 @@ const Register = props => {
                                             <option value="admin">Admin</option>
                                             <option value="user">User</option>
                                             <option value="Supervisor">Supervisor</option>
-                                            <option value="Co-Supervisor">Co-Supervisor</option>
-                                            <option value="Panal Member">Panal Member</option>
+                                            <option value="CoSupervisor">CoSupervisor</option>
+                                            <option value="PanalMember">PanalMember</option>
                                         </select>
                                     </div>
                                 </div>

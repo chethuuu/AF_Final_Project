@@ -202,7 +202,7 @@ userRouter.put("/update/:id", (req, res, next) => {
 //Get only panel members
 userRouter.get("/getpanel/filter", async(req,res) => {
     try {
-        const panel = await User.find({role:'user'});
+        const panel = await User.find({role:'PanelMember'});
         res.status(200).json(panel);
     } catch (err) {
         res.json(err);

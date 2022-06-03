@@ -6,8 +6,7 @@ import img9 from '../../img/img9.png'
 
 const panelHome = () => {
     return (
-
-
+        
         <div>
             <div class="container my-0 py-3">
                 <div className="row">
@@ -19,19 +18,12 @@ const panelHome = () => {
                     </div>
                 </div>
 
-        	<br/><br/>
-            <div class="row">
-                <div class="col-md-4">
-                    <center>
-                        <img width="250px" src={img9} />
-                        <Link className='navbar-brand fs-4 text-dark' to={`/markingSchemas`}><h4>Evaluate Marks</h4></Link>
-                    </center>
-                </div>
-                <br /><br />
+        	    <br/><br/>
                 <div class="row">
                     <div class="col-md-4">
                         <center>
                             <img width="250px" src={img9} />
+
                             <h4> <a className='navbar-brand text-dark fs-4' href="/reseacrhtopic"> View Approved Research Topic </a></h4>
                         </center>
                     </div>
@@ -39,10 +31,54 @@ const panelHome = () => {
                     <div class="col-md-4">
                         <center>
                             <img width="300px" src={img4} />
+
                             <Link className='navbar-brand fs-4 text-dark' to={`/markingSchemas`}><h4>Evaluate Marks</h4></Link>
                         </center>
                     </div>
+                    <br /><br />
 
+                    <div class="row">
+                        <div class="col-md-4">
+                            <center>
+                                <img width="250px" src={img9} />
+                                <h4> <a className='navbar-brand text-dark fs-4' href="/reseacrhtopic"> View Approved Research Topic </a></h4>
+                            </center>
+                        </div>
+
+                        <div class="col-md-4">
+                            <center>
+                                <img width="250px" src={img9} />
+                                <Link className='navbar-brand fs-4 text-dark' to={`/markingSchemas`}><h4>Evaluate Marks</h4></Link>
+                            </center>
+                        </div>
+
+                        <div class="col-md-4">
+                            <center>
+                                <img width="330px" src={img1} />
+                                <h4> <a className='navbar-brand text-dark fs-4' href="#">  Download Marking Scheme </a> </h4>
+                            </center>
+                        </div>
+                    </div>
+
+
+
+
+                    <br /><br />
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <center>
+                                <img width="330px" src={img1} />
+                                <h4> <a className='navbar-brand text-dark fs-4' href="#"> View Reject Research Topic </a> </h4>
+                            </center>
+                        </div>
+
+                        <div class="col-md-4">
+                            <center>
+                                <img width="330px" src={img1} />
+                                <h4> <a className='navbar-brand text-dark fs-4' href="#">  Download Marking Scheme </a> </h4>
+                            </center>
+                        </div>
                     <div class="col-md-4">
                         <center>
                             <img width="300px" src={img4} />
@@ -53,7 +89,6 @@ const panelHome = () => {
         </div>
         </div>
         </div>
-
     )
 }
 
