@@ -34,6 +34,7 @@ router.post("/add", (req, res, next) => {
   });
 });
 
+
 //Get all Evaluations
 router.get("/getAllevaluation", async (req, res) => {
   try {
@@ -43,6 +44,15 @@ router.get("/getAllevaluation", async (req, res) => {
     res.json(err);
   }
 })
+
+
+//view selected Evaluation details
+router.get('/getone/:id', async (req, res) => {
+  let id = req.params.id;
+  Evaluations.findById(id, function (err, evalu) {
+    res.json(evalu);
+  });
+});
 
 
 
