@@ -10,7 +10,7 @@ export default function markingSchemas() {
     useEffect(() => {
         const getMarking = async() => {
             try {
-                const res = await axios.get('http://localhost:5000/marking')
+                const res = await axios.get('http://localhost:5000/marking/getdata/presentation')
                 setMarking(res.data);
             } catch(err) {
                 console.log(err);
@@ -27,7 +27,7 @@ export default function markingSchemas() {
             </div>
 
         <div  class="container shadow my-5 col-md-9 p-6 align-items-center">
-            <h3 className=" fw-bolder mb-4"><center>Marking Schemas</center></h3>
+            <h3 className=" fw-bolder mb-4"><center>Presentation Marking Schemas</center></h3>
             <table class="table">
                 <thead  class="thead-dark">
                     <tr>
