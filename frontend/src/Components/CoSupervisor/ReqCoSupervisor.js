@@ -45,12 +45,12 @@ const ReqCoSupervisor = (props) => {
         <div>
             <div>
 
-                <div className="container shadow my-5 mx-auto w-50">
+                <div className="container shadow my-5 update-status">
                     <div className="col p-5 mx-auto">
-                        <h1 className=" fw-bolder mb-5"><center>Co-Supervisor Status</center></h1>
+                        <h3 className=" fw-bolder mb-5"><center>Update Co-Supervisor Status</center></h3>
                         <form onSubmit={sendData}>
                             <div className="form-group">
-                                <select className="form-control w-40" name='itemType'
+                                <select className="form-control" name='itemType'
                                     value={inputs.status_co}
                                     onChange={(e) => { setInputs({ status_co: e.target.value }) }}>
                                     <option>Pending</option>
