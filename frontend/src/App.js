@@ -50,6 +50,8 @@ import ReqCoSupervisorRequest from './Components/Student/ReqCoSupervisorRequest'
 import markingSchemas from './Components/PanelMember/markingSchemas';
 import Evaluation from './Components/PanelMember/Evaluation';
 import PMResearchTopicStatus from './Components/PanelMember/PMResearchTopicStatus';
+import StudentProfile from './Components/Student/StudentProfile';
+
 
 function App() {
   return (
