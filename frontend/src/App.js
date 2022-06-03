@@ -48,7 +48,7 @@ import SendEmail from './Components/Supervisor/SendEmail';
 import SendEmailCo from './Components/CoSupervisor/SendEmailCo';
 import ReqCoSupervisorRequest from './Components/Student/ReqCoSupervisorRequest';
 import markingSchemas from './Components/PanelMember/markingSchemas';
-import evaluationMarks from './Components/PanelMember/evaluationMarks';
+import Evaluation from './Components/PanelMember/Evaluation';
 
 function App() {
   return (
@@ -93,7 +93,9 @@ function App() {
       <PrivateRoute path="/cosupreq/:id" roles={["CoSupervisor"]} component={ReqCoSupervisor}/>
       <PrivateRoute path="/reqsent/:id" roles={["user"]} component={ReqCoSupervisorRequest}/>
       <PrivateRoute path="/markingSchemas" roles={["PanelMember"]} component={markingSchemas}/>
-      <PrivateRoute path="/evaluationMarks" roles={["PanelMember"]} component={evaluationMarks}/>
+      <PrivateRoute path="/evaluation/:id" roles={["PanelMember"]} component={Evaluation}/>
+     
+      
     </Router>
     </div>
   );
