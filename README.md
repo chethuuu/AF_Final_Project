@@ -16,3 +16,9 @@ Sample Login Password and Username
 #Supervisor --> Supervisor Supervisor
 #Co-Supervisor --> CoSupervisor CoSupervisor
 #Panel Member --> PanelMember PanelMember
+
+Contributers Information
+#IT20065294 - Prasadi W.V.C.
+#IT20095062 - Gamage S.R.J.
+#IT20075408 - Nandasiri K.G.N.D.
+#IT20013950 - Lakshani N.V.M.
