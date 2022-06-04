@@ -124,7 +124,7 @@ export default function Group_PannelAssign(){
                                         value={onePanelMember._id}
                                         onChange={(e) =>{
                                             setPanelDetails({...pannel, ID: e.target.value});
-                                        }}></input> 
+                                        }} readOnly></input> 
                                     </div>
 
                                    
@@ -135,7 +135,7 @@ export default function Group_PannelAssign(){
                                         value={onePanelMember.name}
                                         onChange={(e) =>{
                                             setPanelDetails({...pannel, name: e.target.value});
-                                        }}></input> 
+                                        }} readOnly></input> 
                                     </div>
                                     <div className="form-check">
                                         <label for="name">Email</label>
@@ -143,7 +143,7 @@ export default function Group_PannelAssign(){
                                         value={onePanelMember.email}
                                         onChange={(e) =>{
                                             setPanelDetails({...pannel, email: e.target.value});
-                                        }}></input> 
+                                        }} readOnly></input> 
                                     </div>
                                 
 
@@ -174,7 +174,7 @@ export default function Group_PannelAssign(){
                                         value={secondPanelMember._id}
                                         onChange={(e) =>{
                                             setPanelDetails({...pannel, ID: e.target.value});
-                                        }}></input> 
+                                        }}readOnly></input> 
                                     </div>
                                     <div className="form-check">
                                         <label for="name">Name</label>
@@ -182,7 +182,7 @@ export default function Group_PannelAssign(){
                                         value={secondPanelMember.name}
                                         onChange={(e) =>{
                                             setPanelDetails({...pannel, name: e.target.value});
-                                        }}></input> 
+                                        }}readOnly></input> 
                                     </div>
                                     <div className="form-check">
                                         <label for="name">Email</label>
@@ -190,7 +190,7 @@ export default function Group_PannelAssign(){
                                         value={secondPanelMember.email}
                                         onChange={(e) =>{
                                             setPanelDetails({...pannel, email: e.target.value});
-                                        }}></input> 
+                                        }}readOnly></input > 
                                     </div>
                             </div>
                         </div>

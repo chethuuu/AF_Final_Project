@@ -32,6 +32,13 @@ const cosupHome = () => {
                     </center>
                 </div>
 
+                <div class="col-md-6">
+                    <center>
+                        <img width="250px" src={img9} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="/seeDocs"> View Research Document </a> </h4>
+                    </center>
+                </div>
+
             </div>
         </div>
     )

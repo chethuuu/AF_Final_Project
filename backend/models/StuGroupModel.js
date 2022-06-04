@@ -11,7 +11,6 @@ const StuGroupSchema = new mongoose.Schema({
     group_id: {
         type: String,
         required: true,
-        unique: true,
         trim: true
     },
 

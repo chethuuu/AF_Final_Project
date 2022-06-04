@@ -12,7 +12,6 @@ export default function msg({message, own}) {
         </p>
       </div>
       <div className='msgBottom'>{format(message.createdAt)}</div>
-      {/* <div className='msgBottom'>(message.createdAt)</div> */}
     </div>
   )
 }

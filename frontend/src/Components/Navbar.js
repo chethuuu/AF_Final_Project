@@ -127,10 +127,10 @@ const Navbar = props => {
 
                 {
                     // (user.role === "Supervisor" || user.role === "CoSupervisor" ||  user.role === "user" || user.role === "admin") ? <Link to='/messengerU/:id'><li className="navbar-brand header">Messenger</li></Link> : null
-                    (user.role === "user") ? <Link to={`/messengerU/${uID}`} params={{ uID: uID }}><li className="navbar-brand header">Messenger</li></Link> 
-                    : (user.role === "Supervisor") ? <Link to='/messengerS/:id'><li className="navbar-brand header">Messenger</li></Link> 
-                    : (user.role === "CoSupervisor") ? <Link to='/messengerC/:id'><li className="navbar-brand header">Messenger</li></Link>
-                    :  (user.role === "admin") ? <Link to='/messengerA/:id'><li className="navbar-brand header">Messenger</li></Link>
+                    (user.role === "user") ? <Link to={`/messengerU/${uID}`} ><li className="navbar-brand header">Messenger</li></Link> 
+                    : (user.role === "Supervisor") ? <Link to={`/messengerS/${sID}`}><li className="navbar-brand header">Messenger</li></Link> 
+                    : (user.role === "CoSupervisor") ? <Link to={`/messengerC/${cID}`}><li className="navbar-brand header">Messenger</li></Link>
+                    :  (user.role === "admin") ? <Link to={`/messengerA/${aID}`}><li className="navbar-brand header">Messenger</li></Link>
                     : null
                 }
 

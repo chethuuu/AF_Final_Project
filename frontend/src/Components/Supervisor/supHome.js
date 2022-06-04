@@ -28,7 +28,41 @@ const supHome = () => {
                         <img width="380px" src={img1} />
                         <h4> <a className='navbar-brand text-dark fs-4' href="/supevaluation"> Evaluation </a> </h4>
                     </center>
-                </div>                
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <img width="300px" src={img1} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="#">  Download Marking Scheme </a> </h4>
+                    </center>
+                </div>
+            </div>
+
+            <br /> <br />
+
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                        <img width="300px" src={img1} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Chat with Groups </a> </h4>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <img width="300px" src={img1} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="/seeDocs"> Evaluate Document </a> </h4>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <img width="300px" src={img1} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Inventory Management </a> </h4>
+                    </center>
+                </div>
+
+                <br /> <br />              
             </div>
         </div>
     )
