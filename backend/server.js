@@ -34,19 +34,16 @@ app.use("/evaluation", EvaluationRoute);
 app.use('/api/conversations', require('./routes/MessengerRoutes/ConversationRoute'));
 app.use('/api/Messages', require('./routes/MessengerRoutes/MessageRoute'));
 
-
-
-
 //Database connection
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`listening on PORT ${port}`));
+app.listen(port, () => console.log(`Listening on PORT ${port}`));
 mongoose.connect(
     process.env.MONGODB, {
     //type warnings
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
-    console.log("Mongo DB connected successfully");
-}).catch((err) => console.log("DB connection failed", err));
+    console.log("Mongo DB Connected Successfully");
+}).catch((err) => console.log("DB Connection Failed", err));
 
 
