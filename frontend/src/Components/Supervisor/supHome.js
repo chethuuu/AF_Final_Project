@@ -9,7 +9,7 @@ const supHome = () => {
             <div className="row">
                 <div className="col-12">
                     <div className='col-12'>
-                        <h1 className='display-6 text-center mb-4'> <b> Supervisor DashBoard </b></h1>
+                        <h1 className='display-6 text-center mb-4'> <b> &nbsp;&nbsp;&nbsp;Supervisor DashBoard </b></h1>
                         <hr className='w-25 mx-auto' />
                     </div>
                 </div>
@@ -30,40 +30,12 @@ const supHome = () => {
                     </center>
                 </div>
 
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#">  Download Marking Scheme </a> </h4>
-                    </center>
-                </div>
+            
             </div>
 
             <br /> <br />
 
-            <div class="row">
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Chat with Groups </a> </h4>
-                    </center>
-                </div>
-
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="/seeDocs"> Evaluate Document </a> </h4>
-                    </center>
-                </div>
-
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Inventory Management </a> </h4>
-                    </center>
-                </div>
-
-                <br /> <br />              
-            </div>
+           
         </div>
     )
 }

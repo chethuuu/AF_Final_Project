@@ -20,6 +20,17 @@ export default function AllEvaluateSup() {
         getEvaluationList()
     }, []);
 
+    const delete_Schema = async (id) => {
+        try {
+            const res = await axios.delete(`http://localhost:5000/doc/scheme/delete/${id}`)
+            const newevaluate = evaluList.filter(list => list._id !== id);
+            setevaluList(newevaluate);
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <div>
             <div className='groupTable'>
@@ -32,6 +43,7 @@ export default function AllEvaluateSup() {
                                 <th> Subject </th>
                                 <th> Assignment</th>
                                 <th> View Details </th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
 
@@ -46,6 +58,7 @@ export default function AllEvaluateSup() {
                                         <td>
                                             <Link to={`/supIndividual/${list._id}`}><Button className='btn btn-warning'>View Details</Button></Link>
                                         </td>
+                                    <td><button className='btn btn-danger' onClick={() => delete_Schema(list._id)}>Delete</button></td>
 
                                     </tr>
                                 ))
