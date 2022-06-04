@@ -24,6 +24,7 @@ const EvaluationRoute = require("./routes/EvaluationRoute");
 //Routes
 app.use('/user', require('./routes/User'));
 app.use('/api', require('./routes/ResearchTopicRoute'));
+app.use('/doc', require('./routes/docEvaluationR'));
 app.use("/group", StuGroupRoute);
 app.use('/api/upload', require('./routes/fileUpload'));
 app.use("/marking",markingRouter);

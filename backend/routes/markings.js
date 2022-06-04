@@ -100,4 +100,20 @@ router.get('/marking/:id', (req, res) => {
     });
 });
 
+router.get('/marking/:id', (req, res) => {
+    let id = req.params.id;
+    Marking.findById(id, function (err, user) {
+        res.json(user);
+    });
+});
+
+router.get('/mark/filter/doc', async (req, res) => {
+    try {
+        const marking = await Marking.find({ subject: 'Documentation' });
+        res.status(200).json(marking);
+      } catch (err) {
+        res.json(err);
+      }
+});
+
 module.exports = router;
