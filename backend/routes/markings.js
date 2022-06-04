@@ -100,13 +100,8 @@ router.get('/marking/:id', (req, res) => {
     });
 });
 
-router.get('/marking/:id', (req, res) => {
-    let id = req.params.id;
-    Marking.findById(id, function (err, user) {
-        res.json(user);
-    });
-});
 
+//Display only documentation marking schemas
 router.get('/mark/filter/doc', async (req, res) => {
     try {
         const marking = await Marking.find({ subject: 'Documentation' });
@@ -115,5 +110,16 @@ router.get('/mark/filter/doc', async (req, res) => {
         res.json(err);
       }
 });
+
+//Display only Presentation marking schemas
+router.get("/getdata/presentation", async (req, res) => {
+    try {
+      const present = await Marking.find({ subject: 'Presentation' });
+      res.status(200).json(present);
+    } catch (err) {
+      res.json(err);
+    }
+  })
+
 
 module.exports = router;

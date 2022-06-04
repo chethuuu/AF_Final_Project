@@ -76,6 +76,14 @@ router.get("/getdata/filter/:grp_id", async(req,res) => {
   }
 })
 
+//delete Evaluation list
+router.delete("/delete/:id", (req, res, next) => {
+  Evaluations.deleteOne({_id: req.params.id}).then(result => {
+  console.log(result);
+  res.status(200).json({ message: "Successfully Deleted!" });
+});
+});
+
 
 
 

@@ -20,6 +20,18 @@ export default function AllEvaluationDisplay(){
         getEvaluationList()
     },[]);
 
+
+    function removeItem(id){
+        console.log(id)
+        axios.delete(`http://localhost:5000/evaluation/delete/${id}`)
+        .then(res=>{
+          console.log(res.data)
+          const deleteMarks = evaluList.filter(mark=>mark._id !==id)
+          setevaluList(deleteMarks)
+        }).catch(err=>console.error(err))
+    }
+
+
     return(
         <div>
             <div className='groupTable'>
@@ -44,6 +56,8 @@ export default function AllEvaluationDisplay(){
 
                                 <td>
                                     <Link to={`/viewmarks/${list._id}`}><Button className='btn btn-warning'>View Details</Button></Link>
+                                    <Button onClick={()=>{removeItem(list._id)}}>Delete</Button>
+
                                 </td>
                             
                             </tr>
