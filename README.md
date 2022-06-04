@@ -9,3 +9,10 @@
 #6. Next install npm using 'npm i'
 
 #7. Finally type both side 'npm start' and run
+
+Sample Login Password and Username
+#Admin --> admin admin
+#Student --> IT20065294 che
+#Supervisor --> Supervisor Supervisor
+#Co-Supervisor --> CoSupervisor CoSupervisor
+#Panel Member --> PanelMember PanelMember
