@@ -93,7 +93,7 @@ function App() {
       <PrivateRoute path="/grpNotAssignDisplay" roles={["admin"]} component={Group_notAssigned}/>
       <PrivateRoute path="/viewGroup/:id" roles={["admin"]} component={Group_viewDetails}/>
       <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
-      <PrivateRoute path="/seeDocs" roles={["admin"]} component={SeeDocuments}/>   
+      <PrivateRoute path="/seeDocs" roles={["admin", "Supervisor", "CoSupervisor"]} component={SeeDocuments}/>   
       <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
       <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser}/>
       <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>

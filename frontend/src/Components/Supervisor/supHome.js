@@ -52,7 +52,7 @@ const supHome = () => {
                 <div class="col-md-4">
                     <center>
                         <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Evaluate Document </a> </h4>
+                        <h4> <a className='navbar-brand text-dark fs-4' href="/seeDocs"> Evaluate Document </a> </h4>
                     </center>
                 </div>
 
