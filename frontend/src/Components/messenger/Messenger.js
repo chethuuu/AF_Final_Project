@@ -5,6 +5,7 @@ import ChatOnline from './ChatOnline';
 import './messenger.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import {io} from 'socket.io-client';
 
 export default function Messenger(props) {
     const param = useParams();
@@ -17,12 +18,24 @@ export default function Messenger(props) {
     const [currChat, setCurrChat] = useState(null);
     const [messages, setMessages] = useState([]);
     const [newMessage, setnewMessage] = useState("");
+    const [Socket, setSocket] = useState(null);
+
 
     // const user = useContext(AuthServices);
     // console.log(user);
-    const userId = '6290e4b513f776c1fff527d9';
+    const userId = '629a4caca6ba1078a78d441d';
     const url = 'http://localhost:5000/api/';
     const scrollRef = useRef();
+
+    useEffect(() => {
+        setSocket(io("ws://localhost:3200"))
+    },[])
+
+    useEffect(() => {
+        Socket?.on("Welcome", message => {
+            console.log(message)
+        })
+    }, [Socket])
 
     useEffect(() => {
         const getConversation = async () => {

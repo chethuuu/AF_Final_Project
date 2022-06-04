@@ -6,5 +6,5 @@ var ConversationSchema = new mongoose.Schema({
     }
 },{timestamps: true});
  
-//StuFileUploads is a model which has a schema imageSchema
+//Conversation is a model which has a schema imageSchema
 module.exports = new mongoose.model('Conversation', ConversationSchema);

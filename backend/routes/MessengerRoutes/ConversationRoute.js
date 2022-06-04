@@ -6,7 +6,6 @@ router.post('/', async (req, res) => {
     const newConvo = new Conversation({
         members: [req.body.senderID, req.body.receverID],
     });
-
     try{
         const savedCnvo = await newConvo.save();
         res.status(200).json(savedCnvo);

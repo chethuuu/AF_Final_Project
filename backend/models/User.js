@@ -48,7 +48,6 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
 
-
     todos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Todo' }]
 
 });

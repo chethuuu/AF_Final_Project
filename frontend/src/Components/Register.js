@@ -48,7 +48,7 @@ const Register = props => {
                 <div className="row justify-content-end">
                     <div className="col-md-5 d-flex flex-column align-items-center text-dark justify-content-center form order-2">
                         <h1 className="display-4 fw-bolder text-center"> Welcome </h1>
-                        <p className="lead text-center"> Enter Your Details to Request </p>
+                        <p className="lead text-center"> Enter User Details to Register </p>
                         <h5 className="mb-4">OR</h5>
                         <NavLink to="/login" className="btn btn-outline-light rounded-pill pb-2 w-50">Login</NavLink>
                     </div>
@@ -141,8 +141,8 @@ const Register = props => {
                                             <option value="admin">Admin</option>
                                             <option value="user">User</option>
                                             <option value="Supervisor">Supervisor</option>
-                                            <option value="CoSupervisor">CoSupervisor</option>
-                                            <option value="PanalMember">PanalMember</option>
+                                            <option value="CoSupervisor">Co-Supervisor</option>
+                                            <option value="PanelMember">Panel Member</option>
                                         </select>
                                     </div>
                                 </div>
@@ -163,7 +163,7 @@ const Register = props => {
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100 mt-4 rounded-pill">Request to Register</button>
+                            <button type="submit" class="btn btn-primary w-100 mt-4 rounded-pill">Register</button>
 
                         </form>
                     </div>

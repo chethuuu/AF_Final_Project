@@ -10,7 +10,7 @@ const Allaccount = () => {
 
   useEffect(() => {
     axios
-      .get("/user/alldata")
+      .get("user/alldata")
       .then(res => setUserRouter(res.data))
       .catch(error => console.log(error));
   });
@@ -35,9 +35,15 @@ const Allaccount = () => {
   }
 
   return (
-    <div className="container shadow my-5">
+    <div className="container shadow my-5"> <br />
+      <Link to="/register">
+        <button className="btn btn-outline-primary ms-9 px-4 rounded-pill btn_reg">
+          Register <i className="fa fa-user-plus me-2" />
+        </button>
+      </Link>
       <div class="input-group">
         <div class="form-inline my-2 my-lg-0">
+
           <h5 className='search-topic'>Select by User Role  </h5>
           <Button className='btn btn-primary search-btn' onClick={() => { SearchItem({ selects }) }}>Search</Button>
           <select className='form-control select-btn w-50' name="role" id="role" value={selects} onChange={e => setSelects(e.target.value)}>
