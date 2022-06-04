@@ -58,68 +58,73 @@ import ViewMarkSchemaSup from './Components/Supervisor/ViewMarkSchemaSup';
 import SupEvaluation from './Components/Supervisor/SupEvaluation';
 import AllEvaluateSup from './Components/Supervisor/AllEvaluateSup';
 import ViewIndividualMarkSchema from './Components/Supervisor/ViewIndividualMarkSchema';
+import AllEvaluationCo from './Components/CoSupervisor/AllEvaluationCo';
+import ViewMarkSchemaCo from './Components/CoSupervisor/ViewMarkSchemaCo';
+import CoEvaluation from './Components/CoSupervisor/CoEvaluation';
 
 
 function App() {
   return (
     <div className="root">
-   
-   <Router>
-      <Navbar/>
-      <UnPrivateRoute path="/home" component={Home}/>
-      <UnPrivateRoute path="/about" component={About}/>
-      <UnPrivateRoute path="/contact" component={Contact}/>
-      <UnPrivateRoute path="/login" component={Login}/>
-      <UnPrivateRoute path="/register"  component={Register}/>
-      <PrivateRoute path="/userhome" roles={["user"]} component={Home}/>
-      <PrivateRoute path="/data" roles={["admin"]} component={AllAccount}/>
-      <PrivateRoute path="/Admin" roles={["admin"]} component={Admin}/>
-      <PrivateRoute path="/user/:username" roles={["user"]} component={studentHome}/>
-      <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome}/>
-      <PrivateRoute path="/PanelMember" roles={["PanelMember"]} component={panelHome}/>
-      <PrivateRoute path="/Supervisor" roles={["Supervisor"]} component={supHome}/>
-      <PrivateRoute path="/mcounterclass" roles={["admin"]} component={MCounterclass}/> 
-      <PrivateRoute path="/allmarking" roles={["admin"]} component={Allmarking}/>
-      <PrivateRoute path="/singlemarking/:id" roles={["admin"]} component={Singlemarking }/> 
-      <PrivateRoute path="/viewtopic/:username" roles={["user"]} component={regResearch} />
-      <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic}/>
-      <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup}/>
-      <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create}/>
-      <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles}/>
-      <PrivateRoute path="/grpDisplays" roles={["admin"]} component={Group_Display}/>
-      <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests}/>
-      <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor}/>
-      <PrivateRoute path="/sendmail/:id" roles={["Supervisor"]} component={SendEmail}/>
-      <PrivateRoute path="/sendmailco/:id" roles={["CoSupervisor"]} component={SendEmailCo}/>
-      <PrivateRoute path="/panelAssign/:id" roles={["admin"]} component={Group_PannelAssign}/>
-      <PrivateRoute path="/grpNotAssignDisplay" roles={["admin"]} component={Group_notAssigned}/>
-      <PrivateRoute path="/viewGroup/:id" roles={["admin"]} component={Group_viewDetails}/>
-      <PrivateRoute path="/templates" roles={["admin"]} component={Templates}/>
-      <PrivateRoute path="/seeDocs" roles={["admin"]} component={SeeDocuments}/>   
-      <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display}/>
-      <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser}/>
-      <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq}/>
-      <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup}/>
-      <PrivateRoute path="/cosupreq/:id" roles={["CoSupervisor"]} component={ReqCoSupervisor}/>
-      <PrivateRoute path="/reqsent/:id" roles={["user"]} component={ReqCoSupervisorRequest}/>
-      <PrivateRoute path="/markingSchemas" roles={["PanelMember"]} component={markingSchemas}/>
-      <PrivateRoute path="/evaluation/:id" roles={["PanelMember"]} component={Evaluation}/>
-      <PrivateRoute path="/reseacrhtopic" roles={["PanelMember"]} component={PMResearchTopicStatus} />
-      <PrivateRoute path="/profile/:username" roles={["user"]} component={StudentProfile} />
-      {/* <PrivateRoute path="/messenger/:id" roles={["user", "Supervisor", "CoSupervisor", "admin"]} component={Messenger}/> */}
-      <PrivateRoute path='/messengerU/:id' roles={["user"]} component={Messenger}/>
-      <PrivateRoute path="/messengerS/:id" roles={["Supervisor"]} component={Messenger}/>
-      <PrivateRoute path="/messengerC/:id" roles={["CoSupervisor"]} component={Messenger}/>
-      <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={Messenger}/>  
-      <PrivateRoute path="/allEvaluationList" roles={["PanelMember"]} component={AllEvaluationDisplay} />
-      <PrivateRoute path="/viewmarks/:id" roles={["PanelMember"]} component={EvaluDetailsDisplay} />
-      <PrivateRoute path="/supevaluation" roles={["Supervisor"]} component={ViewMarkSchemaSup} />
-      <PrivateRoute path="/supevaluate/:id" roles={["Supervisor"]} component={SupEvaluation} />
-      <PrivateRoute path="/allsupevaluate" roles={["Supervisor"]} component={AllEvaluateSup} />
-      <PrivateRoute path="/supIndividual/:id" roles={["Supervisor"]} component={ViewIndividualMarkSchema} />
-      {/* <PrivateRoute path="/supevaluation" roles={["CoSupervisor"]} component={ViewMarkSchemaSup} />
-      <PrivateRoute path="/supevaluate/:id" roles={["CoSupervisor"]} component={SupEvaluation} /> */}
-    </Router>
+
+      <Router>
+        <Navbar />
+        <UnPrivateRoute path="/home" component={Home} />
+        <UnPrivateRoute path="/about" component={About} />
+        <UnPrivateRoute path="/contact" component={Contact} />
+        <UnPrivateRoute path="/login" component={Login} />
+        <PrivateRoute path="/register" roles={["admin"]} component={Register} />
+        <PrivateRoute path="/userhome" roles={["user"]} component={Home} />
+        <PrivateRoute path="/data" roles={["admin"]} component={AllAccount} />
+        <PrivateRoute path="/Admin" roles={["admin"]} component={Admin} />
+        <PrivateRoute path="/user/:username" roles={["user"]} component={studentHome} />
+        <PrivateRoute path="/CoSupervisor" roles={["CoSupervisor"]} component={cosupHome} />
+        <PrivateRoute path="/PanelMember" roles={["PanelMember"]} component={panelHome} />
+        <PrivateRoute path="/Supervisor" roles={["Supervisor"]} component={supHome} />
+        <PrivateRoute path="/mcounterclass" roles={["admin"]} component={MCounterclass} />
+        <PrivateRoute path="/allmarking" roles={["admin"]} component={Allmarking} />
+        <PrivateRoute path="/singlemarking/:id" roles={["admin"]} component={Singlemarking} />
+        <PrivateRoute path="/viewtopic/:username" roles={["user"]} component={regResearch} />
+        <PrivateRoute path="/viewreg" roles={["user"]} component={ViewResearchTopic} />
+        <PrivateRoute path="/viewtopicsup" roles={["Supervisor"]} component={ViewResearchTopicSup} />
+        <PrivateRoute path="/createGrp/:username" roles={["user"]} component={StuGroup_Create} />
+        <PrivateRoute path="/uploadFiles" roles={["user"]} component={UploadFiles} />
+        <PrivateRoute path="/grpDisplays" roles={["admin"]} component={Group_Display} />
+        <PrivateRoute path="/viewco" roles={["CoSupervisor"]} component={ViewCoSupervisorRequests} />
+        <PrivateRoute path="/viewcostu" roles={["user"]} component={ViewCoSupervisor} />
+        <PrivateRoute path="/sendmail/:id" roles={["Supervisor"]} component={SendEmail} />
+        <PrivateRoute path="/sendmailco/:id" roles={["CoSupervisor"]} component={SendEmailCo} />
+        <PrivateRoute path="/panelAssign/:id" roles={["admin"]} component={Group_PannelAssign} />
+        <PrivateRoute path="/grpNotAssignDisplay" roles={["admin"]} component={Group_notAssigned} />
+        <PrivateRoute path="/viewGroup/:id" roles={["admin"]} component={Group_viewDetails} />
+        <PrivateRoute path="/templates" roles={["admin"]} component={Templates} />
+        <PrivateRoute path="/seeDocs" roles={["admin"]} component={SeeDocuments} />
+        <PrivateRoute path="/grpDisplay" roles={["admin"]} component={Group_Display} />
+        <PrivateRoute path="/UpdateUser/:id" roles={["admin"]} component={UpdateUser} />
+        <PrivateRoute path="/updatereqq/:id" roles={["Supervisor"]} component={UpdateSupervisorReq} />
+        <PrivateRoute path="/updatereqsup/:id" roles={["Supervisor"]} component={UpdateStatusSup} />
+        <PrivateRoute path="/cosupreq/:id" roles={["CoSupervisor"]} component={ReqCoSupervisor} />
+        <PrivateRoute path="/reqsent/:id" roles={["user"]} component={ReqCoSupervisorRequest} />
+        <PrivateRoute path="/markingSchemas" roles={["PanelMember"]} component={markingSchemas} />
+        <PrivateRoute path="/evaluation/:id" roles={["PanelMember"]} component={Evaluation} />
+        <PrivateRoute path="/reseacrhtopic" roles={["PanelMember"]} component={PMResearchTopicStatus} />
+        <PrivateRoute path="/profile/:username" roles={["user"]} component={StudentProfile} />
+        {/* <PrivateRoute path="/messenger/:id" roles={["user", "Supervisor", "CoSupervisor", "admin"]} component={Messenger}/> */}
+        <PrivateRoute path='/messengerU/:id' roles={["user"]} component={Messenger} />
+        <PrivateRoute path="/messengerS/:id" roles={["Supervisor"]} component={Messenger} />
+        <PrivateRoute path="/messengerC/:id" roles={["CoSupervisor"]} component={Messenger} />
+        <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={Messenger} />
+        <PrivateRoute path="/allEvaluationList" roles={["PanelMember"]} component={AllEvaluationDisplay} />
+        <PrivateRoute path="/viewmarks/:id" roles={["PanelMember"]} component={EvaluDetailsDisplay} />
+        <PrivateRoute path="/supevaluation" roles={["Supervisor"]} component={ViewMarkSchemaSup} />
+        <PrivateRoute path="/supevaluate/:id" roles={["Supervisor"]} component={SupEvaluation} />
+        <PrivateRoute path="/allsupevaluate" roles={["Supervisor"]} component={AllEvaluateSup} />
+        <PrivateRoute path="/supIndividual/:id" roles={["Supervisor"]} component={ViewIndividualMarkSchema} />
+        <PrivateRoute path="/supevaluationc" roles={["CoSupervisor"]} component={ViewMarkSchemaCo} />
+        <PrivateRoute path="/supevaluatec/:id" roles={["CoSupervisor"]} component={CoEvaluation} />
+        <PrivateRoute path="/allsupevaluatec" roles={["CoSupervisor"]} component={AllEvaluationCo} />
+        <PrivateRoute path="/supIndividualc/:id" roles={["CoSupervisor"]} component={ViewMarkSchemaCo} />
+      </Router>
     </div>
   );
 }

@@ -28,9 +28,6 @@ router.route('/rtopics/status/:status_sup')
 router.route('/status/approve')
   .get(ResearchTopicCtrl.getApproveStatus);
 
-// router.route('/status/req')
-//   .get(ResearchTopicCtrl.getEmailStatus);
-
 router.route('/status/req')
   .get(ResearchTopicCtrl.getApproveSupStatus);
 
@@ -39,13 +36,6 @@ router.route('/status/notreq')
 
 router.route('/leader/check/:lead_no')
   .get(ResearchTopicCtrl.getLeaderIT);
-// router.get("/getdata/filter", async(req,res) => {
-//   try {
-//       const allgrps = await Group.find({pannel_status:'Not assign'});
-//       res.status(200).json(allgrps);
-//   } catch (err) {
-//       res.json(err);
-//   }
-// });
+
 
 module.exports = router;

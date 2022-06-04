@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link} from 'react-router-dom'
 import {Button} from 'react-bootstrap';
 
-export default function markingSchemas() {
+export default function ViewMarkSchemaSup() {
 
     const [marking, setMarking] = useState([]);
 
