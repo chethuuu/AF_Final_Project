@@ -20,11 +20,11 @@ export default function Allmarking() {
     },[])
     return(
         <div  class="container shadow my-5 col-md-9 p-6 align-items-center">
-            <h1>Marking Scheme details</h1>
+            <h3 className=" fw-bolder mb-4"><center>Marking Scheme details</center></h3>
             <table class="table">
                 <thead  class="thead-dark">
                     <tr>
-                        <th scope="col">Subject</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Assigenment</th>
                         <th scope="col"></th>
                     </tr>

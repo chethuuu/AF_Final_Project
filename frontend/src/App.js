@@ -54,6 +54,10 @@ import StudentProfile from './Components/Student/StudentProfile';
 import Messenger from './Components/messenger/Messenger';
 import AllEvaluationDisplay from './Components/PanelMember/AllEvaluationDisplay';
 import EvaluDetailsDisplay from './Components/PanelMember/EvaluDetailsDisplay';
+import ViewMarkSchemaSup from './Components/Supervisor/ViewMarkSchemaSup';
+import SupEvaluation from './Components/Supervisor/SupEvaluation';
+import AllEvaluateSup from './Components/Supervisor/AllEvaluateSup';
+import ViewIndividualMarkSchema from './Components/Supervisor/ViewIndividualMarkSchema';
 
 
 function App() {
@@ -102,7 +106,6 @@ function App() {
       <PrivateRoute path="/evaluation/:id" roles={["PanelMember"]} component={Evaluation}/>
       <PrivateRoute path="/reseacrhtopic" roles={["PanelMember"]} component={PMResearchTopicStatus} />
       <PrivateRoute path="/profile/:username" roles={["user"]} component={StudentProfile} />
-
       {/* <PrivateRoute path="/messenger/:id" roles={["user", "Supervisor", "CoSupervisor", "admin"]} component={Messenger}/> */}
       <PrivateRoute path='/messengerU/:id' roles={["user"]} component={Messenger}/>
       <PrivateRoute path="/messengerS/:id" roles={["Supervisor"]} component={Messenger}/>
@@ -110,7 +113,12 @@ function App() {
       <PrivateRoute path="/messengerA/:id" roles={["admin"]} component={Messenger}/>  
       <PrivateRoute path="/allEvaluationList" roles={["PanelMember"]} component={AllEvaluationDisplay} />
       <PrivateRoute path="/viewmarks/:id" roles={["PanelMember"]} component={EvaluDetailsDisplay} />
-
+      <PrivateRoute path="/supevaluation" roles={["Supervisor"]} component={ViewMarkSchemaSup} />
+      <PrivateRoute path="/supevaluate/:id" roles={["Supervisor"]} component={SupEvaluation} />
+      <PrivateRoute path="/allsupevaluate" roles={["Supervisor"]} component={AllEvaluateSup} />
+      <PrivateRoute path="/supIndividual/:id" roles={["Supervisor"]} component={ViewIndividualMarkSchema} />
+      {/* <PrivateRoute path="/supevaluation" roles={["CoSupervisor"]} component={ViewMarkSchemaSup} />
+      <PrivateRoute path="/supevaluate/:id" roles={["CoSupervisor"]} component={SupEvaluation} /> */}
     </Router>
     </div>
   );

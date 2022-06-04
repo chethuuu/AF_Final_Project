@@ -35,8 +35,14 @@ function StudentProfile() {
                 <h1 className='display-6 text-center mb-4'> <b> Student Summary </b></h1>
                 <hr className='w-25 mx-auto' />
 
+                <div class="col-md-12 bg-light text-right">
+                    <Link to='#'>
+                        <button className='btn btn-success'>View Marks</button>
+                    </Link>
+                </div>
+                
                 <b>Group Details</b>
-                <table class="table"> 
+                <table class="table">
                     <thead className='table-active'>
                         <tr>
                             <th>Leader's IT Number</th>

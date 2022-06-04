@@ -105,7 +105,7 @@ export default function Group_PannelAssign(){
                 <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title"><u>Pannel Member 2</u></h6>
+                                <h6 class="card-title"><u>Pannel Member 01</u></h6>
                                 <select class="custom-select" id="_id" type="text"
                                     name="_id"  onChange={e =>getPanelDetails()}>
                                     {
@@ -155,7 +155,7 @@ export default function Group_PannelAssign(){
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title"><u>Pannel Member 2</u></h6>
+                                <h6 class="card-title"><u>Pannel Member 02</u></h6>
                                 <select class="custom-select" id="_id2" type="text"
                                     name="_id"  onChange={e =>getsecondPanelMember()}>
                                     {

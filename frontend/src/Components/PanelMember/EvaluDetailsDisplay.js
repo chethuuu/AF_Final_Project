@@ -32,15 +32,9 @@ export default function EvaluDetailsDisplay(){
         <div>
             <br/>
             <div class="container shadow my-5 col-md-9 p-6 align-items-center">
-                <div className="d-flex flex-column text-dark justify-content-center" >   
-                    <div class="card-header">
-                        <center>
-                            <h5>Marks Evaluation Details</h5>
-                        </center>
-                    </div>
-                    
-                        <form >
-
+                <div className="d-flex flex-column text-dark justify-content-center" > <br/>
+                <h3 className=" fw-bolder mb-4"><center>Marks Evaluation Details</center></h3>  <br/>
+                        <form>
                             <div className="form-row">
                                 <div class="form-group col-md-4">
                                     <label >Group ID : {Evaludetails.group_id}</label>

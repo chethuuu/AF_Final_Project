@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-export default function Evaluation() {
+export default function SupEvaluation() {
 
     //get object id from urm parameter
     const { id } = useParams("");
@@ -58,7 +58,7 @@ export default function Evaluation() {
         const newEval = {
             group_id, details, amount, amount1, amount2, amount3, total, feedback
         }
-        axios.post("http://localhost:5000/evaluation/add", newEval).then(() => {
+        axios.post("http://localhost:5000/doc/add", newEval).then(() => {
             alert("Successfully Saved");
             resetForm();
         }).catch((err) => {
@@ -72,7 +72,7 @@ export default function Evaluation() {
             <br />
             <div class="container shadow my-5 col-md-9 p-6 align-items-center">
                 <div className="d-flex flex-column text-dark justify-content-center" > <br />
-                    <h3 className=" fw-bolder mb-4"><center>Presentation Evaluation Scheme</center></h3>
+                    <h3 className=" fw-bolder mb-4"><center>Documentation Evaluation Scheme</center></h3>
                     <form onSubmit={sendData} >
                         <div className="form-row">
                             <div class="form-group col-md-4">
@@ -87,12 +87,12 @@ export default function Evaluation() {
 
                         <div className="form-row">
                             <div class="form-group col-md-4">
-                                <label for="name">Subject</label>
+                                <label for="name">Type</label>
                                 <input type="text" className="form-control" id="name"
                                     value={details.subject}
                                     onChange={(e) => {
                                         setdetails({ ...details, subject: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -101,7 +101,7 @@ export default function Evaluation() {
                                     value={details.assignment}
                                     onChange={(e) => {
                                         setdetails({ ...details, assignment: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -110,7 +110,7 @@ export default function Evaluation() {
                                     value={details.date}
                                     onChange={(e) => {
                                         setdetails({ ...details, date: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
                         </div>
 
@@ -122,7 +122,7 @@ export default function Evaluation() {
                                     value={details.point}
                                     onChange={(e) => {
                                         setdetails({ ...details, point: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -131,7 +131,7 @@ export default function Evaluation() {
                                     value={details.marks}
                                     onChange={(e) => {
                                         setdetails({ ...details, marks: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -151,7 +151,7 @@ export default function Evaluation() {
                                     value={details.point1}
                                     onChange={(e) => {
                                         setdetails({ ...details, point1: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -159,7 +159,7 @@ export default function Evaluation() {
                                     value={details.marks1}
                                     onChange={(e) => {
                                         setdetails({ ...details, marks1: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -178,7 +178,7 @@ export default function Evaluation() {
                                     value={details.point2}
                                     onChange={(e) => {
                                         setdetails({ ...details, point2: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -186,7 +186,7 @@ export default function Evaluation() {
                                     value={details.marks2}
                                     onChange={(e) => {
                                         setdetails({ ...details, marks2: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -205,7 +205,7 @@ export default function Evaluation() {
                                     value={details.point3}
                                     onChange={(e) => {
                                         setdetails({ ...details, point3: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -213,7 +213,7 @@ export default function Evaluation() {
                                     value={details.marks3}
                                     onChange={(e) => {
                                         setdetails({ ...details, marks3: e.target.value });
-                                    }}></input>
+                                    }} readOnly></input>
                             </div>
 
                             <div className="form-group col-md-4">
@@ -227,21 +227,21 @@ export default function Evaluation() {
 
 
                         <div className="form-row">
+                            <div className="form-group col-md-8">
+                                <label for="name">Feedback</label>
+                                <textarea type="text" className="form-control" id="name" placeholder="Enter Feedback"
+                                    value={feedback.feedback}
+                                    onChange={(e) => {
+                                        setfeedback(e.target.value);
+                                    }} />
+                            </div>
+
                             <div className="form-group col-md-4">
                                 <label for="name">Total</label>
                                 <input type="text" className="form-control" id="name" placeholder="Enter Total"
                                     value={total.total}
                                     onChange={(e) => {
                                         settotal(e.target.value);
-                                    }}></input>
-                            </div>
-
-                            <div className="form-group col-md-6">
-                                <label for="name">Feedback</label>
-                                <input type="text" className="form-control" id="name" placeholder="Enter Feedback"
-                                    value={feedback.feedback}
-                                    onChange={(e) => {
-                                        setfeedback(e.target.value);
                                     }}></input>
                             </div>
                         </div>

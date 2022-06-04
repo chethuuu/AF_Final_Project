@@ -10,7 +10,7 @@ export default function markingSchemas() {
     useEffect(() => {
         const getMarking = async() => {
             try {
-                const res = await axios.get('http://localhost:5000/marking')
+                const res = await axios.get('http://localhost:5000/marking/mark/filter/doc')
                 setMarking(res.data);
             } catch(err) {
                 console.log(err);
@@ -27,7 +27,7 @@ export default function markingSchemas() {
             </div>
 
         <div  class="container shadow my-5 col-md-9 p-6 align-items-center"> <br/>
-            <h3 className=" fw-bolder mb-4"><center>Marking Schemas</center></h3>
+            <h3 className=" fw-bolder mb-4"><center>Documentation Marking Schemas</center></h3>
             <table class="table">
                 <thead  class="thead-dark">
                     <tr>
@@ -43,7 +43,7 @@ export default function markingSchemas() {
                                 <td>{scheme.subject}</td>
                                 <td>{scheme.assignment}</td>
                                 <td>
-                                    <Link to={`/evaluation/${scheme._id}`}><Button className='btn btn-danger'>Evaluate</Button></Link>
+                                    <Link to={`/supevaluate/${scheme._id}`}><Button className='btn btn-danger'>Evaluate</Button></Link>
                                 </td> 
                             </tr>
                         ))
@@ -51,7 +51,7 @@ export default function markingSchemas() {
                 </tbody>
             </table>
 
-            <Link className='navbar-brand fs-4 text-dark' to={`/allEvaluationList`}><button className='btn btn-success mx-auto'>Evaluated Marking List</button></Link> 
+            <Link className='navbar-brand fs-4 text-dark' to={`/allsupevaluate`}><button className='btn btn-success mx-auto'>Evaluated Marking List</button></Link> 
 
         </div>
         </div>
