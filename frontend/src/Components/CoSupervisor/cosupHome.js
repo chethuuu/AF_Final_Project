@@ -28,7 +28,7 @@ const cosupHome = () => {
                 <div class="col-md-6">
                     <center>
                         <img width="330px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="/supevaluation"> Evaluation </a> </h4>
+                        <h4> <a className='navbar-brand text-dark fs-4' href="/supevaluationc"> Evaluation </a> </h4>
                     </center>
                 </div>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-export default function SupEvaluation() {
+export default function CoEvaluation() {
 
     //get object id from urm parameter
     const { id } = useParams("");
