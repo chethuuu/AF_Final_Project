@@ -66,4 +66,13 @@ router.get("/getdata/filter/:grp_id", async(req,res) => {
   }
 });
 
+//delete
+router.delete('/scheme/delete/:id', async(req, res) => {
+  try {
+    await Evaluations.findByIdAndDelete(req.params.id)
+    res.json({ msg: "Deleted a Marking Scheme" })
+  } catch (err) {
+    return res.status(500).json({ msg: err.message })
+  }
+})
 module.exports = router;

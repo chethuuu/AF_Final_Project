@@ -2,6 +2,7 @@ import React from 'react';
 
 import img1 from '../../img/img1.png'
 import img9 from '../../img/img9.png'
+import img4 from '../../img/img4.png'
 
 
 const cosupHome = () => {
@@ -18,23 +19,23 @@ const cosupHome = () => {
 
         	<br/><br/>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <center>
                         <img width="250px" src={img9} />
                         <h4> <a className='navbar-brand text-dark fs-4' href="/viewco"> View Requests </a></h4>
                     </center>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <center>
                         <img width="330px" src={img1} />
                         <h4> <a className='navbar-brand text-dark fs-4' href="/supevaluationc"> Evaluation </a> </h4>
                     </center>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <center>
-                        <img width="250px" src={img9} />
+                        <img width="300px" src={img4} />
                         <h4> <a className='navbar-brand text-dark fs-4' href="/seeDocs"> View Research Document </a> </h4>
                     </center>
                 </div>

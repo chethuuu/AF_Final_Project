@@ -25,17 +25,17 @@ const ResearchTopicCtrl = {
     try {
       const { gid, lead_no, lead_email, name, interest, request, status_sup, status_co } = req.body;
 
-      //Test Cases
-      if (groups.lead_no.length < 5)
-        return res.status(400).json({
-          errorMessage: "Please enter a lead_no of at least 12 characters.",
-        });
+      // //Test Cases
+      // if (groups.lead_no.length < 5)
+      //   return res.status(400).json({
+      //     errorMessage: "Please enter a lead_no of at least 12 characters.",
+      //   });
 
 
-      if (groups.lead_email.length < 5)
-        return res.status(400).json({
-          errorMessage: "Please enter a lead_email of at least 5 characters.",
-        });
+      // if (groups.lead_email.length < 5)
+      //   return res.status(400).json({
+      //     errorMessage: "Please enter a lead_email of at least 5 characters.",
+      //   });
 
 
 

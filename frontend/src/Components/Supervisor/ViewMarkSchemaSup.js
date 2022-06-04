@@ -19,6 +19,8 @@ export default function ViewMarkSchemaSup() {
         getMarking()
     },[]);
 
+
+    
     return(
         <div>
             <div> 
@@ -33,7 +35,7 @@ export default function ViewMarkSchemaSup() {
                     <tr>
                         <th scope="col">Subject</th>
                         <th scope="col">Assigenment</th>
-                        <th scope="col"></th>
+                        <th scope="col">Evaluate</th>
                     </tr>
                 </thead>
                 <tbody>
