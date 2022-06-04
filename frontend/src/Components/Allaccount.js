@@ -10,7 +10,7 @@ const Allaccount = () => {
 
   useEffect(() => {
     axios
-      .get("/user/alldata")
+      .get("user/alldata")
       .then(res => setUserRouter(res.data))
       .catch(error => console.log(error));
   });

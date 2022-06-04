@@ -67,18 +67,13 @@ export default function Evaluation() {
         <div>
             <br/>
             <div class="container shadow my-5 col-md-9 p-6 align-items-center">
-                <div className="d-flex flex-column text-dark justify-content-center" >   
-                    <div class="card-header">
-                        <center>
-                            <h5>Presentation Evaluation Scheme</h5>
-                        </center>
-                    </div>
-                    
-                        <form onSubmit={sendData} >
-                            <div className="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="name">Group ID :</label>
-                                    <input type="text" className="form-control" id="name" placeholder="Enter Group Id"
+                <div className="d-flex flex-column text-dark justify-content-center" > <br />
+                    <h3 className=" fw-bolder mb-4"><center>Presentation Evaluation Scheme</center></h3>
+                    <form onSubmit={sendData} >
+                        <div className="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="name">Group ID :</label>
+                                <input type="text" className="form-control" id="name" placeholder="Enter Group Id"
                                     value={group_id.group_id}
                                     onChange={(e) =>{
                                         setgroup_id(e.target.value);
@@ -256,5 +251,6 @@ export default function Evaluation() {
                 </div>
             </div>
         </div>
+        
     )
 }

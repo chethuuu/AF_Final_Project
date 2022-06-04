@@ -24,8 +24,8 @@ export default function UpdateUser(props) {
         axios.put(`http://localhost:5000/user/update/${id}`, user)
             .then(res => {
                 console.log(res.data)
-                alert("Item Updated")
-
+                alert("User Updated Sucessfully")
+                props.history.push('/data')
             }).catch((err) => {
                 alert(err)
                 console.error(err)
@@ -54,20 +54,12 @@ export default function UpdateUser(props) {
 
 
         <div>
-            <h1>   {id}
-
-            </h1>
-            <h1> {user.email}</h1>
-
             <div>
-                <div class="container shadow my-5 col-md-9 p-6 align-items-center">
-                    <div className=" d-flex flex-column align-items-center text-dark justify-content-center form">
-                        <h1 className="display-4 fw-bolder"> User Registration</h1>
-                        <p className="lead text-center">Enter Your Credentials to Register</p>
-
-
+                <div class="container shadow my-5 col-md-9 p-6 align-items-center"> <br/>
+                    <div className=" d-flex flex-column align-items-center text-dark justify-content-center">
+                    <h3 className=" fw-bolder mb-4"><center>Update User Details</center></h3><br/>
                     </div>
-
+                    
                     <form onSubmit={sendUpadateUser}>
 
                         <div className="form-check">
@@ -76,32 +68,27 @@ export default function UpdateUser(props) {
                                 value={user.name}
                                 onChange={(e) => { setListItems({ name: e.target.value }) }}></input>
                         </div>
-                        <div className="form-check">
+                        <div className="form-check py-2">
                             <label for="id">Student ID</label>
                             <input type="text" className="form-control" id="id" placeholder="Student Id"
                                 value={user.username}
                                 onChange={(e) => { setListItems({ username: e.target.value }) }}></input>
                         </div>
-                        <div className="form-check">
+                        <div className="form-check py-2">
                             <label for="email">Email address</label>
                             <input type="email" className="form-control" id="email" placeholder="Enter email "
                                 value={user.email}
                                 onChange={(e) => { setListItems({ email: e.target.value }) }}></input>
                         </div>
-                        <div className="form-check">
+                        <div className="form-check py-2">
                             <label for="contact">Phone Number</label>
                             <input type="text" className="form-control" id="contact" placeholder="Enter phone number "
                                 value={user.contact}
                                 onChange={(e) => { setListItems({ contact: e.target.value }) }}></input>
                         </div>
-                        <div className="form-check">
-                            <label for="password">Enter password</label>
-                            <input type="password" className="form-control" id="password" placeholder="Enter password "
-                                value={user.password}
-                                onChange={(e) => { setListItems({ password: e.target.value }) }}></input>
-                        </div><br></br>
+                       
 
-                        <div className="form-check">
+                        <div className="form-check py-2">
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="input-group mb-3">
@@ -129,8 +116,8 @@ export default function UpdateUser(props) {
                                             <option value="admin">Admin</option>
                                             <option value="user">User</option>
                                             <option value="Supervisor">Supervisor</option>
-                                            <option value="Co-Supervisor">Co-Supervisor</option>
-                                            <option value="Panal Member">Panal Member</option>
+                                            <option value="CoSupervisor">Co-Supervisor</option>
+                                            <option value="PanelMember">Panal Member</option>
 
 
                                         </select>
@@ -156,9 +143,7 @@ export default function UpdateUser(props) {
                             </div>
                         </div>
 
-                        <br></br><br></br><br></br><br></br>
-
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-danger w-100 mt-4 rounded-pill">Submit</button>
 
                     </form>
 
