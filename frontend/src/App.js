@@ -76,7 +76,7 @@ function App() {
         <UnPrivateRoute path="/about" component={About} />
         <UnPrivateRoute path="/contact" component={Contact} />
         <UnPrivateRoute path="/login" component={Login} />
-        <UnPrivateRoute path="/register" component={Register} />
+        <PrivateRoute path="/register" roles={["admin"]} component={Register} />
         <PrivateRoute path="/userhome" roles={["user"]} component={Home} />
         <PrivateRoute path="/data" roles={["admin"]} component={AllAccount} />
         <PrivateRoute path="/Admin" roles={["admin"]} component={Admin} />

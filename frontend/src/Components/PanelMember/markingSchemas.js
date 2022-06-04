@@ -10,7 +10,7 @@ export default function markingSchemas() {
     useEffect(() => {
         const getMarking = async() => {
             try {
-                const res = await axios.get('http://localhost:5000/marking')
+                const res = await axios.get('http://localhost:5000/marking/getdata/presentation')
                 setMarking(res.data);
             } catch(err) {
                 console.log(err);

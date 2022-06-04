@@ -52,7 +52,7 @@ const Navbar = props => {
                         Login <i className="fa fa-sign-in me-2" />
                     </button>
                 </Link> &nbsp;
-                <Link to="/">
+                <Link to="/register">
                     <button className="btn btn-outline-primary ms-9 px-4 rounded-pill btn_reg">
                         Register <i className="fa fa-user-plus me-2" />
                     </button>
