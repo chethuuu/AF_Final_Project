@@ -6,5 +6,5 @@ var MessageSchema = new mongoose.Schema({
     text: {type: String,}
 },{timestamps: true});
  
-//StuFileUploads is a model which has a schema imageSchema
+//Message is a model which has a schema imageSchema
 module.exports = new mongoose.model('Message', MessageSchema);

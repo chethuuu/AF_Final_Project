@@ -9,22 +9,12 @@ const multerConfig = multer.diskStorage({
     },
     filename: (req, file, callback) => {
         const ext = file.mimetype.split('/')[1];
-        // callback(null, `image-${Date.now()}.${ext}`);
         callback(null, `${file.originalname}`);
     }
 })
 
-// const isImage = (req, file, callback) => {
-//     if(file.mimetype.startsWith('image')){
-//         callback(null, true)
-//     }else {
-//         callback(new Error('Only Images is Allowed'));
-//     }
-// }
-
 const upload = multer({
     storage: multerConfig,
-    //fileFilter: isImage,
 });
 
 exports.uploadImage = upload.single('document');
@@ -52,8 +42,6 @@ exports.addDocs = async (req, res) => {
     var encode_img = img.toString('base64');
     var final_img = {
         contentType:req.file.mimetype,
-        //image:new Buffer.from(encode_img,'base64'),
-        // "name": req.file.originalname,
         "name": req.file.originalname,
         "desc": req.file.path,
         "img": new Buffer.from(encode_img,'base64'),
@@ -62,16 +50,6 @@ exports.addDocs = async (req, res) => {
     let newfileModel = new uploadFilesModel(final_img);
     await newfileModel.save();
     res.status(200).json({msg: "File Uploaded Successfully", result: final_img});
-    // uploadFilesModel.create(final_img,function(err,result){
-    //     if(err){
-    //         console.log(err);
-    //     }else{
-    //         console.log(result.img.Buffer);
-    //         console.log("Saved To database");
-    //         res.contentType(final_img.contentType);
-    //         res.send(final_img.image);
-    //     }
-    // })
 }
 
 //========== Delete All Files =======================================================================
@@ -88,7 +66,6 @@ exports.deleteAllDoc = async (req,res) => {
 exports.deleteDoc = async (req,res) => {
     const {id} = req.params;
     try{
-        //const doc = await uploadFilesModel.findByIdAndDelete(id);
         const doc = await uploadFilesModel.deleteOne({groupNo: id});
         res.status(200).json({msg: "Document Deleted Successfully"});
     }catch(err){
@@ -121,15 +98,10 @@ exports.getDocument = async (req,res) => {
 //========== Update A File =======================================================================
 exports.updateDocument = async (req, res) => {
     const{id} = req.params;
-    // let data = {
-    //     "file" : req.file,
-    //     "groupNo" : req.header('groupNo'),
-    // };
     var img = fs.readFileSync(req.file.path);
     var encode_img = img.toString('base64');
     var data = {
         contentType:req.file.mimetype,
-        //image:new Buffer.from(encode_img,'base64'),
         "name": req.file.originalname,
         "desc": req.file.path,
         "img": new Buffer.from(encode_img,'base64'),
