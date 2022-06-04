@@ -212,4 +212,3 @@ userRouter.get("/getpanel/filter", async(req,res) => {
 
 module.exports = userRouter;
 
-module.exports = userRouter;

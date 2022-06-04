@@ -36,16 +36,13 @@ export default function AllEvaluationDisplay(){
         <div>
             <div className='groupTable'>
             <div className="container ">
-                
                 <table className="table ">
-                    <thead>
+                    <thead className='table-dark'>
                         <tr  key={"1"}>
                             <th> Group ID</th>
                             <th> Subject </th>
                             <th> Assignment</th>
-
-                            <div className="col-lg-9 mt-2 mb-2">
-                            </div>
+                            <th> View Details </th>
                         </tr>
                     </thead>
 
@@ -58,9 +55,9 @@ export default function AllEvaluationDisplay(){
                                 <td>{list.details.assignment}</td>
 
                                 <td>
-                                    <Link to={`/viewmarks/${list._id}`}><Button className='btn1'>View Details</Button></Link>
-                                        
+                                    <Link to={`/viewmarks/${list._id}`}><Button className='btn btn-warning'>View Details</Button></Link>
                                     <Button onClick={()=>{removeItem(list._id)}}>Delete</Button>
+
                                 </td>
                             
                             </tr>

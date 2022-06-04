@@ -1,8 +1,8 @@
 const express = require("express");
-const Evaluations = require('../models/evaluation');
+const Evaluations = require('../models/documentEvaluation');
 const router = express.Router();
 
-//Create Evaluation
+//Create docEvaluation
 router.post("/add", (req, res, next) => {
   const evaluationModel = new Evaluations({
     group_id: req.body.group_id,
@@ -45,16 +45,6 @@ router.get("/getAllevaluation", async (req, res) => {
   }
 })
 
-//Get documentation evaluation
-router.get("/getdocumentation", async (req, res) => {
-  try {
-    const evaluation = await Evaluations.find({details: 'Documentation'});
-    res.status(200).json(evaluation);
-  } catch (err) {
-    res.json(err);
-  }
-})
-
 
 //view selected Evaluation details
 router.get('/getone/:id', async (req, res) => {
@@ -74,19 +64,6 @@ router.get("/getdata/filter/:grp_id", async(req,res) => {
   } catch (err) {
       res.json(err);
   }
-})
-
-//delete Evaluation list
-router.delete("/delete/:id", (req, res, next) => {
-  Evaluations.deleteOne({_id: req.params.id}).then(result => {
-  console.log(result);
-  res.status(200).json({ message: "Successfully Deleted!" });
 });
-});
-
-
-
-
-
 
 module.exports = router;

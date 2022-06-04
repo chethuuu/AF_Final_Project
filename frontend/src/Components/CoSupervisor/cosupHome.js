@@ -18,26 +18,20 @@ const cosupHome = () => {
 
         	<br/><br/>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <center>
                         <img width="250px" src={img9} />
                         <h4> <a className='navbar-brand text-dark fs-4' href="/viewco"> View Requests </a></h4>
                     </center>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <center>
                         <img width="330px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> View Research Document </a> </h4>
+                        <h4> <a className='navbar-brand text-dark fs-4' href="/supevaluation"> Evaluation </a> </h4>
                     </center>
                 </div>
 
-                <div class="col-md-4">
-                    <center>
-                        <img width="330px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#">  Download Marking Scheme </a> </h4>
-                    </center>
-                </div>
             </div>
         </div>
     )

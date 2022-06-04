@@ -22,12 +22,13 @@ export default function Allmarking() {
 
 
     return (
-        <div class="container shadow my-5 col-md-10 p-8 align-items-center">
-            <h1>Marking Schemes of {marking.subject}</h1><br></br>
+        <div class="container shadow my-5 col-md-10 p-8 align-items-center"> <br/>
+            
+            <h3 className=" fw-bolder mb-4"><center>Marking Schemes of {marking.subject}</center></h3>
             <table class="table table-sm">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Subject</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Assigenment</th>
                         <th scope="col">Date of deadline</th>
                         <th scope="col">Marking points</th>

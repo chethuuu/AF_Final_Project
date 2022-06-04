@@ -13,65 +13,25 @@ const supHome = () => {
                         <hr className='w-25 mx-auto' />
                     </div>
                 </div>
-            </div>
-
+            </div> <br/>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <center>
-                        <img width="300px" src={img10} />
+                        <img width="350px" src={img10} />
                         <h4> <a className='navbar-brand text-dark fs-4' href="/viewtopicsup"> View Requests </a></h4>
                     </center>
-                </div>
+                </div> 
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="/viewusereq"> View Research Document </a> </h4>
+                        <img width="380px" src={img1} />
+                        <h4> <a className='navbar-brand text-dark fs-4' href="/supevaluation"> Evaluation </a> </h4>
                     </center>
-                </div>
-
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#">  Download Marking Scheme </a> </h4>
-                    </center>
-                </div>
-            </div>
-
-            <br /> <br />
-
-            <div class="row">
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Chat with Groups </a> </h4>
-                    </center>
-                </div>
-
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Evaluate Document </a> </h4>
-                    </center>
-                </div>
-
-                <div class="col-md-4">
-                    <center>
-                        <img width="300px" src={img1} />
-                        <h4> <a className='navbar-brand text-dark fs-4' href="#"> Inventory Management </a> </h4>
-                    </center>
-                </div>
-
-                <br /> <br />
-
-
-
-
+                </div>                
             </div>
         </div>
     )
-
 }
 
 export default supHome;

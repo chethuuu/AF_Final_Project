@@ -56,7 +56,7 @@ export default function AddMarking(){
             </div>
             <form onSubmit={sentMarkingData}>
                 <div className="form-check">
-                    <label for="subject">Subject</label>
+                    <label for="subject">Type</label>
                     <input type="text" className="form-control" id="subject"  placeholder="Enter subject" onChange={(e)=>{
                         setSubject(e.target.value);
                     }}></input>

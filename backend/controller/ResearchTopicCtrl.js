@@ -60,7 +60,7 @@ const ResearchTopicCtrl = {
     }
   },
 
-  //get details from groupID
+  //get details by groupID
   getDetailsbyGroupID: async (req, res) => {
     try {
       let gid = req.params.gid;
@@ -71,7 +71,7 @@ const ResearchTopicCtrl = {
     }
   },
 
-  //get details from Interest
+  //get details by Interest
   getDetailsbyInterest: async (req, res) => {
     try {
       let interest = req.params.interest;
@@ -82,7 +82,7 @@ const ResearchTopicCtrl = {
     }
   },
 
-  //get details from Co-Supervisor status
+  //get details by Co-Supervisor status
   getDetailsbyStatus: async (req, res) => {
     try {
       let status_sup = req.params.status_sup;
@@ -93,6 +93,7 @@ const ResearchTopicCtrl = {
     }
   },
 
+  //get only approved and requested topics
   getApproveStatus: async (req, res) => {
     try {
       const rtopics = await Research_Topic.find({ $and: [{ status_sup: 'Approved' }, { request: 'Requested' }] });
@@ -102,7 +103,7 @@ const ResearchTopicCtrl = {
     }
   },
 
-  //
+  //get only approved topics to Panel Member
   getCoSupervisorStatus: async (req, res) => {
     try {
       const rtopics = await Research_Topic.find({ $and: [{ status_sup: 'Approved' }, { status_co: 'Approved' }] });
@@ -112,6 +113,7 @@ const ResearchTopicCtrl = {
     }
   },
 
+  //get Supervisor Status Approved Topic
   getApproveSupStatus: async (req, res) => {
     try {
       const rtopics = await Research_Topic.find({ status_sup: 'Approved' });
@@ -121,6 +123,7 @@ const ResearchTopicCtrl = {
     }
   },
 
+  //get Not Requested Topics
   getEmailStatusNot: async (req, res) => {
     try {
       const rtopics = await Research_Topic.find({ request: 'Not Requested' });
@@ -140,7 +143,6 @@ const ResearchTopicCtrl = {
       res.json(err);
     }
   },
-
 }
 
 module.exports = ResearchTopicCtrl;
