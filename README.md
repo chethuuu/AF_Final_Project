@@ -1,4 +1,4 @@
-# AF_Project
+# Online_Project_Management_Tool
 
 #1. First Open the Terminal
 #2. Then go to the backend & type 'cd backend'
